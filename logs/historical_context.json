@@ -1,0 +1,78 @@
+{
+    "domains": {
+        "github.com": {
+            "first_seen": "2026-06-04T16:04:20Z",
+            "last_seen": "2026-06-06T06:47:36Z",
+            "frequency": 7,
+            "subdomains": [],
+            "timestamps": [
+                1780728424.151524,
+                1780728456.722911
+            ]
+        },
+        "micros0ft-login.xyz": {
+            "first_seen": "2026-06-04T16:04:24Z",
+            "last_seen": "2026-06-06T06:47:40Z",
+            "frequency": 7,
+            "subdomains": [],
+            "timestamps": [
+                1780728428.2141294,
+                1780728461.1499224
+            ]
+        },
+        "qwe921x.biz": {
+            "first_seen": "2026-06-04T16:04:28Z",
+            "last_seen": "2026-06-06T06:47:45Z",
+            "frequency": 7,
+            "subdomains": [],
+            "timestamps": [
+                1780728432.2478862,
+                1780728465.6542325
+            ]
+        },
+        "attacker-c2.ru": {
+            "first_seen": "2026-06-04T16:04:33Z",
+            "last_seen": "2026-06-06T06:47:54Z",
+            "frequency": 12,
+            "subdomains": [
+                "agvsbg8td29ybgq",
+                "dghpcybpcybhihrlc3q"
+            ],
+            "timestamps": [
+                1780728436.279768,
+                1780728440.3225935,
+                1780728469.993829,
+                1780728474.1987307
+            ]
+        },
+        "gmail.com": {
+            "first_seen": "2026-06-04T16:04:41Z",
+            "last_seen": "2026-06-06T06:47:24Z",
+            "frequency": 4,
+            "subdomains": [],
+            "timestamps": [
+                1780728444.3688505
+            ]
+        },
+        "dynamic-dns-malware.ru": {
+            "first_seen": "2026-06-04T16:04:45Z",
+            "last_seen": "2026-06-06T06:47:28Z",
+            "frequency": 4,
+            "subdomains": [],
+            "timestamps": [
+                1780728448.4293647
+            ]
+        },
+        "company.com": {
+            "first_seen": "2026-06-04T16:04:49Z",
+            "last_seen": "2026-06-06T06:47:32Z",
+            "frequency": 4,
+            "subdomains": [
+                "portal"
+            ],
+            "timestamps": [
+                1780728452.5370862
+            ]
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "github.com": {
+        "domain_age_days": 6500,
+        "creation_date": "2007-10-09T18:20:50",
+        "registrar": "MarkMonitor Inc.",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-04T16:00:10.228822"
+    },
+    "micros0ft-login.xyz": {
+        "domain_age_days": 2,
+        "creation_date": "2026-06-02T00:00:00",
+        "registrar": "NameCheap Inc.",
+        "is_newly_registered": true,
+        "cached_at": "2026-06-04T16:00:14.389163"
+    },
+    "qwe921x.biz": {
+        "domain_age_days": 5,
+        "creation_date": "2026-05-30T00:00:00",
+        "registrar": "Reg.RU",
+        "is_newly_registered": true,
+        "cached_at": "2026-06-04T16:04:29.052294"
+    },
+    "attacker-c2.ru": {
+        "domain_age_days": 12,
+        "creation_date": "2026-05-23T00:00:00",
+        "registrar": "RU-CENTER",
+        "is_newly_registered": true,
+        "cached_at": "2026-06-04T16:04:33.275253"
+    },
+    "gmail.com": {
+        "domain_age_days": 8200,
+        "creation_date": "1995-08-13T04:00:00",
+        "registrar": "MarkMonitor Inc.",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-04T16:04:41.735557"
+    },
+    "dynamic-dns-malware.ru": {
+        "domain_age_days": 18,
+        "creation_date": "2026-05-17T00:00:00",
+        "registrar": "REG-RU",
+        "is_newly_registered": true,
+        "cached_at": "2026-06-04T16:04:45.827115"
+    },
+    "company.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-04T16:04:51.730872"
+    }
+}

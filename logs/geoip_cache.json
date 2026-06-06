@@ -1,0 +1,38 @@
+{
+    "140.82.121.4": {
+        "country": "United States",
+        "city": "Seattle",
+        "asn": "AS16509 (GitHub)",
+        "cached_at": "2026-06-04T16:00:10.277325"
+    },
+    "185.220.101.5": {
+        "country": "Germany",
+        "city": "Frankfurt",
+        "asn": "AS206349 (Tor Exit)",
+        "cached_at": "2026-06-04T16:00:14.390162"
+    },
+    "142.250.183.14": {
+        "country": "United States",
+        "city": "Mountain View",
+        "asn": "AS15169 (Google)",
+        "cached_at": "2026-06-04T16:04:41.737066"
+    },
+    "91.202.4.15": {
+        "country": "Russian Federation",
+        "city": "Moscow",
+        "asn": "AS197688 (HostLife)",
+        "cached_at": "2026-06-04T16:04:45.828128"
+    },
+    "203.91.48.2": {
+        "country": "Russian Federation",
+        "city": "Saint Petersburg",
+        "asn": "AS197688 (HostLife)",
+        "cached_at": "2026-06-04T16:04:45.829594"
+    },
+    "185.44.12.9": {
+        "country": "Netherlands",
+        "city": "Amsterdam",
+        "asn": "AS49453 (Tor Exit)",
+        "cached_at": "2026-06-04T16:04:45.830596"
+    }
+}
