@@ -43,11 +43,26 @@ threat_counter = 0
 unique_domains = set()
 
 newly_registered_counter = 0
-high_severity_counter = 0
-critical_severity_counter = 0
 
 risk_score_total = 0
 
+# Risk Distribution Metrics
+low_risk_counter = 0
+medium_risk_counter = 0
+high_risk_counter_metric = 0
+critical_risk_counter_metric = 0
+
+# Reputation Distribution Metrics
+reputation_stats = {
+    "BENIGN": 0,
+    "LOW": 0,
+    "MEDIUM": 0,
+    "HIGH": 0,
+    "CRITICAL": 0
+}
+
+# Risk Factor Metrics
+risk_factor_stats = {}
 latest_events: List[Dict[str, Any]] = []
 latest_events_lock = threading.Lock()
 file_write_lock = threading.Lock()
@@ -68,9 +83,13 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
         soc_event = correlation_engine.process_event(raw_event)
         global unique_domains
         global newly_registered_counter
-        global high_severity_counter
-        global critical_severity_counter
         global risk_score_total
+        global low_risk_counter
+        global medium_risk_counter
+        global high_risk_counter_metric
+        global critical_risk_counter_metric
+        global reputation_stats
+        global risk_factor_stats
         # Build the final wrapper structure required by the user
         log_wrapper = {
             "event_id": soc_event["event_id"],
@@ -97,15 +116,32 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
         )
 
         risk_score_total += soc_event["risk"]["score"]
+        # Risk Distribution
+        severity = soc_event["risk"]["severity"]
 
+        if severity == "LOW":
+            low_risk_counter += 1
+        elif severity == "MEDIUM":
+            medium_risk_counter += 1
+        elif severity == "HIGH":
+            high_risk_counter_metric += 1
+        elif severity == "CRITICAL":
+            critical_risk_counter_metric += 1
+
+        # Reputation Distribution
+        rep = soc_event["threat_intel"]["reputation_level"]
+
+        if rep in reputation_stats:
+            reputation_stats[rep] += 1
+
+        # Risk Factor Distribution
+        for factor in soc_event["domain_analysis"]["risk_factors"]:
+            risk_factor_stats[factor] = (
+                risk_factor_stats.get(factor, 0) + 1
+            )
         if soc_event["domain_analysis"]["is_newly_registered"]:
             newly_registered_counter += 1
 
-        if soc_event["risk"]["severity"] == "HIGH":
-            high_severity_counter += 1
-
-        if soc_event["risk"]["severity"] == "CRITICAL":
-            critical_severity_counter += 1
         event_alerts = soc_event.get("alerts", [])
         if event_alerts:
             alert_counter += 1
@@ -161,20 +197,57 @@ def generate_dashboard_layout() -> Panel:
         "Newly Registered Domains",
         str(newly_registered_counter)
     )
-
-    stats_table.add_row(
-        "High Severity Events",
-        str(high_severity_counter)
-    )
-
-    stats_table.add_row(
-        "Critical Severity Events",
-        str(critical_severity_counter)
-    )
     stats_table.add_row(
     "Average Risk Score",
     str(avg_risk)
     )
+    # Risk Distribution
+    stats_table.add_row(
+        "Low Risk Events",
+        str(low_risk_counter)
+    )
+
+    stats_table.add_row(
+        "Medium Risk Events",
+        str(medium_risk_counter)
+    )
+
+    stats_table.add_row(
+        "High Risk Events",
+        str(high_risk_counter_metric)
+    )
+
+    stats_table.add_row(
+        "Critical Risk Events",
+        str(critical_risk_counter_metric)
+    )
+
+    # Reputation Distribution
+    stats_table.add_row(
+        "Benign Reputation Events",
+        str(reputation_stats["BENIGN"])
+    )
+
+    stats_table.add_row(
+        "High Reputation Threats",
+        str(reputation_stats["HIGH"])
+    )
+
+    stats_table.add_row(
+        "Critical Reputation Threats",
+        str(reputation_stats["CRITICAL"])
+    )
+    top_factors = sorted(
+        risk_factor_stats.items(),
+        key=lambda x: x[1],
+        reverse=True
+    )[:3]
+
+    for factor, count in top_factors:
+        stats_table.add_row(
+            f"Top Risk Factor: {factor}",
+            str(count)
+        )
     # Target info table
     target_table = Table(box=box.SIMPLE, expand=True)
     target_table.add_column("[cyan]Asset / Identity Context[/cyan]", justify="left")

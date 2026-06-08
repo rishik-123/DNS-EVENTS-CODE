@@ -99,22 +99,28 @@ class CorrelationEngine:
             history_info["query_rate_per_minute"],
             history_info["unique_subdomains_count"]
         )
-
+        risk_factors = []  
         # 11. Core Security Alerts Triage
         alerts = []
         if is_tunneling:
             alerts.append("DNS_TUNNELING_SUSPECT")
+            risk_factors.append("DNS_TUNNELING")
         if is_dga:
             alerts.append("DGA_BEACONING_SUSPECT")
+            risk_factors.append("DGA")
         if is_typosquat:
             alerts.append("TYPOSQUATTING_IMPERSONATION")
+            risk_factors.append("TYPOSQUATTING")
         if threat_info["is_in_threat_feed"]:
             alerts.append(f"THREAT_INTEL_MATCH_{threat_info['threat_category'].upper()}")
+            risk_factors.append("THREAT_INTEL_MATCH")
         if raw_event.get("response_code") == "NXDOMAIN" and history_info["query_rate_per_minute"] > 10.0:
             alerts.append("HIGH_NXDOMAIN_RATE_ANOMALY")
+            risk_factors.append("HIGH_NXDOMAIN_RATE_ANOMALY")
         if raw_event.get("ttl", 100) < 15 and raw_event.get("ttl", 100) > 0:
             alerts.append("SUSPICIOUS_LOW_TTL_FAST_FLUX")
-
+            risk_factors.append("SUSPICIOUS_LOW_TTL_FAST_FLUX")
+        
         # 12. Risk Scoring
         risk_score = 0
         if is_tunneling:
@@ -131,7 +137,8 @@ class CorrelationEngine:
 
         if whois_info.get("is_newly_registered", False):
             risk_score += 10
-
+            risk_factors.append("NEWLY_REGISTERED_DOMAIN")
+            
         if raw_event.get("ttl", 100) < 15:
             risk_score += 10
 
@@ -146,6 +153,16 @@ class CorrelationEngine:
             severity = "MEDIUM"
         else:
             severity = "LOW"
+
+        # Domain Risk Classification
+        if risk_score >= 80:
+            domain_risk_level = "CRITICAL"
+        elif risk_score >= 60:
+            domain_risk_level = "HIGH"
+        elif risk_score >= 30:
+            domain_risk_level = "MEDIUM"
+        else:
+            domain_risk_level = "LOW"
 
         # 14. MITRE ATT&CK Mapping
         mitre_tactics = []
@@ -211,7 +228,9 @@ class CorrelationEngine:
                 "dga_confidence": dga_confidence,
                 "is_newly_registered": whois_info.get("is_newly_registered", False),
                 "is_typosquat": is_typosquat,
-                "typosquat_target": typosquat_target or "none"
+                "typosquat_target": typosquat_target or "none",
+                "domain_risk_level": domain_risk_level,
+                "risk_factors": risk_factors
             },
             
             # Tunneling Detection Layer
