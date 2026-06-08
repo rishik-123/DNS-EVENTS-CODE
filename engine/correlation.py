@@ -115,13 +115,73 @@ class CorrelationEngine:
         if raw_event.get("ttl", 100) < 15 and raw_event.get("ttl", 100) > 0:
             alerts.append("SUSPICIOUS_LOW_TTL_FAST_FLUX")
 
+        # 12. Risk Scoring
+        risk_score = 0
+        if is_tunneling:
+            risk_score += 40
+
+        if is_dga:
+            risk_score += 25
+
+        if is_typosquat:
+            risk_score += 20
+
+        if threat_info["is_in_threat_feed"]:
+            risk_score += 35
+
+        if whois_info.get("is_newly_registered", False):
+            risk_score += 10
+
+        if raw_event.get("ttl", 100) < 15:
+            risk_score += 10
+
+        risk_score = min(risk_score, 100)
+
+        # 13. Severity Classification
+        if risk_score >= 80:
+            severity = "CRITICAL"
+        elif risk_score >= 60:
+            severity = "HIGH"
+        elif risk_score >= 40:
+            severity = "MEDIUM"
+        else:
+            severity = "LOW"
+
+        # 14. MITRE ATT&CK Mapping
+        mitre_tactics = []
+        mitre_techniques = []
+
+        if is_tunneling:
+            mitre_tactics.append("Command and Control")
+            mitre_techniques.append("T1071.004")
+
+        if is_dga:
+            mitre_tactics.append("Command and Control")
+            mitre_techniques.append("T1568")
+
+        if is_typosquat:
+            mitre_tactics.append("Initial Access")
+            mitre_techniques.append("T1583")
+
+        if threat_info["is_in_threat_feed"]:
+            mitre_tactics.append("Reconnaissance")
+
         # Compile Consolidated SOC Event Schema
         soc_event = {
             # Meta Header
             "event_id": event_id,
             "timestamp": timestamp_str,
             "alerts": alerts,
-            
+
+            "risk": {
+                "score": risk_score,
+                "severity": severity
+            },
+
+            "mitre": {
+                "tactics": list(set(mitre_tactics)),
+                "techniques": list(set(mitre_techniques))
+            },
             # DNS Transaction Layer
             "dns": {
                 "client_ip": raw_event.get("client_ip", "0.0.0.0"),
@@ -189,6 +249,7 @@ class CorrelationEngine:
                 "operating_system": context_info["asset_context"]["operating_system"],
                 "os_version": context_info["asset_context"]["os_version"],
                 "criticality": context_info["asset_context"]["criticality"],
+                "criticality_score": context_info["asset_context"]["criticality_score"],
                 "business_unit": context_info["asset_context"]["business_unit"],
                 "department": context_info["asset_context"]["department"]
             },
@@ -199,6 +260,7 @@ class CorrelationEngine:
                 "threat_category": threat_info["threat_category"],
                 "feed_source": threat_info["feed_source"],
                 "reputation_score": threat_info["reputation_score"],
+                "reputation_level": threat_info["reputation_level"],
                 "malicious_votes": threat_info["malicious_votes"],
                 "suspicious_votes": threat_info["suspicious_votes"]
             },

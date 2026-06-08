@@ -40,6 +40,13 @@ dga_counter = 0
 tunneling_counter = 0
 typosquat_counter = 0
 threat_counter = 0
+unique_domains = set()
+
+newly_registered_counter = 0
+high_severity_counter = 0
+critical_severity_counter = 0
+
+risk_score_total = 0
 
 latest_events: List[Dict[str, Any]] = []
 latest_events_lock = threading.Lock()
@@ -59,7 +66,11 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
     try:
         # Pass to correlation engine
         soc_event = correlation_engine.process_event(raw_event)
-        
+        global unique_domains
+        global newly_registered_counter
+        global high_severity_counter
+        global critical_severity_counter
+        global risk_score_total
         # Build the final wrapper structure required by the user
         log_wrapper = {
             "event_id": soc_event["event_id"],
@@ -81,6 +92,20 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
 
         # Update statistics
         event_counter += 1
+        unique_domains.add(
+            soc_event["dns"]["query"]
+        )
+
+        risk_score_total += soc_event["risk"]["score"]
+
+        if soc_event["domain_analysis"]["is_newly_registered"]:
+            newly_registered_counter += 1
+
+        if soc_event["risk"]["severity"] == "HIGH":
+            high_severity_counter += 1
+
+        if soc_event["risk"]["severity"] == "CRITICAL":
+            critical_severity_counter += 1
         event_alerts = soc_event.get("alerts", [])
         if event_alerts:
             alert_counter += 1
@@ -111,7 +136,14 @@ def generate_dashboard_layout() -> Panel:
     stats_table = Table(box=box.SIMPLE, expand=True)
     stats_table.add_column("[cyan]Metric[/cyan]", justify="left")
     stats_table.add_column("[cyan]Value[/cyan]", justify="right")
-    
+    # Calculate Average Risk Score
+    avg_risk = 0
+
+    if event_counter > 0:
+        avg_risk = round(
+            risk_score_total / event_counter,
+            2
+        )
     mode_text = "[bold yellow]SIMULATION[/bold yellow]" if config.SIMULATION_MODE else "[bold green]LIVE SNIFFER[/bold green]"
     stats_table.add_row("Agent Operation Mode", mode_text)
     stats_table.add_row("Total Captured DNS Events", f"[bold white]{event_counter}[/bold white]")
@@ -120,7 +152,29 @@ def generate_dashboard_layout() -> Panel:
     stats_table.add_row("  └─ DGA Beaconing Detections", f"[bold orange3]{dga_counter}[/bold orange3]" if dga_counter > 0 else "0")
     stats_table.add_row("  └─ Typosquatting Alerts", f"[bold yellow]{typosquat_counter}[/bold yellow]" if typosquat_counter > 0 else "0")
     stats_table.add_row("  └─ Threat Intel Matches", f"[bold red1]{threat_counter}[/bold red1]" if threat_counter > 0 else "0")
+    stats_table.add_row(
+        "Unique Domains",
+        str(len(unique_domains))
+    )
 
+    stats_table.add_row(
+        "Newly Registered Domains",
+        str(newly_registered_counter)
+    )
+
+    stats_table.add_row(
+        "High Severity Events",
+        str(high_severity_counter)
+    )
+
+    stats_table.add_row(
+        "Critical Severity Events",
+        str(critical_severity_counter)
+    )
+    stats_table.add_row(
+    "Average Risk Score",
+    str(avg_risk)
+    )
     # Target info table
     target_table = Table(box=box.SIMPLE, expand=True)
     target_table.add_column("[cyan]Asset / Identity Context[/cyan]", justify="left")

@@ -33,3 +33,224 @@
 2026-06-06 12:17:04,036 [DEBUG] filelock: Attempting to release lock 2781885587920 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 2026-06-06 12:17:04,037 [DEBUG] filelock: Lock 2781885587920 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 2026-06-06 12:18:02,317 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 13:14:46,562 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 13:14:46,563 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 13:14:46,576 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 13:14:46,579 [DEBUG] filelock: Attempting to acquire lock 1701134544784 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:14:46,580 [DEBUG] filelock: Lock 1701134544784 acquired on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:14:46,581 [DEBUG] filelock: Attempting to acquire lock 1701134612944 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\urls\62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+2026-06-08 13:14:46,581 [DEBUG] filelock: Lock 1701134612944 acquired on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\urls\62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+2026-06-08 13:14:46,584 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): publicsuffix.org:443
+2026-06-08 13:14:47,064 [DEBUG] urllib3.connectionpool: https://publicsuffix.org:443 "GET /list/public_suffix_list.dat HTTP/1.1" 200 91605
+2026-06-08 13:14:47,280 [DEBUG] filelock: Attempting to release lock 1701134612944 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\urls\62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+2026-06-08 13:14:47,281 [DEBUG] filelock: Lock 1701134612944 released on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\urls\62bf135d1c2f3d4db4228b9ecaf507a2.tldextract.json.lock
+2026-06-08 13:14:47,295 [DEBUG] filelock: Attempting to release lock 1701134544784 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:14:47,295 [DEBUG] filelock: Lock 1701134544784 released on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:14:55,343 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:14:59,380 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:15:03,431 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:15:11,471 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:15:27,542 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:15:31,594 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:15:35,701 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:15:43,777 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:15:59,881 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:16:03,938 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:16:08,038 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:16:16,083 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:16:32,187 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:16:36,291 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:16:40,363 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:16:48,434 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:04,521 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:08,571 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:12,674 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:20,761 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:36,844 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:40,890 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:45,034 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:17:53,109 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:09,181 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:13,240 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:17,278 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:25,323 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:41,412 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:45,452 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:49,491 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:18:57,558 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:19:13,642 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:19:17,745 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:19:21,804 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:19:29,880 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:19:45,985 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:19:50,053 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:19:54,101 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:20:02,175 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:20:18,319 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:20:22,378 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:20:26,443 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:20:34,492 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:20:42,541 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 13:29:28,781 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 13:29:28,782 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 13:29:28,794 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 13:29:28,794 [DEBUG] filelock: Attempting to acquire lock 1171900504384 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:29:28,795 [DEBUG] filelock: Lock 1171900504384 acquired on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:29:28,813 [DEBUG] filelock: Attempting to release lock 1171900504384 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:29:28,814 [DEBUG] filelock: Lock 1171900504384 released on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 13:29:36,856 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:29:40,894 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:29:44,932 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:29:52,982 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:30:09,049 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:30:13,118 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:30:17,160 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:30:25,216 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 13:30:29,079 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 14:09:52,380 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 14:09:52,381 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 14:09:52,394 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 14:09:52,395 [DEBUG] filelock: Attempting to acquire lock 1903471532352 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 14:09:52,396 [DEBUG] filelock: Lock 1903471532352 acquired on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 14:09:52,398 [DEBUG] filelock: Attempting to release lock 1903471532352 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 14:09:52,399 [DEBUG] filelock: Lock 1903471532352 released on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 14:10:00,444 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:10:04,479 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:10:08,515 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:10:16,564 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:10:32,677 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:10:36,743 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:10:40,799 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:10:48,901 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:04,973 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:09,023 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:13,117 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:21,168 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:37,260 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:41,345 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:45,384 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:11:53,435 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:09,497 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:13,539 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:17,579 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:25,645 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:41,753 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:45,804 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:49,865 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:12:58,009 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:13:14,164 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:13:18,218 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:13:22,277 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:13:30,352 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:13:46,429 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:13:50,469 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:13:54,515 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:02,563 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:18,642 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:22,711 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:26,756 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:34,847 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:50,957 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:55,017 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:14:59,087 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:15:07,163 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 14:15:15,265 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 15:03:20,743 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 15:03:20,774 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 15:03:20,785 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 15:03:20,786 [DEBUG] filelock: Attempting to acquire lock 2157884905792 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:03:20,786 [DEBUG] filelock: Lock 2157884905792 acquired on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:03:20,805 [DEBUG] filelock: Attempting to release lock 2157884905792 on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:03:20,806 [DEBUG] filelock: Lock 2157884905792 released on C:\Users\heet3\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:03:28,849 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:03:32,880 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:03:36,916 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:03:44,965 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:01,036 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:05,072 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:09,104 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:17,144 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:33,241 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:37,290 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:41,326 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:04:49,373 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:05,434 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:09,473 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:13,512 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:21,556 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:37,636 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:41,716 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:45,768 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:05:53,868 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:09,986 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:14,047 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:18,101 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:26,198 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:42,326 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:46,383 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:50,420 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:06:58,494 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:07:14,605 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:07:18,645 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:07:22,742 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:07:30,806 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:07:46,906 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:07:50,953 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:07:55,007 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:03,067 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:19,163 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:23,211 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:27,308 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:35,409 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:51,518 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:55,580 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:08:59,642 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:09:07,705 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:09:23,797 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:09:27,855 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:09:31,915 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:09:39,986 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:09:56,109 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:10:00,148 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:10:04,240 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:10:12,329 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:10:28,406 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:10:32,468 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:10:36,525 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:10:44,590 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:00,700 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:04,758 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:08,796 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:16,949 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:33,119 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:37,229 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:41,695 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:11:50,574 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:08,361 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:12,894 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:17,250 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:25,790 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:42,582 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:46,974 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:51,396 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:12:59,865 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:13:16,727 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:13:21,692 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:13:26,180 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:13:40,457 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:13:57,804 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:14:01,865 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:14:05,930 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:14:14,030 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:14:30,123 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:14:34,164 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:14:38,217 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:14:46,278 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:02,395 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:06,450 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:10,547 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:18,611 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:34,762 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:38,810 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:42,844 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 944.
+2026-06-08 15:15:46,677 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
