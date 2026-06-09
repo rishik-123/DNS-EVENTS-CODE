@@ -14,6 +14,7 @@ from enrichers.whois_enricher import WHOISEnricher
 from enrichers.geoip_enricher import GeoIPEnricher
 from enrichers.threat_intel import ThreatIntelEnricher
 from enrichers.asset_enricher import AssetEnricher
+from enrichers.web_content_enricher import WebContentEnricher
 
 from engine.tunneling_detector import analyze_tunneling
 from engine.historical_tracker import HistoricalTracker
@@ -27,6 +28,7 @@ class CorrelationEngine:
         self.geoip_enricher = GeoIPEnricher()
         self.threat_enricher = ThreatIntelEnricher()
         self.asset_enricher = AssetEnricher()
+        self.web_content_enricher = WebContentEnricher()
         self.historical_tracker = HistoricalTracker()
 
     def process_event(self, raw_event: Dict[str, Any]) -> Dict[str, Any]:
@@ -100,7 +102,10 @@ class CorrelationEngine:
             history_info["unique_subdomains_count"]
         )
 
-        # 11. Core Security Alerts Triage
+        # 11. Analyze Web Content for malicious Coruna exploit patterns
+        web_content_info = self.web_content_enricher.analyze_url_content(query)
+
+        # 12. Core Security Alerts Triage
         alerts = []
         if is_tunneling:
             alerts.append("DNS_TUNNELING_SUSPECT")
@@ -110,6 +115,8 @@ class CorrelationEngine:
             alerts.append("TYPOSQUATTING_IMPERSONATION")
         if threat_info["is_in_threat_feed"]:
             alerts.append(f"THREAT_INTEL_MATCH_{threat_info['threat_category'].upper()}")
+        if web_content_info["is_malicious"]:
+            alerts.append("CORUNA_EXPLOIT_KIT_SUSPECT")
         if raw_event.get("response_code") == "NXDOMAIN" and history_info["query_rate_per_minute"] > 10.0:
             alerts.append("HIGH_NXDOMAIN_RATE_ANOMALY")
         if raw_event.get("ttl", 100) < 15 and raw_event.get("ttl", 100) > 0:
@@ -201,6 +208,15 @@ class CorrelationEngine:
                 "reputation_score": threat_info["reputation_score"],
                 "malicious_votes": threat_info["malicious_votes"],
                 "suspicious_votes": threat_info["suspicious_votes"]
+            },
+            
+            # Web Content Analysis Layer (Coruna indicators check)
+            "web_content_analysis": {
+                "checked": web_content_info["checked"],
+                "is_malicious": web_content_info["is_malicious"],
+                "matched_signatures": web_content_info["matched_signatures"],
+                "status_code": web_content_info["status_code"],
+                "error": web_content_info["error"]
             },
             
             # Geolocation Layer

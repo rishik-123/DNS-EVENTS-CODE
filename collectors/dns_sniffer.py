@@ -1,3 +1,4 @@
+import sys
 import time
 import socket
 import threading
@@ -167,6 +168,45 @@ class DNSSniffer:
         except Exception as e:
             logger.error(f"Error parsing sniffed packet: {e}", exc_info=True)
 
+    def _run_native_windows_sniffing(self):
+        """
+        Fallback sniffer using native Windows raw sockets.
+        Requires Admin privileges, but does NOT require Npcap/WinPcap.
+        """
+        logger.info("Attempting native Windows raw socket sniffing...")
+        try:
+            # Get local IP
+            hostname = socket.gethostname()
+            local_ip = socket.gethostbyname(hostname)
+            
+            # Create raw IP socket
+            s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
+            s.bind((local_ip, 0))
+            s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
+            s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
+            
+            logger.info(f"Native Windows sniffer successfully bound to {local_ip}")
+            
+            while self.running:
+                try:
+                    # Receive raw packet bytes
+                    packet_bytes, _ = s.recvfrom(65535)
+                    
+                    # Parse using Scapy's parser (which still works for decoding raw bytes)
+                    packet = IP(packet_bytes)
+                    
+                    # Filter for UDP port 53 (DNS)
+                    if packet.haslayer(UDP) and (packet[UDP].sport == 53 or packet[UDP].dport == 53):
+                        self._packet_callback(packet)
+                except Exception as pe:
+                    # Occasional parse/receive errors can happen on raw interfaces, log but continue
+                    logger.debug(f"Error reading/parsing raw packet: {pe}")
+                    
+        except Exception as e:
+            logger.error(f"Native Windows sniffing failed: {e}. Falling back to simulation mode.")
+            config.SIMULATION_MODE = True
+            self._run_simulation()
+
     def _run_sniffing(self):
         """Scapy sniffing loop."""
         try:
@@ -179,9 +219,13 @@ class DNSSniffer:
                 stop_filter=lambda x: not self.running
             )
         except Exception as e:
-            logger.error(f"Sniffer execution error: {e}. Falling back to simulation mode.")
-            config.SIMULATION_MODE = True
-            self._run_simulation()
+            logger.warning(f"Scapy sniffing failed: {e}. Trying native Windows raw socket...")
+            if sys.platform == "win32":
+                self._run_native_windows_sniffing()
+            else:
+                logger.error("Not on Windows, falling back to simulation mode.")
+                config.SIMULATION_MODE = True
+                self._run_simulation()
 
     def _run_simulation(self):
         """Simulates periodic DNS packets for testing without administrative sniffing rights."""
@@ -307,6 +351,48 @@ class DNSSniffer:
                 "ttl": 3600,
                 "recursive": True,
                 "authoritative": True,
+                "pid_name_fallback": "chrome.exe",
+                "simulated_pid_override": None
+            },
+            # Scenario 9: iPhone user accessing fake WEEX cryptocurrency website (Coruna Exploit Kit)
+            {
+                "client_ip": "192.168.1.52",
+                "query": "3v5w1km5gv.xyz",
+                "query_type": "A",
+                "response_code": "NOERROR",
+                "response_ip": ["185.220.101.5"],
+                "response_cname": [],
+                "ttl": 60,
+                "recursive": True,
+                "authoritative": False,
+                "pid_name_fallback": "chrome.exe",
+                "simulated_pid_override": None
+            },
+            # Scenario 10: Watering hole targeting Ukrainian users (Coruna exploit kit hosting)
+            {
+                "client_ip": "192.168.1.52",
+                "query": "cdn.uacounter.com",
+                "query_type": "A",
+                "response_code": "NOERROR",
+                "response_ip": ["185.220.101.5"],
+                "response_cname": [],
+                "ttl": 60,
+                "recursive": True,
+                "authoritative": False,
+                "pid_name_fallback": "chrome.exe",
+                "simulated_pid_override": None
+            },
+            # Scenario 11: PLASMAGRID C2 DGA domain lookup
+            {
+                "client_ip": "192.168.1.52",
+                "query": "ztvnhmhm4zj95w3.xyz",
+                "query_type": "A",
+                "response_code": "NOERROR",
+                "response_ip": ["185.220.101.5"],
+                "response_cname": [],
+                "ttl": 60,
+                "recursive": True,
+                "authoritative": False,
                 "pid_name_fallback": "chrome.exe",
                 "simulated_pid_override": None
             }

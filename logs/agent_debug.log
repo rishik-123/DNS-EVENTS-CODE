@@ -33,3 +33,347 @@
 2026-06-06 12:17:04,036 [DEBUG] filelock: Attempting to release lock 2781885587920 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 2026-06-06 12:17:04,037 [DEBUG] filelock: Lock 2781885587920 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 2026-06-06 12:18:02,317 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-06 13:26:12,674 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-06 13:26:12,678 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-06 13:26:12,807 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-06 13:26:12,808 [DEBUG] filelock: Attempting to acquire lock 2118851587408 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-06 13:26:12,810 [DEBUG] filelock: Lock 2118851587408 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-06 13:26:12,815 [DEBUG] filelock: Attempting to release lock 2118851587408 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-06 13:26:12,815 [DEBUG] filelock: Lock 2118851587408 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-06 13:40:04,888 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 11:31:58,843 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 11:31:58,846 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 11:31:58,921 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 11:31:58,923 [DEBUG] filelock: Attempting to acquire lock 2110719302288 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 11:31:58,926 [DEBUG] filelock: Lock 2110719302288 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 11:31:58,965 [DEBUG] filelock: Attempting to release lock 2110719302288 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 11:31:58,968 [DEBUG] filelock: Lock 2110719302288 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 11:32:35,385 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 15:57:46,134 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 15:57:46,151 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 15:57:46,376 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 15:57:46,379 [DEBUG] filelock: Attempting to acquire lock 2705575606544 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:57:46,384 [DEBUG] filelock: Lock 2705575606544 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:57:46,425 [DEBUG] filelock: Attempting to release lock 2705575606544 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:57:46,427 [DEBUG] filelock: Lock 2705575606544 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 15:58:23,681 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 17:04:10,772 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 17:04:10,841 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 17:04:11,048 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 17:04:11,051 [DEBUG] filelock: Attempting to acquire lock 2113561337936 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:04:11,054 [DEBUG] filelock: Lock 2113561337936 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:04:11,087 [DEBUG] filelock: Attempting to release lock 2113561337936 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:04:11,090 [DEBUG] filelock: Lock 2113561337936 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:20:52,556 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 17:21:56,816 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 17:21:56,820 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 17:21:57,142 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 17:21:57,149 [DEBUG] filelock: Attempting to acquire lock 2277643824272 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:21:57,226 [DEBUG] filelock: Lock 2277643824272 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:21:57,238 [DEBUG] filelock: Attempting to release lock 2277643824272 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:21:57,239 [DEBUG] filelock: Lock 2277643824272 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:27:40,882 [DEBUG] collectors.process_collector: Process with PID 8280 not found (might have terminated).
+2026-06-08 17:28:14,072 [DEBUG] collectors.process_collector: Process with PID 8280 not found (might have terminated).
+2026-06-08 17:28:31,175 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 17:28:31,189 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 17:28:31,425 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 17:28:31,430 [DEBUG] filelock: Attempting to acquire lock 2400444995856 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:28:31,432 [DEBUG] filelock: Lock 2400444995856 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:28:31,438 [DEBUG] filelock: Attempting to release lock 2400444995856 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:28:31,441 [DEBUG] filelock: Lock 2400444995856 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 17:28:48,347 [DEBUG] collectors.process_collector: Process with PID 8280 not found (might have terminated).
+2026-06-08 17:29:21,343 [DEBUG] collectors.process_collector: Process with PID 8280 not found (might have terminated).
+2026-06-08 17:29:53,806 [DEBUG] collectors.process_collector: Process with PID 8280 not found (might have terminated).
+2026-06-08 17:30:26,244 [DEBUG] collectors.process_collector: Process with PID 8280 not found (might have terminated).
+2026-06-08 17:30:54,795 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:30:58,805 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:31:27,980 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:31:32,002 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:32:01,916 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:32:06,022 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:32:36,006 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:32:40,104 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:33:09,037 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:33:13,117 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:33:41,793 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:33:45,820 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:34:14,338 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:34:18,342 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:34:46,840 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:34:50,860 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:35:19,134 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:35:23,162 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:35:51,728 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:35:55,769 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:36:24,812 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:36:28,826 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:36:57,216 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:37:01,237 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:37:29,588 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:37:33,595 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:38:01,824 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:38:05,836 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:38:34,548 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:38:38,575 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:39:08,354 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:39:12,423 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:39:42,161 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:39:46,199 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:40:14,615 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:40:18,627 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:40:47,079 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:40:51,100 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:41:19,383 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:41:23,406 [DEBUG] collectors.process_collector: Process with PID 12920 not found (might have terminated).
+2026-06-08 17:41:29,413 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-08 18:15:15,067 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-08 18:15:15,069 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-08 18:15:15,122 [INFO] collectors.dns_sniffer: Simulating 8 diverse security scenarios...
+2026-06-08 18:15:15,124 [DEBUG] filelock: Attempting to acquire lock 1578527521040 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 18:15:15,126 [DEBUG] filelock: Lock 1578527521040 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 18:15:15,131 [DEBUG] filelock: Attempting to release lock 1578527521040 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 18:15:15,133 [DEBUG] filelock: Lock 1578527521040 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-08 18:29:20,778 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:29:53,021 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:30:25,485 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:30:57,783 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:31:30,091 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:32:02,437 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:32:34,802 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:33:07,047 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:33:39,380 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:34:11,842 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:34:44,112 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:35:16,444 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:35:48,691 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:36:20,891 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:36:53,189 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:37:25,532 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:37:57,779 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:38:30,145 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:39:02,490 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:39:34,753 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:40:07,000 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:40:39,288 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:41:11,623 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:41:43,933 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:42:16,326 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:42:48,615 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:43:20,882 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:43:53,299 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:44:25,656 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:44:57,933 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:45:30,207 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:46:02,564 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:46:34,843 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:47:07,201 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:47:39,692 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:48:12,022 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:48:44,314 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:49:16,733 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:49:49,051 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:50:21,316 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:50:53,663 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:51:25,965 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:51:58,328 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:52:30,793 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:53:03,097 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:53:35,414 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:54:07,688 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:54:40,020 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:55:12,230 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:55:44,584 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:56:16,969 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:56:49,366 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:57:21,594 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:57:53,818 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:58:25,946 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:58:58,080 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 18:59:30,206 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:00:02,371 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:00:34,528 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:01:06,721 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:01:38,833 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:02:11,026 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:02:43,177 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:03:15,305 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:03:47,627 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:04:19,818 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:04:51,967 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:05:24,107 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:05:56,235 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:06:28,389 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:07:00,546 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:07:32,744 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:08:05,034 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:08:37,174 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:09:09,291 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:09:41,436 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:10:13,556 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:10:45,707 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:11:17,877 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:11:50,033 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:12:22,152 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:12:54,267 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:13:26,406 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:13:58,517 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:14:30,663 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:15:02,807 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:15:34,987 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:16:07,162 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:16:39,281 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:17:11,485 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:17:43,627 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:18:15,850 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:18:47,959 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:19:20,091 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:19:52,243 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:20:24,400 [DEBUG] collectors.process_collector: Process with PID 16184 not found (might have terminated).
+2026-06-08 19:20:56,559 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-09 15:07:06,107 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-09 15:07:06,116 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-09 15:07:06,264 [INFO] collectors.dns_sniffer: Simulating 11 diverse security scenarios...
+2026-06-09 15:07:06,266 [DEBUG] filelock: Attempting to acquire lock 2390112860880 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:07:06,270 [DEBUG] filelock: Lock 2390112860880 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:07:06,312 [DEBUG] filelock: Attempting to release lock 2390112860880 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:07:06,314 [DEBUG] filelock: Lock 2390112860880 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:07:06,582 [DEBUG] enrichers.threat_intel: Querying VirusTotal for github.com...
+2026-06-09 15:07:06,603 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:07:08,891 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/github.com HTTP/1.1" 200 None
+2026-06-09 15:07:14,642 [DEBUG] enrichers.threat_intel: Querying VirusTotal for micros0ft-login.xyz...
+2026-06-09 15:07:14,850 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:07:23,841 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/micros0ft-login.xyz HTTP/1.1" 200 None
+2026-06-09 15:07:29,360 [DEBUG] enrichers.threat_intel: Querying VirusTotal for qwe921x.biz...
+2026-06-09 15:07:29,369 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:07:40,651 [ERROR] enrichers.threat_intel: Error querying VirusTotal for qwe921x.biz: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/domains/qwe921x.biz (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-06-09 15:07:45,421 [DEBUG] enrichers.threat_intel: Querying VirusTotal for agvsbg8td29ybgq.attacker-c2.ru...
+2026-06-09 15:07:45,429 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:07:47,911 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/agvsbg8td29ybgq.attacker-c2.ru HTTP/1.1" 404 None
+2026-06-09 15:07:52,456 [DEBUG] enrichers.threat_intel: Querying VirusTotal for dghpcybpcybhihrlc3q.attacker-c2.ru...
+2026-06-09 15:07:52,463 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:07:54,860 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/dghpcybpcybhihrlc3q.attacker-c2.ru HTTP/1.1" 404 None
+2026-06-09 15:08:00,077 [DEBUG] enrichers.threat_intel: Querying VirusTotal for gmail.com...
+2026-06-09 15:08:00,090 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:08:05,113 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/gmail.com HTTP/1.1" 200 None
+2026-06-09 15:08:10,963 [DEBUG] enrichers.threat_intel: Querying VirusTotal for dynamic-dns-malware.ru...
+2026-06-09 15:08:10,967 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:08:13,355 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/dynamic-dns-malware.ru HTTP/1.1" 404 None
+2026-06-09 15:08:17,945 [DEBUG] enrichers.threat_intel: Querying VirusTotal for portal.company.com...
+2026-06-09 15:08:17,948 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:08:20,445 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/portal.company.com HTTP/1.1" 200 None
+2026-06-09 15:08:24,690 [DEBUG] enrichers.whois_enricher: Querying WHOIS for 3v5w1km5gv.xyz...
+2026-06-09 15:08:35,895 [ERROR] whois.whois: Error trying to connect to socket: closing socket - timed out
+2026-06-09 15:08:35,941 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for 3v5w1km5gv.xyz: can't subtract offset-naive and offset-aware datetimes
+2026-06-09 15:08:35,944 [DEBUG] enrichers.threat_intel: Querying VirusTotal for 3v5w1km5gv.xyz...
+2026-06-09 15:08:35,947 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:08:37,495 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/3v5w1km5gv.xyz HTTP/1.1" 200 None
+2026-06-09 15:08:41,758 [DEBUG] enrichers.whois_enricher: Querying WHOIS for uacounter.com...
+2026-06-09 15:08:46,687 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for uacounter.com: can't subtract offset-naive and offset-aware datetimes
+2026-06-09 15:08:46,690 [DEBUG] enrichers.threat_intel: Querying VirusTotal for cdn.uacounter.com...
+2026-06-09 15:08:46,694 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:08:49,039 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/cdn.uacounter.com HTTP/1.1" 200 None
+2026-06-09 15:09:02,215 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-09 15:09:02,221 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-09 15:09:02,336 [INFO] collectors.dns_sniffer: Simulating 11 diverse security scenarios...
+2026-06-09 15:09:02,337 [DEBUG] filelock: Attempting to acquire lock 2619527463760 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:09:02,339 [DEBUG] filelock: Lock 2619527463760 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:09:02,344 [DEBUG] filelock: Attempting to release lock 2619527463760 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:09:02,344 [DEBUG] filelock: Lock 2619527463760 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:09:10,643 [DEBUG] enrichers.threat_intel: Querying VirusTotal for qwe921x.biz...
+2026-06-09 15:09:10,714 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:09:13,359 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/qwe921x.biz HTTP/1.1" 404 None
+2026-06-09 15:09:47,323 [DEBUG] enrichers.whois_enricher: Querying WHOIS for ztvnhmhm4zj95w3.xyz...
+2026-06-09 15:09:48,927 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for ztvnhmhm4zj95w3.xyz: can't subtract offset-naive and offset-aware datetimes
+2026-06-09 15:09:48,933 [DEBUG] enrichers.threat_intel: Querying VirusTotal for ztvnhmhm4zj95w3.xyz...
+2026-06-09 15:09:48,938 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:09:53,545 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/ztvnhmhm4zj95w3.xyz HTTP/1.1" 200 None
+2026-06-09 15:22:26,302 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-09 15:22:26,308 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-09 15:22:26,383 [INFO] collectors.dns_sniffer: Simulating 11 diverse security scenarios...
+2026-06-09 15:22:26,383 [DEBUG] filelock: Attempting to acquire lock 1850693363408 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:22:26,386 [DEBUG] filelock: Lock 1850693363408 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:22:26,391 [DEBUG] filelock: Attempting to release lock 1850693363408 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:22:26,394 [DEBUG] filelock: Lock 1850693363408 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:22:32,582 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-09 15:22:43,478 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-09 15:22:43,485 [INFO] collectors.dns_sniffer: Starting DNS Sniffer in SIMULATION MODE...
+2026-06-09 15:22:43,704 [INFO] collectors.dns_sniffer: Simulating 11 diverse security scenarios...
+2026-06-09 15:22:43,706 [DEBUG] filelock: Attempting to acquire lock 2246753430096 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:22:43,708 [DEBUG] filelock: Lock 2246753430096 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:22:43,712 [DEBUG] filelock: Attempting to release lock 2246753430096 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:22:43,714 [DEBUG] filelock: Lock 2246753430096 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:23:48,739 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-09 15:27:46,648 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-09 15:27:46,654 [INFO] collectors.dns_sniffer: Starting DNS Sniffer on interface ALL...
+2026-06-09 15:27:46,656 [WARNING] collectors.dns_sniffer: Scapy sniffing failed: Sniffing and sending packets is not available at layer 2: winpcap is not installed. You may use conf.L3socket or conf.L3socket6 to access layer 3. Trying native Windows raw socket...
+2026-06-09 15:27:46,656 [INFO] collectors.dns_sniffer: Attempting native Windows raw socket sniffing...
+2026-06-09 15:27:46,665 [INFO] collectors.dns_sniffer: Native Windows sniffer successfully bound to 192.168.0.101
+2026-06-09 15:29:05,812 [DEBUG] filelock: Attempting to acquire lock 2243895673296 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:05,815 [DEBUG] filelock: Lock 2243895673296 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:05,822 [DEBUG] filelock: Attempting to release lock 2243895673296 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:05,824 [DEBUG] filelock: Lock 2243895673296 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:05,902 [DEBUG] collectors.process_collector: Process with PID 42528 not found (might have terminated).
+2026-06-09 15:29:05,902 [DEBUG] enrichers.whois_enricher: Querying WHOIS for 192.in-addr.arpa...
+2026-06-09 15:29:07,911 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for 192.in-addr.arpa: No creation date found
+2026-06-09 15:29:07,915 [DEBUG] enrichers.threat_intel: Querying VirusTotal for 1.0.168.192.in-addr.arpa...
+2026-06-09 15:29:08,007 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:29:09,832 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/1.0.168.192.in-addr.arpa HTTP/1.1" 200 None
+2026-06-09 15:29:09,962 [DEBUG] enrichers.whois_enricher: Querying WHOIS for google.com...
+2026-06-09 15:29:11,547 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for google.com: can't subtract offset-naive and offset-aware datetimes
+2026-06-09 15:29:11,549 [DEBUG] enrichers.threat_intel: Querying VirusTotal for google.com...
+2026-06-09 15:29:11,554 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:29:13,648 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/google.com HTTP/1.1" 200 None
+2026-06-09 15:29:16,564 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-09 15:29:29,279 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-09 15:29:29,286 [INFO] collectors.dns_sniffer: Starting DNS Sniffer on interface ALL...
+2026-06-09 15:29:29,289 [WARNING] collectors.dns_sniffer: Scapy sniffing failed: Sniffing and sending packets is not available at layer 2: winpcap is not installed. You may use conf.L3socket or conf.L3socket6 to access layer 3. Trying native Windows raw socket...
+2026-06-09 15:29:29,291 [INFO] collectors.dns_sniffer: Attempting native Windows raw socket sniffing...
+2026-06-09 15:29:29,305 [INFO] collectors.dns_sniffer: Native Windows sniffer successfully bound to 192.168.0.101
+2026-06-09 15:29:34,140 [DEBUG] filelock: Attempting to acquire lock 2054534726416 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:34,143 [DEBUG] filelock: Lock 2054534726416 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:34,151 [DEBUG] filelock: Attempting to release lock 2054534726416 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:34,152 [DEBUG] filelock: Lock 2054534726416 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-09 15:29:34,362 [DEBUG] collectors.process_collector: Process with PID 26296 not found (might have terminated).
+2026-06-09 15:29:34,370 [DEBUG] collectors.process_collector: Process with PID 26296 not found (might have terminated).
+2026-06-09 15:29:34,383 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 142.250.146.101...
+2026-06-09 15:29:34,642 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 142.250.146.139...
+2026-06-09 15:29:34,810 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 142.250.146.100...
+2026-06-09 15:29:35,249 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 142.250.146.102...
+2026-06-09 15:29:35,514 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 142.250.146.138...
+2026-06-09 15:29:35,687 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 142.250.146.113...
+2026-06-09 15:29:36,011 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2404:6800:4000:100e::65...
+2026-06-09 15:29:36,191 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2404:6800:4000:100e::71...
+2026-06-09 15:29:36,368 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2404:6800:4000:100e::8b...
+2026-06-09 15:29:36,694 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2404:6800:4000:100e::64...
+2026-06-09 15:29:38,826 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2404:6800:4000:100e::8a...
+2026-06-09 15:29:39,554 [DEBUG] enrichers.whois_enricher: Querying WHOIS for microsoft.com...
+2026-06-09 15:29:41,765 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for microsoft.com: can't subtract offset-naive and offset-aware datetimes
+2026-06-09 15:29:41,852 [DEBUG] enrichers.threat_intel: Querying VirusTotal for microsoft.com...
+2026-06-09 15:29:41,885 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:29:43,918 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/microsoft.com HTTP/1.1" 200 None
+2026-06-09 15:29:44,521 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 13.107.246.48...
+2026-06-09 15:29:44,755 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 13.107.213.48...
+2026-06-09 15:29:45,015 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2620:1ec:46::68...
+2026-06-09 15:29:45,206 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2620:1ec:bdf::68...
+2026-06-09 15:29:45,790 [DEBUG] enrichers.whois_enricher: Querying WHOIS for googleapis.com...
+2026-06-09 15:29:47,541 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for googleapis.com: can't subtract offset-naive and offset-aware datetimes
+2026-06-09 15:29:47,545 [DEBUG] enrichers.threat_intel: Querying VirusTotal for www.googleapis.com...
+2026-06-09 15:29:47,549 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:29:49,838 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/www.googleapis.com HTTP/1.1" 200 None
+2026-06-09 15:29:51,523 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 216.239.32.223...
+2026-06-09 15:29:51,702 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 216.239.38.223...
+2026-06-09 15:29:52,134 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 216.239.36.223...
+2026-06-09 15:29:52,402 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 216.239.34.223...
+2026-06-09 15:29:52,743 [DEBUG] enrichers.whois_enricher: Querying WHOIS for iana.org...
+2026-06-09 15:29:54,519 [DEBUG] enrichers.whois_enricher: WHOIS lookup failed for iana.org: can't subtract offset-naive and offset-aware datetimes
+2026-06-09 15:29:54,522 [DEBUG] enrichers.threat_intel: Querying VirusTotal for whois.iana.org...
+2026-06-09 15:29:54,526 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:29:57,518 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/whois.iana.org HTTP/1.1" 200 None
+2026-06-09 15:30:23,117 [DEBUG] collectors.process_collector: Process with PID 55716 not found (might have terminated).
+2026-06-09 15:30:23,159 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 2404:6800:4000:100e::66...
+2026-06-09 15:30:29,169 [DEBUG] enrichers.threat_intel: Querying VirusTotal for browser.events.data.microsoft.com...
+2026-06-09 15:30:29,177 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-09 15:30:34,180 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/browser.events.data.microsoft.com HTTP/1.1" 200 None
+2026-06-09 15:30:38,972 [DEBUG] enrichers.geoip_enricher: Querying GeoIP for public IP: 20.184.175.12...
+2026-06-09 15:30:47,231 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.
+2026-06-09 15:30:47,536 [INFO] collectors.dns_sniffer: DNS Sniffer stopped.

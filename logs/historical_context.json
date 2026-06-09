@@ -2,76 +2,169 @@
     "domains": {
         "github.com": {
             "first_seen": "2026-06-04T16:04:20Z",
-            "last_seen": "2026-06-06T06:47:36Z",
-            "frequency": 7,
+            "last_seen": "2026-06-09T09:53:28Z",
+            "frequency": 227,
             "subdomains": [],
-            "timestamps": [
-                1780728424.151524,
-                1780728456.722911
-            ]
+            "timestamps": []
         },
         "micros0ft-login.xyz": {
             "first_seen": "2026-06-04T16:04:24Z",
-            "last_seen": "2026-06-06T06:47:40Z",
-            "frequency": 7,
+            "last_seen": "2026-06-09T09:53:33Z",
+            "frequency": 225,
             "subdomains": [],
-            "timestamps": [
-                1780728428.2141294,
-                1780728461.1499224
-            ]
+            "timestamps": []
         },
         "qwe921x.biz": {
             "first_seen": "2026-06-04T16:04:28Z",
-            "last_seen": "2026-06-06T06:47:45Z",
-            "frequency": 7,
+            "last_seen": "2026-06-09T09:52:51Z",
+            "frequency": 224,
             "subdomains": [],
-            "timestamps": [
-                1780728432.2478862,
-                1780728465.6542325
-            ]
+            "timestamps": []
         },
         "attacker-c2.ru": {
             "first_seen": "2026-06-04T16:04:33Z",
-            "last_seen": "2026-06-06T06:47:54Z",
-            "frequency": 12,
+            "last_seen": "2026-06-09T09:53:00Z",
+            "frequency": 440,
             "subdomains": [
                 "agvsbg8td29ybgq",
                 "dghpcybpcybhihrlc3q"
             ],
-            "timestamps": [
-                1780728436.279768,
-                1780728440.3225935,
-                1780728469.993829,
-                1780728474.1987307
-            ]
+            "timestamps": []
         },
         "gmail.com": {
             "first_seen": "2026-06-04T16:04:41Z",
-            "last_seen": "2026-06-06T06:47:24Z",
-            "frequency": 4,
+            "last_seen": "2026-06-09T09:53:04Z",
+            "frequency": 218,
             "subdomains": [],
-            "timestamps": [
-                1780728444.3688505
-            ]
+            "timestamps": []
         },
         "dynamic-dns-malware.ru": {
             "first_seen": "2026-06-04T16:04:45Z",
-            "last_seen": "2026-06-06T06:47:28Z",
-            "frequency": 4,
+            "last_seen": "2026-06-09T09:53:08Z",
+            "frequency": 218,
             "subdomains": [],
-            "timestamps": [
-                1780728448.4293647
-            ]
+            "timestamps": []
         },
         "company.com": {
             "first_seen": "2026-06-04T16:04:49Z",
-            "last_seen": "2026-06-06T06:47:32Z",
-            "frequency": 4,
+            "last_seen": "2026-06-09T09:53:12Z",
+            "frequency": 216,
             "subdomains": [
                 "portal"
             ],
+            "timestamps": []
+        },
+        "3v5w1km5gv.xyz": {
+            "first_seen": "2026-06-09T09:38:24Z",
+            "last_seen": "2026-06-09T09:53:16Z",
+            "frequency": 3,
+            "subdomains": [],
+            "timestamps": []
+        },
+        "uacounter.com": {
+            "first_seen": "2026-06-09T09:38:41Z",
+            "last_seen": "2026-06-09T10:00:00Z",
+            "frequency": 6,
+            "subdomains": [
+                "cdn"
+            ],
             "timestamps": [
-                1780728452.5370862
+                1780999199.877791,
+                1780999200.01325,
+                1780999200.7187817
+            ]
+        },
+        "ztvnhmhm4zj95w3.xyz": {
+            "first_seen": "2026-06-09T09:39:47Z",
+            "last_seen": "2026-06-09T10:00:01Z",
+            "frequency": 10,
+            "subdomains": [],
+            "timestamps": [
+                1780999201.6920335,
+                1780999201.6985326,
+                1780999201.708519,
+                1780999201.7165296,
+                1780999201.7307203,
+                1780999201.7417507,
+                1780999201.7487853,
+                1780999201.772412
+            ]
+        },
+        "192.in-addr.arpa": {
+            "first_seen": "2026-06-09T09:59:05Z",
+            "last_seen": "2026-06-09T10:00:23Z",
+            "frequency": 9,
+            "subdomains": [
+                "1.0.168"
+            ],
+            "timestamps": [
+                1780999149.844099,
+                1780999174.3638039,
+                1780999174.3702042,
+                1780999178.5682688,
+                1780999178.604542,
+                1780999201.546185,
+                1780999201.6527574,
+                1780999223.0866246,
+                1780999223.1193345
+            ]
+        },
+        "google.com": {
+            "first_seen": "2026-06-09T09:59:34Z",
+            "last_seen": "2026-06-09T10:00:23Z",
+            "frequency": 12,
+            "subdomains": [],
+            "timestamps": [
+                1780999174.374183,
+                1780999175.8593404,
+                1780999175.8834045,
+                1780999177.0792744,
+                1780999178.6702414,
+                1780999178.722012,
+                1780999178.7357435,
+                1780999179.0004852,
+                1780999223.1265454,
+                1780999223.1397913,
+                1780999223.149987,
+                1780999223.3780878
+            ]
+        },
+        "microsoft.com": {
+            "first_seen": "2026-06-09T09:59:39Z",
+            "last_seen": "2026-06-09T10:00:25Z",
+            "frequency": 5,
+            "subdomains": [
+                "browser.events.data"
+            ],
+            "timestamps": [
+                1780999183.9313493,
+                1780999185.0031242,
+                1780999185.0087268,
+                1780999185.3998737,
+                1780999234.2529204
+            ]
+        },
+        "googleapis.com": {
+            "first_seen": "2026-06-09T09:59:45Z",
+            "last_seen": "2026-06-09T09:59:51Z",
+            "frequency": 2,
+            "subdomains": [
+                "www"
+            ],
+            "timestamps": [
+                1780999189.9598732,
+                1780999192.6130376
+            ]
+        },
+        "iana.org": {
+            "first_seen": "2026-06-09T09:59:52Z",
+            "last_seen": "2026-06-09T09:59:52Z",
+            "frequency": 1,
+            "subdomains": [
+                "whois"
+            ],
+            "timestamps": [
+                1780999197.5266635
             ]
         }
     }
