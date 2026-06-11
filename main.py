@@ -40,6 +40,7 @@ dga_counter = 0
 tunneling_counter = 0
 typosquat_counter = 0
 threat_counter = 0
+coruna_counter = 0
 unique_domains = set()
 
 newly_registered_counter = 0
@@ -76,7 +77,7 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
     Callback function that processes a raw sniffed/simulated event,
     correlates it, updates statistics, and saves it to the output JSON log.
     """
-    global event_counter, alert_counter, dga_counter, tunneling_counter, typosquat_counter, threat_counter
+    global event_counter, alert_counter, dga_counter, tunneling_counter, typosquat_counter, threat_counter, coruna_counter
     
     try:
         # Pass to correlation engine
@@ -155,6 +156,8 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
                 typosquat_counter += 1
             elif "THREAT" in alert:
                 threat_counter += 1
+            elif "CORUNA" in alert:
+                coruna_counter += 1
 
         # Keep track of latest 10 events for UI scroll
         with latest_events_lock:
@@ -188,6 +191,7 @@ def generate_dashboard_layout() -> Panel:
     stats_table.add_row("  └─ DGA Beaconing Detections", f"[bold orange3]{dga_counter}[/bold orange3]" if dga_counter > 0 else "0")
     stats_table.add_row("  └─ Typosquatting Alerts", f"[bold yellow]{typosquat_counter}[/bold yellow]" if typosquat_counter > 0 else "0")
     stats_table.add_row("  └─ Threat Intel Matches", f"[bold red1]{threat_counter}[/bold red1]" if threat_counter > 0 else "0")
+    stats_table.add_row("  └─ Coruna Exploit Kit Matches", f"[bold magenta]{coruna_counter}[/bold magenta]" if coruna_counter > 0 else "0")
     stats_table.add_row(
         "Unique Domains",
         str(len(unique_domains))
@@ -295,6 +299,8 @@ def generate_dashboard_layout() -> Panel:
                     alert_labels.append("[bold orange3]DGA[/bold orange3]")
                 elif "TYPOSQUATTING" in alert:
                     alert_labels.append("[bold yellow]TYPOSQUAT[/bold yellow]")
+                elif "CORUNA" in alert:
+                    alert_labels.append("[bold magenta]CORUNA_EXPLOIT[/bold magenta]")
                 elif "THREAT" in alert:
                     alert_labels.append(f"[bold red]THREAT_INTEL({ev['threat_intel']['threat_category'].upper()})[/bold red]")
                 elif "TTL" in alert:
