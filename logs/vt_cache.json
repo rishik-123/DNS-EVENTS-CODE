@@ -185,5 +185,423 @@
             "undetected_votes": 31
         },
         "cached_at": "2026-06-09T10:00:34.183240"
+    },
+    "fp.msedge.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T05:40:19.330873"
+    },
+    "docs.google.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 63,
+            "is_malicious": false,
+            "harmless_votes": 61,
+            "undetected_votes": 30
+        },
+        "cached_at": "2026-06-11T05:40:45.112047"
+    },
+    "www.virustotal.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 262,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T05:40:54.358950"
+    },
+    "whois.verisign-grs.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T05:41:16.341038"
+    },
+    "c.pki.goog": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -16,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T06:45:27.599299"
+    },
+    "ip-api.com": {
+        "vt_data": {
+            "malicious_votes": 1,
+            "suspicious_votes": 0,
+            "reputation": -8,
+            "is_malicious": true,
+            "harmless_votes": 60,
+            "undetected_votes": 30
+        },
+        "cached_at": "2026-06-11T06:45:32.011672"
+    },
+    "self.events.data.microsoft.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -1,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-11T06:45:51.149620"
+    },
+    "firebaselogging-pa.googleapis.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -2,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-11T06:46:23.764288"
+    },
+    "codenames.game": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-11T06:46:45.238676"
+    },
+    "codegames.games": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 53,
+            "undetected_votes": 38
+        },
+        "cached_at": "2026-06-11T06:46:57.770417"
+    },
+    "config.edge.skype.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -7,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T06:48:23.946048"
+    },
+    "daily-cloudcode-pa.googleapis.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T06:48:37.983772"
+    },
+    "ctldl.windowsupdate.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 9,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T06:51:13.347648"
+    },
+    "dual-s-ring.msedge.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T16:39:31.968404"
+    },
+    "arm-ring.msedge.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T16:39:34.357657"
+    },
+    "716697c983504f1ccb1023288f9a87fb.azr.footprintdns.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 0,
+            "undetected_votes": 0
+        },
+        "cached_at": "2026-06-11T16:39:47.787513"
+    },
+    "web.whatsapp.com": {
+        "vt_data": {
+            "malicious_votes": 1,
+            "suspicious_votes": 0,
+            "reputation": 59,
+            "is_malicious": true,
+            "harmless_votes": 60,
+            "undetected_votes": 30
+        },
+        "cached_at": "2026-06-11T16:39:54.073753"
+    },
+    "functional.events.data.microsoft.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-11T16:39:59.565723"
+    },
+    "edge-consumer-static.azureedge.net": {
+        "vt_data": {
+            "malicious_votes": 1,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": true,
+            "harmless_votes": 60,
+            "undetected_votes": 30
+        },
+        "cached_at": "2026-06-11T16:40:14.867344"
+    },
+    "substrate.office.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T16:40:20.085051"
+    },
+    "lh3.googleusercontent.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-11T16:42:40.304461"
+    },
+    "whois.markmonitor.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T16:42:45.860022"
+    },
+    "edge.microsoft.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T16:43:17.957473"
+    },
+    "azr.footprintdns.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -2,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T16:45:45.719817"
+    },
+    "play.googleapis.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -1,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-11T16:47:39.980136"
+    },
+    "main.vscode-cdn.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T16:47:48.120774"
+    },
+    "cloudcode-pa.googleapis.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T16:47:52.796300"
+    },
+    "whois.comlaude.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-11T16:47:57.712343"
+    },
+    "antigravity-ide-auto-updater-974169037036.us-central1.run.app": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 35
+        },
+        "cached_at": "2026-06-11T16:48:05.235436"
+    },
+    "whois.nic.google": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-11T16:48:09.819434"
+    },
+    "www.bing.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 48,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-11T16:53:51.199461"
+    },
+    "x1.c.lencr.org": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -1,
+            "is_malicious": false,
+            "harmless_votes": 61,
+            "undetected_votes": 30
+        },
+        "cached_at": "2026-06-11T16:54:05.560492"
+    },
+    "whois.publicinterestregistry.org": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 35
+        },
+        "cached_at": "2026-06-11T16:54:09.525305"
+    },
+    "mobile.events.data.microsoft.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-11T16:55:08.911291"
+    },
+    "settings-win.data.microsoft.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -54,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-11T16:55:15.880888"
+    },
+    "ev2-ring.msedge.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-12T05:13:28.913991"
+    },
+    "spo-ring.msedge.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-12T05:13:29.158308"
+    },
+    "l-ring.msedge.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-12T05:13:29.170409"
     }
 }

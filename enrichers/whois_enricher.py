@@ -81,6 +81,16 @@ class WHOISEnricher:
         if not extracted.domain or not extracted.suffix:
             return empty_enrichment
 
+        # Check if it is a known popular brand to avoid slow WHOIS queries
+        is_popular = any(registered_domain == brand or registered_domain.endswith("." + brand) for brand in config.POPULAR_BRANDS)
+        if is_popular:
+            return {
+                "domain_age_days": 7300,
+                "creation_date": "2006-01-01T00:00:00Z",
+                "registrar": "MarkMonitor Inc. (Mock)",
+                "is_newly_registered": False
+            }
+
         # Check Cache first
         if registered_domain in self.cache:
             cache_entry = self.cache[registered_domain]

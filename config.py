@@ -44,17 +44,32 @@ DGA_CONFIDENCE_THRESHOLD = 0.75
 # Typosquatting detection targets
 POPULAR_BRANDS = [
     "google.com",
+    "google.co.in",
+    "gstatic.com",
+    "googleapis.com",
+    "googleusercontent.com",
     "microsoft.com",
+    "microsoftonline.com",
+    "live.com",
+    "bing.com",
+    "office.com",
+    "office365.com",
     "paypal.com",
     "amazon.com",
+    "aws.amazon.com",
     "facebook.com",
     "netflix.com",
     "github.com",
+    "githubassets.com",
+    "githubusercontent.com",
     "apple.com",
+    "icloud.com",
     "linkedin.com",
-    "office365.com",
     "yahoo.com",
-    "bankofamerica.com"
+    "bankofamerica.com",
+    "doubleclick.net",
+    "googlesyndication.com",
+    "googletagmanager.com"
 ]
 
 # --- LOCAL THREAT FEEDS (MOCK FEED DATABASE) ---
@@ -96,3 +111,10 @@ USER_CONTEXT = {
     "role": "SOC Analyst",
     "privilege": "Administrator"       # User, Administrator, System
 }
+
+# --- KAFKA CONFIGURATIONS ---
+KAFKA_ENABLED = True  # Set to True to enable Kafka output
+KAFKA_BOOTSTRAP_SERVERS = ["localhost:9092"]
+KAFKA_TOPIC_RAW = "dns-events-raw"
+KAFKA_TOPIC_ALERTS = "dns-alerts"
+

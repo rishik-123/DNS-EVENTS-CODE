@@ -60,6 +60,11 @@ class WebContentEnricher:
 
         domain_lower = domain.lower().strip()
 
+        # Check if it is a known popular brand to avoid slow web content fetches
+        is_popular = any(domain_lower == brand or domain_lower.endswith("." + brand) for brand in config.POPULAR_BRANDS)
+        if is_popular:
+            return analysis
+
         # Intercept for simulation testing of Coruna Exploit Kit signatures
         if domain_lower == "3v5w1km5gv.xyz":
             self.cache[domain_lower] = {

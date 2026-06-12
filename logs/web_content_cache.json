@@ -122,5 +122,271 @@
         "matched_signatures": [],
         "status_code": 0,
         "error": "<urlopen error timed out>"
+    },
+    "fp.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 400: Bad Request"
+    },
+    "docs.google.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "www.virustotal.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "whois.verisign-grs.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "c.pki.goog": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "ip-api.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "self.events.data.microsoft.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "firebaselogging-pa.googleapis.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "codenames.game": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "codegames.games": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "config.edge.skype.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 400: Bad Request"
+    },
+    "daily-cloudcode-pa.googleapis.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "ctldl.windowsupdate.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "dual-s-ring.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "arm-ring.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "716697c983504f1ccb1023288f9a87fb.azr.footprintdns.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "web.whatsapp.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "functional.events.data.microsoft.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "edge-consumer-static.azureedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "substrate.office.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 417: Expectation Failed"
+    },
+    "lh3.googleusercontent.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 400: Bad Request"
+    },
+    "whois.markmonitor.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "edge.microsoft.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 400: Bad Request"
+    },
+    "azr.footprintdns.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "play.googleapis.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "main.vscode-cdn.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: The requested content does not exist."
+    },
+    "cloudcode-pa.googleapis.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "whois.comlaude.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "antigravity-ide-auto-updater-974169037036.us-central1.run.app": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "whois.nic.google": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "www.bing.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "x1.c.lencr.org": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "whois.publicinterestregistry.org": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "mobile.events.data.microsoft.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "settings-win.data.microsoft.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "ev2-ring.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "l-ring.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "spo-ring.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
     }
 }
