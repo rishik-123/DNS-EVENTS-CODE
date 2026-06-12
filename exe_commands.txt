@@ -1,0 +1,30 @@
+Run all Kafka commands from the root Kafka directory (C:\kafka_2.13-4.3.0):
+
+🖥️ Server Commands (Broker Setup)
+Format log directories (Standalone KRaft node):
+cmd
+.\bin\windows\kafka-storage.bat format -t LSn9dWs_RQmd9SNvmYxqeQ -c .\config\server.properties --standalone
+Start the single-node broker (Keep this window open):
+cmd
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+🛠️ Topic Administration (Run once in a new CMD)
+CHECK THE TOPICS
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+Create the topics:
+cmd
+.\bin\windows\kafka-topics.bat --create --topic dns-events-raw --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+cmd
+.\bin\windows\kafka-topics.bat --create --topic dns-alerts --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+📊 Client Commands (Consumers & Producer Agent)
+Start Console Consumers (Run each in a separate cmd window):
+
+To watch Benign events (Raw logs):
+cmd
+.\bin\windows\kafka-console-consumer.bat --topic dns-events-raw --bootstrap-server localhost:9092 --property print.key=true --property key.separator=" | "
+To watch Alerts/Threats:
+cmd
+.\bin\windows\kafka-console-consumer.bat --topic dns-alerts --bootstrap-server localhost:9092 --property print.key=true --property key.separator=" | "
+Start your Producer Agent: In your python project folder terminal, execute:
+
+cmd
+python main.py

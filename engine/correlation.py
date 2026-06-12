@@ -30,6 +30,9 @@ class CorrelationEngine:
         self.asset_enricher = AssetEnricher()
         self.web_content_enricher = WebContentEnricher()
         self.historical_tracker = HistoricalTracker()
+        
+        import concurrent.futures
+        self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=15, thread_name_prefix="enricher_worker")
 
     def process_event(self, raw_event: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -70,31 +73,32 @@ class CorrelationEngine:
         process_info = get_process_metadata(pid)
         username = process_info.get("username", "unknown")
 
-        # 5. Fetch WHOIS Enrichment
-        whois_info = self.whois_enricher.enrich_domain(query)
-
-        # 6. Fetch GeoIP Enrichment for response IPs
+        # 5. Parallelize Slow network lookups (WHOIS, Threat Intel, Web Content, GeoIP)
         response_ips = raw_event.get("response_ip", [])
-        resolved_locations = []
-        for ip in response_ips:
+        
+        # Helper to wrap GeoIP lookups
+        def enrich_ip_wrapper(ip):
             loc = self.geoip_enricher.enrich_ip(ip)
-            resolved_locations.append({
+            return {
                 "ip": ip,
                 "country": loc.get("country", "unknown"),
                 "city": loc.get("city", "unknown"),
                 "asn": loc.get("asn", "unknown")
-            })
+            }
 
-        # 7. Fetch Threat Intelligence Matches
-        threat_info = self.threat_enricher.enrich_entity(query, response_ips)
+        # Submit enrichment tasks to thread pool
+        future_whois = self.executor.submit(self.whois_enricher.enrich_domain, query)
+        future_threat = self.executor.submit(self.threat_enricher.enrich_entity, query, response_ips)
+        future_web_content = self.executor.submit(self.web_content_enricher.analyze_url_content, query)
+        future_locations = [self.executor.submit(enrich_ip_wrapper, ip) for ip in response_ips]
 
-        # 8. Fetch Asset and User Context
+        # 6. Fetch Asset and User Context (local, fast)
         context_info = self.asset_enricher.enrich_context(username)
 
-        # 9. Update and Fetch Historical Context
+        # 7. Update and Fetch Historical Context (local, fast)
         history_info = self.historical_tracker.update_and_get_stats(query, timestamp_str)
 
-        # 10. Run Tunneling Detector Heuristics
+        # 8. Run Tunneling Detector Heuristics (local, fast)
         is_tunneling, tunneling_score, payload_size = analyze_tunneling(
             query,
             query_type,
@@ -103,8 +107,11 @@ class CorrelationEngine:
         )
         risk_factors = []  
 
-        # 11. Analyze Web Content for malicious Coruna exploit patterns
-        web_content_info = self.web_content_enricher.analyze_url_content(query)
+        # 9. Block and gather parallel lookup results (executing concurrently)
+        whois_info = future_whois.result()
+        threat_info = future_threat.result()
+        web_content_info = future_web_content.result()
+        resolved_locations = [f.result() for f in future_locations]
 
         # 12. Core Security Alerts Triage
         alerts = []

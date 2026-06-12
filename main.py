@@ -22,6 +22,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import config
 from collectors.dns_sniffer import DNSSniffer
 from engine.correlation import CorrelationEngine
+from utils.kafka_producer import DNSKafkaProducer
 
 # Configure python logger (writes debug logs to a separate file so console stays clean for the UI)
 os.makedirs(config.LOG_DIR, exist_ok=True)
@@ -42,15 +43,10 @@ typosquat_counter = 0
 threat_counter = 0
 coruna_counter = 0
 unique_domains = set()
-
 newly_registered_counter = 0
-
 risk_score_total = 0
-unique_domains = set()
-
 domain_stats = {}
 
-newly_registered_counter = 0
 # Risk Distribution Metrics
 low_risk_counter = 0
 medium_risk_counter = 0
@@ -71,16 +67,26 @@ risk_factor_stats = {}
 latest_events: List[Dict[str, Any]] = []
 latest_events_lock = threading.Lock()
 file_write_lock = threading.Lock()
+stats_lock = threading.Lock()
 
 correlation_engine: CorrelationEngine = None
 sniffer: DNSSniffer = None
+kafka_producer: DNSKafkaProducer = None
+
+import concurrent.futures
+# Thread pool for offloading DNS packet processing to avoid blocking the Scapy capture loop
+event_executor = concurrent.futures.ThreadPoolExecutor(max_workers=20, thread_name_prefix="event_handler")
 
 
 def handle_correlated_event(raw_event: Dict[str, Any]):
     """
-    Callback function that processes a raw sniffed/simulated event,
-    correlates it, updates statistics, and saves it to the output JSON log.
+    Callback function that schedules the raw event to be processed
+    asynchronously inside the thread pool to keep packet capture non-blocking.
     """
+    event_executor.submit(_async_handle_correlated_event, raw_event)
+
+
+def _async_handle_correlated_event(raw_event: Dict[str, Any]):
     global event_counter, alert_counter, dga_counter, tunneling_counter, typosquat_counter, threat_counter, coruna_counter
     
     try:
@@ -100,18 +106,19 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
             }
 
             try:
-                with open(
-                    os.path.join(
-                        config.LOG_DIR,
-                        "correlation_events.json"
-                    ),
-                    "a",
-                    encoding="utf-8"
-                ) as file:
+                with file_write_lock:
+                    with open(
+                        os.path.join(
+                            config.LOG_DIR,
+                            "correlation_events.json"
+                        ),
+                        "a",
+                        encoding="utf-8"
+                    ) as file:
 
-                    file.write(
-                        json.dumps(correlation_wrapper) + "\n"
-                    )
+                        file.write(
+                            json.dumps(correlation_wrapper) + "\n"
+                        )
 
             except Exception as e:
 
@@ -139,65 +146,71 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
             "data": soc_event
         }
         
-        # Write to local file (thread-safe append)
+        # Write to local file (thread-safe append with immediate flush/sync to avoid caching delays)
         with file_write_lock:
             try:
                 with open(config.OUTPUT_LOG_FILE, "a") as f:
                     f.write(json.dumps(log_wrapper) + "\n")
+                    f.flush()
+                    os.fsync(f.fileno())
             except Exception as fe:
                 logger.error(f"Failed to write event to disk: {fe}")
 
         # Update statistics
-        event_counter += 1
-        unique_domains.add(
-            soc_event["dns"]["query"]
-        )
-        query = soc_event["dns"]["query"]
-        domain_stats[query] = (
-            domain_stats.get(query, 0) + 1
-        )
-        risk_score_total += soc_event["risk"]["score"]
-        # Risk Distribution
-        severity = soc_event["risk"]["severity"]
-
-        if severity == "LOW":
-            low_risk_counter += 1
-        elif severity == "MEDIUM":
-            medium_risk_counter += 1
-        elif severity == "HIGH":
-            high_risk_counter_metric += 1
-        elif severity == "CRITICAL":
-            critical_risk_counter_metric += 1
-
-        # Reputation Distribution
-        rep = soc_event["threat_intel"]["reputation_level"]
-
-        if rep in reputation_stats:
-            reputation_stats[rep] += 1
-
-        # Risk Factor Distribution
-        for factor in soc_event["domain_analysis"]["risk_factors"]:
-            risk_factor_stats[factor] = (
-                risk_factor_stats.get(factor, 0) + 1
+        with stats_lock: 
+            event_counter += 1
+            unique_domains.add(
+                soc_event["dns"]["query"]
             )
-        if soc_event["domain_analysis"]["is_newly_registered"]:
-            newly_registered_counter += 1
+            query = soc_event["dns"]["query"]
+            domain_stats[query] = (
+                domain_stats.get(query, 0) + 1
+            )
+            risk_score_total += soc_event["risk"]["score"]
+            # Risk Distribution
+            severity = soc_event["risk"]["severity"]
 
-        event_alerts = soc_event.get("alerts", [])
-        if event_alerts:
-            alert_counter += 1
-            
-        for alert in event_alerts:
-            if "TUNNELING" in alert:
-                tunneling_counter += 1
-            elif "DGA" in alert:
-                dga_counter += 1
-            elif "TYPOSQUATTING" in alert:
-                typosquat_counter += 1
-            elif "THREAT" in alert:
-                threat_counter += 1
-            elif "CORUNA" in alert:
-                coruna_counter += 1
+            if severity == "LOW":
+                low_risk_counter += 1
+            elif severity == "MEDIUM":
+                medium_risk_counter += 1
+            elif severity == "HIGH":
+                high_risk_counter_metric += 1
+            elif severity == "CRITICAL":
+                critical_risk_counter_metric += 1
+
+            # Reputation Distribution
+            rep = soc_event["threat_intel"]["reputation_level"]
+
+            if rep in reputation_stats:
+                reputation_stats[rep] += 1
+
+            # Risk Factor Distribution
+            for factor in soc_event["domain_analysis"]["risk_factors"]:
+                risk_factor_stats[factor] = (
+                    risk_factor_stats.get(factor, 0) + 1
+                )
+            if soc_event["domain_analysis"]["is_newly_registered"]:
+                newly_registered_counter += 1
+
+            event_alerts = soc_event.get("alerts", [])
+            if event_alerts:
+                alert_counter += 1
+                
+            for alert in event_alerts:
+                if "TUNNELING" in alert:
+                    tunneling_counter += 1
+                elif "DGA" in alert:
+                    dga_counter += 1
+                elif "TYPOSQUATTING" in alert:
+                    typosquat_counter += 1
+                elif "THREAT" in alert:
+                    threat_counter += 1
+                elif "CORUNA" in alert:
+                    coruna_counter += 1
+        # Publish to Kafka if enabled
+        if kafka_producer:
+            kafka_producer.send_event(log_wrapper)
 
         # Keep track of latest 10 events for UI scroll
         with latest_events_lock:
@@ -474,13 +487,21 @@ def signal_handler(sig, frame):
     console.print("\n[bold red]Stopping DeepCytes DNS Agent...[/bold red]")
     if sniffer:
         sniffer.stop();
+    if kafka_producer:
+        kafka_producer.close()
     console.print("[bold green]Agent shut down successfully. Logs saved to: [/bold green]" + config.OUTPUT_LOG_FILE)
     sys.exit(0)
 
 
 def main():
-    global correlation_engine, sniffer
+    global correlation_engine, sniffer, kafka_producer
     
+    # Reconfigure stdout to be unbuffered (immediate write-through) to solve terminal latency
+    try:
+        sys.stdout.reconfigure(write_through=True)
+    except Exception:
+        pass
+
     # Catch Ctrl+C signals
     signal.signal(signal.SIGINT, signal_handler)
     
@@ -508,6 +529,9 @@ def main():
     # Initialize Correlation Engine
     correlation_engine = CorrelationEngine()
     
+    # Initialize Kafka Producer
+    kafka_producer = DNSKafkaProducer()
+    
     # Initialize DNS Sniffer / Simulator
     sniffer = DNSSniffer(callback=handle_correlated_event)
     sniffer.start()
@@ -522,6 +546,10 @@ def main():
             while True:
                 time.sleep(0.5)
                 live.update(generate_dashboard_layout())
+                try:
+                    sys.stdout.flush()
+                except Exception:
+                    pass
         except KeyboardInterrupt:
             pass
 

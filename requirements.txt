@@ -1,0 +1,13 @@
+Topics, Partitions, and Key Strategy
+Topics Created:
+dns-events-raw: Handles high-volume normal DNS resolution data (e.g. google.com, microsoft.com).
+dns-alerts: Dedicated queue for malicious detections (e.g. DGA, DNS Tunneling, Typosquatting alerts).
+Partition Count: Configured with 3 partitions per topic.
+Key Strategy:
+The message key is set to the queried Domain Name 
+(e.g. attacker-c2.ru).
+Why? Kafka guarantees that messages sharing the same key always land on the same partition. 
+Using the domain name as the key ensures that all transactions, 
+query rates, and beacon streams associated with a specific domain 
+maintain strict chronological ordering inside a single partition. 
+This allows downstream analytics engines (consumers) to process sequences accurately.

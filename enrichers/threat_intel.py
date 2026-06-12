@@ -55,6 +55,11 @@ class ThreatIntelEnricher:
 
         domain_lower = domain.lower().strip()
 
+        # Check if it is a known popular brand to avoid VT query latency
+        is_popular = any(domain_lower == brand or domain_lower.endswith("." + brand) for brand in config.POPULAR_BRANDS)
+        if is_popular:
+            return empty_vt
+
         # Check Cache first
         if domain_lower in self.vt_cache:
             cache_entry = self.vt_cache[domain_lower]
