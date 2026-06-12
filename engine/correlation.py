@@ -108,6 +108,7 @@ class CorrelationEngine:
 
         # 12. Core Security Alerts Triage
         alerts = []
+        correlation_rules = []
         if is_tunneling:
             alerts.append("DNS_TUNNELING_SUSPECT")
             risk_factors.append("DNS_TUNNELING")
@@ -129,7 +130,52 @@ class CorrelationEngine:
         if raw_event.get("ttl", 100) < 15 and raw_event.get("ttl", 100) > 0:
             alerts.append("SUSPICIOUS_LOW_TTL_FAST_FLUX")
             risk_factors.append("SUSPICIOUS_LOW_TTL_FAST_FLUX")
-        
+        # Correlation Rules
+        # Rule 1: Active DNS Exfiltration
+        if (
+            is_tunneling and
+            history_info["query_rate_per_minute"] > 10
+        ):
+            correlation_rules.append({
+                "rule_name": "ACTIVE_EXFILTRATION",
+                "severity": "CRITICAL",
+                "description": (
+                    "Possible DNS data exfiltration detected "
+                    "through sustained tunneling activity."
+                )
+            })
+
+
+        # Rule 2: Fresh Typosquat Campaign
+        if (
+            is_typosquat and
+            whois_info.get("is_newly_registered", False)
+        ):
+            correlation_rules.append({
+                "rule_name": "FRESH_TYPOSQUAT_CAMPAIGN",
+                "severity": "HIGH",
+                "description": (
+                    "Newly registered typosquatting domain "
+                    "detected."
+                )
+            })
+
+
+        # Rule 3: Fast Flux Infrastructure
+        if (
+            threat_info["is_in_threat_feed"] and
+            raw_event.get("ttl", 100) < 15 and
+            raw_event.get("ttl", 100) > 0
+        ):
+            correlation_rules.append({
+                "rule_name": "FAST_FLUX_INFRASTRUCTURE",
+                "severity": "HIGH",
+                "description": (
+                    "Threat intelligence match exhibiting "
+                    "fast-flux behaviour."
+                )
+            })
+
         # 12. Risk Scoring
         risk_score = 0
         if is_tunneling:
@@ -184,6 +230,7 @@ class CorrelationEngine:
                 "score": risk_score,
                 "severity": severity
             },
+            "correlations": correlation_rules,
 
             # DNS Transaction Layer
             "dns": {

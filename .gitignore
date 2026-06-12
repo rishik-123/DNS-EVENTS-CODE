@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Logs and generated runtime data
+logs/*.log
+logs/*.json
+
+# Keep metrics/correlation files out of git
+logs/metrics.json
+logs/correlation_events.json
+logs/dns_soc_events.json
+logs/geoip_cache.json
+logs/historical_context.json
+logs/vt_cache.json
+logs/web_content_cache.json
+logs/whois_cache.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Temporary Office files
+~$*.docx
