@@ -42,7 +42,28 @@ tunneling_counter = 0
 typosquat_counter = 0
 threat_counter = 0
 coruna_counter = 0
+unique_domains = set()
+newly_registered_counter = 0
+risk_score_total = 0
+domain_stats = {}
 
+# Risk Distribution Metrics
+low_risk_counter = 0
+medium_risk_counter = 0
+high_risk_counter_metric = 0
+critical_risk_counter_metric = 0
+
+# Reputation Distribution Metrics
+reputation_stats = {
+    "BENIGN": 0,
+    "LOW": 0,
+    "MEDIUM": 0,
+    "HIGH": 0,
+    "CRITICAL": 0
+}
+
+# Risk Factor Metrics
+risk_factor_stats = {}
 latest_events: List[Dict[str, Any]] = []
 latest_events_lock = threading.Lock()
 file_write_lock = threading.Lock()
@@ -71,7 +92,49 @@ def _async_handle_correlated_event(raw_event: Dict[str, Any]):
     try:
         # Pass to correlation engine
         soc_event = correlation_engine.process_event(raw_event)
-        
+
+        # Persist correlation events separately
+        if soc_event.get("correlations"):
+
+            correlation_wrapper = {
+                "event_id": soc_event["event_id"],
+                "timestamp": soc_event["timestamp"],
+                "correlations": soc_event["correlations"],
+                "query": soc_event["dns"]["query"],
+                "risk": soc_event["risk"],
+                "alerts": soc_event["alerts"]
+            }
+
+            try:
+                with file_write_lock:
+                    with open(
+                        os.path.join(
+                            config.LOG_DIR,
+                            "correlation_events.json"
+                        ),
+                        "a",
+                        encoding="utf-8"
+                    ) as file:
+
+                        file.write(
+                            json.dumps(correlation_wrapper) + "\n"
+                        )
+
+            except Exception as e:
+
+                logger.error(
+                    f"Failed to write correlation event: {e}"
+                )
+                
+        global unique_domains
+        global newly_registered_counter
+        global risk_score_total
+        global low_risk_counter
+        global medium_risk_counter
+        global high_risk_counter_metric
+        global critical_risk_counter_metric
+        global reputation_stats
+        global risk_factor_stats
         # Build the final wrapper structure required by the user
         log_wrapper = {
             "event_id": soc_event["event_id"],
@@ -93,13 +156,43 @@ def _async_handle_correlated_event(raw_event: Dict[str, Any]):
             except Exception as fe:
                 logger.error(f"Failed to write event to disk: {fe}")
 
-        # Publish to Kafka if enabled
-        if kafka_producer:
-            kafka_producer.send_event(log_wrapper)
-
-        # Update statistics (thread-safe)
-        with stats_lock:
+        # Update statistics
+        with stats_lock: 
             event_counter += 1
+            unique_domains.add(
+                soc_event["dns"]["query"]
+            )
+            query = soc_event["dns"]["query"]
+            domain_stats[query] = (
+                domain_stats.get(query, 0) + 1
+            )
+            risk_score_total += soc_event["risk"]["score"]
+            # Risk Distribution
+            severity = soc_event["risk"]["severity"]
+
+            if severity == "LOW":
+                low_risk_counter += 1
+            elif severity == "MEDIUM":
+                medium_risk_counter += 1
+            elif severity == "HIGH":
+                high_risk_counter_metric += 1
+            elif severity == "CRITICAL":
+                critical_risk_counter_metric += 1
+
+            # Reputation Distribution
+            rep = soc_event["threat_intel"]["reputation_level"]
+
+            if rep in reputation_stats:
+                reputation_stats[rep] += 1
+
+            # Risk Factor Distribution
+            for factor in soc_event["domain_analysis"]["risk_factors"]:
+                risk_factor_stats[factor] = (
+                    risk_factor_stats.get(factor, 0) + 1
+                )
+            if soc_event["domain_analysis"]["is_newly_registered"]:
+                newly_registered_counter += 1
+
             event_alerts = soc_event.get("alerts", [])
             if event_alerts:
                 alert_counter += 1
@@ -115,16 +208,112 @@ def _async_handle_correlated_event(raw_event: Dict[str, Any]):
                     threat_counter += 1
                 elif "CORUNA" in alert:
                     coruna_counter += 1
+        # Publish to Kafka if enabled
+        if kafka_producer:
+            kafka_producer.send_event(log_wrapper)
 
         # Keep track of latest 10 events for UI scroll
         with latest_events_lock:
             latest_events.insert(0, soc_event)
             if len(latest_events) > 10:
                 latest_events.pop()
-                
+        write_metrics_json()     
     except Exception as e:
         logger.error(f"Error handling captured DNS event: {e}", exc_info=True)
 
+def write_metrics_json():
+    """Persist dashboard metrics to logs/metrics.json"""
+    avg_risk = 0
+    if event_counter > 0:
+        avg_risk = round(risk_score_total / event_counter,2)
+    metrics = {
+        "timestamp":
+        datetime.utcnow().strftime(
+            "%Y-%m-%dT%H:%M:%SZ"
+        ),
+
+        "total_dns_events":
+        event_counter,
+
+        "total_alerts":
+        alert_counter,
+
+        "dns_tunneling_detections":
+        tunneling_counter,
+
+        "dga_beaconing_detections":
+        dga_counter,
+
+        "typosquatting_alerts":
+        typosquat_counter,
+
+        "threat_intel_matches":
+        threat_counter,
+
+        "coruna_matches":
+        coruna_counter,
+
+        "unique_domains":
+        len(unique_domains),
+
+        "newly_registered_domains":
+        newly_registered_counter,
+
+        "average_risk_score":
+        avg_risk,
+
+        "risk_distribution": {
+
+            "low":
+            low_risk_counter,
+
+            "medium":
+            medium_risk_counter,
+
+            "high":
+            high_risk_counter_metric,
+
+            "critical":
+            critical_risk_counter_metric
+        },
+
+        "reputation_distribution":
+        reputation_stats,
+
+        "top_risk_factors":
+        risk_factor_stats,
+
+        "top_domains": dict(
+            sorted(
+                domain_stats.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )[:5]
+),
+    }
+
+    try:
+
+        with open(
+            os.path.join(
+                config.LOG_DIR,
+                "metrics.json"
+            ),
+            "w",
+            encoding="utf-8"
+        ) as file:
+
+            json.dump(
+                metrics,
+                file,
+                indent=4
+            )
+
+    except Exception as e:
+
+        logger.error(
+            f"Failed to write metrics.json: {e}"
+        )
 
 def generate_dashboard_layout() -> Panel:
     """Generates the Rich Terminal Panel containing statistics and the event table."""
@@ -132,7 +321,14 @@ def generate_dashboard_layout() -> Panel:
     stats_table = Table(box=box.SIMPLE, expand=True)
     stats_table.add_column("[cyan]Metric[/cyan]", justify="left")
     stats_table.add_column("[cyan]Value[/cyan]", justify="right")
-    
+    # Calculate Average Risk Score
+    avg_risk = 0
+
+    if event_counter > 0:
+        avg_risk = round(
+            risk_score_total / event_counter,
+            2
+        )
     mode_text = "[bold yellow]SIMULATION[/bold yellow]" if config.SIMULATION_MODE else "[bold green]LIVE SNIFFER[/bold green]"
     stats_table.add_row("Agent Operation Mode", mode_text)
     stats_table.add_row("Total Captured DNS Events", f"[bold white]{event_counter}[/bold white]")
@@ -142,7 +338,66 @@ def generate_dashboard_layout() -> Panel:
     stats_table.add_row("  └─ Typosquatting Alerts", f"[bold yellow]{typosquat_counter}[/bold yellow]" if typosquat_counter > 0 else "0")
     stats_table.add_row("  └─ Threat Intel Matches", f"[bold red1]{threat_counter}[/bold red1]" if threat_counter > 0 else "0")
     stats_table.add_row("  └─ Coruna Exploit Kit Matches", f"[bold magenta]{coruna_counter}[/bold magenta]" if coruna_counter > 0 else "0")
+    stats_table.add_row(
+        "Unique Domains",
+        str(len(unique_domains))
+    )
 
+    stats_table.add_row(
+        "Newly Registered Domains",
+        str(newly_registered_counter)
+    )
+    stats_table.add_row(
+    "Average Risk Score",
+    str(avg_risk)
+    )
+    # Risk Distribution
+    stats_table.add_row(
+        "Low Risk Events",
+        str(low_risk_counter)
+    )
+
+    stats_table.add_row(
+        "Medium Risk Events",
+        str(medium_risk_counter)
+    )
+
+    stats_table.add_row(
+        "High Risk Events",
+        str(high_risk_counter_metric)
+    )
+
+    stats_table.add_row(
+        "Critical Risk Events",
+        str(critical_risk_counter_metric)
+    )
+
+    # Reputation Distribution
+    stats_table.add_row(
+        "Benign Reputation Events",
+        str(reputation_stats["BENIGN"])
+    )
+
+    stats_table.add_row(
+        "High Reputation Threats",
+        str(reputation_stats["HIGH"])
+    )
+
+    stats_table.add_row(
+        "Critical Reputation Threats",
+        str(reputation_stats["CRITICAL"])
+    )
+    top_factors = sorted(
+        risk_factor_stats.items(),
+        key=lambda x: x[1],
+        reverse=True
+    )[:3]
+
+    for factor, count in top_factors:
+        stats_table.add_row(
+            f"Top Risk Factor: {factor}",
+            str(count)
+        )
     # Target info table
     target_table = Table(box=box.SIMPLE, expand=True)
     target_table.add_column("[cyan]Asset / Identity Context[/cyan]", justify="left")
@@ -283,6 +538,7 @@ def main():
     
     console.print("[bold green]Initialization complete! Launching dashboard interface...[/bold green]")
     time.sleep(1.0)
+    
     
     # Run dashboard live display
     with Live(generate_dashboard_layout(), refresh_per_second=2, screen=False) as live:

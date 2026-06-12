@@ -105,6 +105,7 @@ class CorrelationEngine:
             history_info["query_rate_per_minute"],
             history_info["unique_subdomains_count"]
         )
+        risk_factors = []  
 
         # 9. Block and gather parallel lookup results (executing concurrently)
         whois_info = future_whois.result()
@@ -114,20 +115,116 @@ class CorrelationEngine:
 
         # 12. Core Security Alerts Triage
         alerts = []
+        correlation_rules = []
         if is_tunneling:
             alerts.append("DNS_TUNNELING_SUSPECT")
+            risk_factors.append("DNS_TUNNELING")
         if is_dga:
             alerts.append("DGA_BEACONING_SUSPECT")
+            risk_factors.append("DGA")
         if is_typosquat:
             alerts.append("TYPOSQUATTING_IMPERSONATION")
+            risk_factors.append("TYPOSQUATTING")
         if threat_info["is_in_threat_feed"]:
             alerts.append(f"THREAT_INTEL_MATCH_{threat_info['threat_category'].upper()}")
+            risk_factors.append("THREAT_INTEL_MATCH")
         if web_content_info["is_malicious"]:
             alerts.append("CORUNA_EXPLOIT_KIT_SUSPECT")
+            risk_factors.append("CORUNA")
         if raw_event.get("response_code") == "NXDOMAIN" and history_info["query_rate_per_minute"] > 10.0:
             alerts.append("HIGH_NXDOMAIN_RATE_ANOMALY")
+            risk_factors.append("HIGH_NXDOMAIN_RATE_ANOMALY")
         if raw_event.get("ttl", 100) < 15 and raw_event.get("ttl", 100) > 0:
             alerts.append("SUSPICIOUS_LOW_TTL_FAST_FLUX")
+            risk_factors.append("SUSPICIOUS_LOW_TTL_FAST_FLUX")
+        # Correlation Rules
+        # Rule 1: Active DNS Exfiltration
+        if (
+            is_tunneling and
+            history_info["query_rate_per_minute"] > 10
+        ):
+            correlation_rules.append({
+                "rule_name": "ACTIVE_EXFILTRATION",
+                "severity": "CRITICAL",
+                "description": (
+                    "Possible DNS data exfiltration detected "
+                    "through sustained tunneling activity."
+                )
+            })
+
+
+        # Rule 2: Fresh Typosquat Campaign
+        if (
+            is_typosquat and
+            whois_info.get("is_newly_registered", False)
+        ):
+            correlation_rules.append({
+                "rule_name": "FRESH_TYPOSQUAT_CAMPAIGN",
+                "severity": "HIGH",
+                "description": (
+                    "Newly registered typosquatting domain "
+                    "detected."
+                )
+            })
+
+
+        # Rule 3: Fast Flux Infrastructure
+        if (
+            threat_info["is_in_threat_feed"] and
+            raw_event.get("ttl", 100) < 15 and
+            raw_event.get("ttl", 100) > 0
+        ):
+            correlation_rules.append({
+                "rule_name": "FAST_FLUX_INFRASTRUCTURE",
+                "severity": "HIGH",
+                "description": (
+                    "Threat intelligence match exhibiting "
+                    "fast-flux behaviour."
+                )
+            })
+
+        # 12. Risk Scoring
+        risk_score = 0
+        if is_tunneling:
+            risk_score += 40
+
+        if is_dga:
+            risk_score += 25
+
+        if is_typosquat:
+            risk_score += 20
+
+        if threat_info["is_in_threat_feed"]:
+            risk_score += 35
+
+        if whois_info.get("is_newly_registered", False):
+            risk_score += 10
+            risk_factors.append("NEWLY_REGISTERED_DOMAIN")
+            
+        if raw_event.get("ttl", 100) < 15:
+            risk_score += 10
+
+        risk_score = min(risk_score, 100)
+
+        # 13. Severity Classification
+        if risk_score >= 80:
+            severity = "CRITICAL"
+        elif risk_score >= 60:
+            severity = "HIGH"
+        elif risk_score >= 40:
+            severity = "MEDIUM"
+        else:
+            severity = "LOW"
+
+        # Domain Risk Classification
+        if risk_score >= 80:
+            domain_risk_level = "CRITICAL"
+        elif risk_score >= 60:
+            domain_risk_level = "HIGH"
+        elif risk_score >= 30:
+            domain_risk_level = "MEDIUM"
+        else:
+            domain_risk_level = "LOW"
 
         # Compile Consolidated SOC Event Schema
         soc_event = {
@@ -135,7 +232,13 @@ class CorrelationEngine:
             "event_id": event_id,
             "timestamp": timestamp_str,
             "alerts": alerts,
-            
+
+            "risk": {
+                "score": risk_score,
+                "severity": severity
+            },
+            "correlations": correlation_rules,
+
             # DNS Transaction Layer
             "dns": {
                 "client_ip": raw_event.get("client_ip", "0.0.0.0"),
@@ -165,7 +268,9 @@ class CorrelationEngine:
                 "dga_confidence": dga_confidence,
                 "is_newly_registered": whois_info.get("is_newly_registered", False),
                 "is_typosquat": is_typosquat,
-                "typosquat_target": typosquat_target or "none"
+                "typosquat_target": typosquat_target or "none",
+                "domain_risk_level": domain_risk_level,
+                "risk_factors": risk_factors
             },
             
             # Tunneling Detection Layer
@@ -203,6 +308,7 @@ class CorrelationEngine:
                 "operating_system": context_info["asset_context"]["operating_system"],
                 "os_version": context_info["asset_context"]["os_version"],
                 "criticality": context_info["asset_context"]["criticality"],
+                "criticality_score": context_info["asset_context"]["criticality_score"],
                 "business_unit": context_info["asset_context"]["business_unit"],
                 "department": context_info["asset_context"]["department"]
             },
@@ -213,6 +319,7 @@ class CorrelationEngine:
                 "threat_category": threat_info["threat_category"],
                 "feed_source": threat_info["feed_source"],
                 "reputation_score": threat_info["reputation_score"],
+                "reputation_level": threat_info["reputation_level"],
                 "malicious_votes": threat_info["malicious_votes"],
                 "suspicious_votes": threat_info["suspicious_votes"]
             },
