@@ -1,3 +1,4 @@
+import os
 import platform
 import socket
 import logging
@@ -6,6 +7,7 @@ from typing import Dict, Any
 import config
 
 logger = logging.getLogger(__name__)
+
 
 class AssetEnricher:
     def __init__(self):
@@ -17,8 +19,10 @@ class AssetEnricher:
         Builds user and asset context dictionaries.
         Fills missing fields dynamically using system telemetry if static values are default.
         """
+
         # Resolve hostname dynamically if not specified
         hostname = self.static_asset.get("hostname")
+
         if not hostname or hostname == "unknown":
             try:
                 hostname = socket.gethostname()
@@ -28,19 +32,62 @@ class AssetEnricher:
         # Resolve OS details dynamically
         os_sys = platform.system()
         os_ver = f"{platform.release()} (Build {platform.version()})"
-        
+
+        # Team 10 Enrichment
+        criticality = self.static_asset.get(
+            "criticality",
+            "MEDIUM"
+        )
+
+        criticality_map = {
+            "LOW": 1,
+            "MEDIUM": 2,
+            "HIGH": 3,
+            "CRITICAL": 4
+        }
+
         asset_info = {
             "hostname": hostname,
-            "criticality": self.static_asset.get("criticality", "MEDIUM"),
-            "business_unit": self.static_asset.get("business_unit", "Corporate Operations"),
-            "department": self.static_asset.get("department", "IT Department"),
-            "operating_system": self.static_asset.get("operating_system") or f"{os_sys} Workstation",
-            "os_version": self.static_asset.get("os_version") or os_ver,
-            "device_type": self.static_asset.get("device_type", "Endpoint")
+
+            "criticality": criticality,
+
+            "criticality_score": criticality_map.get(
+                criticality.upper(),
+                2
+            ),
+
+            "business_unit": self.static_asset.get(
+                "business_unit",
+                "Corporate Operations"
+            ),
+
+            "department": self.static_asset.get(
+                "department",
+                "IT Department"
+            ),
+
+            "operating_system":
+                self.static_asset.get("operating_system")
+                or f"{os_sys} Workstation",
+
+            "os_version":
+                self.static_asset.get("os_version")
+                or os_ver,
+
+            "device_type":
+                self.static_asset.get(
+                    "device_type",
+                    "Endpoint"
+                )
         }
 
         # Resolve local user context
-        username = event_user if event_user and event_user != "unknown" else self.static_user.get("username")
+        username = (
+            event_user
+            if event_user and event_user != "unknown"
+            else self.static_user.get("username")
+        )
+
         if not username or username == "unknown":
             try:
                 username = os.getlogin()
@@ -49,8 +96,16 @@ class AssetEnricher:
 
         user_info = {
             "username": username,
-            "role": self.static_user.get("role", "Corporate User"),
-            "privilege": self.static_user.get("privilege", "User")
+
+            "role": self.static_user.get(
+                "role",
+                "Corporate User"
+            ),
+
+            "privilege": self.static_user.get(
+                "privilege",
+                "User"
+            )
         }
 
         return {
