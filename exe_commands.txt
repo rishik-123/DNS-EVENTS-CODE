@@ -28,3 +28,11 @@ Start your Producer Agent: In your python project folder terminal, execute:
 
 cmd
 python main.py
+
+🖥️ Web GUI Dashboard (Live Event Viewer)
+Start your Dashboard Server: In a new python project folder terminal, execute:
+
+cmd
+python dashboard.py
+
+Then open your browser and navigate to: http://localhost:8080

@@ -32,7 +32,7 @@ class DNSKafkaProducer:
 #Inspects the incoming SOC events. 
 # If the event's alerts list contains security findings, 
 # it routes the message to the dns-alerts topic. 
-# Otherwise, it defaults to dns-events-raw. IUses routing key
+# Otherwise, it defaults to dns-events-raw. It Uses routing key
     def send_event(self, event_wrapper: Dict[str, Any]):
         if not self.producer:
             return
@@ -49,6 +49,8 @@ class DNSKafkaProducer:
                 topic = getattr(config, "KAFKA_TOPIC_RAW", "dns-events-raw")
             
             # Extract key: the query domain
+            #KEY CREATION FOR PRODUCER PARTITIONING
+            #ensures the data goes to a perticular partition 
             key = None
             dns_data = soc_event.get("dns", {})
             if dns_data:

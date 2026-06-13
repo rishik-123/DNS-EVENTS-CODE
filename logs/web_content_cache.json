@@ -388,5 +388,194 @@
         "matched_signatures": [],
         "status_code": 0,
         "error": "HTTP Error 404: Not Found"
+    },
+    "t-ring-fallback-s2.msedge.net": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "247d8c39606732cce8b600e7047caa6d.azr.footprintdns.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "a-ring.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "playgame.games": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "whois.nic.games": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "swastikchemindia.vercel.app": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "dev.virtualearth.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 401: Unauthorized"
+    },
+    "ecn.dev.virtualearth.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 401: Unauthorized"
+    },
+    "whois.corporatedomains.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "download.windowsupdate.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "fern.xboxservices.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "dlassets-ssl.xboxlive.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "beacons.gcp.gvt2.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "b1.nel.goog": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "games.games": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "whois.nixiregistry.in": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "forsale.ddot.in": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "www.dynadot.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "whois.registry.in": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    "whois.dynadot.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "csp.withgoogle.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "The read operation timed out"
+    },
+    "onedriveclucproddm20005.blob.core.windows.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 400: Value for one of the query parameters specified in the request URI is invalid."
+    },
+    "assets.msn.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "mr-prod-t.msedge.net": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "c-ring.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "www.msftconnecttest.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "media-bom2-1.cdn.whatsapp.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 403: Forbidden"
     }
 }

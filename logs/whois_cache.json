@@ -257,5 +257,138 @@
         "registrar": "unknown",
         "is_newly_registered": false,
         "cached_at": "2026-06-11T16:54:07.687866"
+    },
+    "playgame.games": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T04:50:27.434928"
+    },
+    "nic.games": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T04:50:27.166464"
+    },
+    "vercel.app": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T04:51:06.095495"
+    },
+    "virtualearth.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T04:51:32.909014"
+    },
+    "corporatedomains.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T04:51:34.801163"
+    },
+    "xboxservices.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T04:52:03.786516"
+    },
+    "xboxlive.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T04:52:15.499834"
+    },
+    "gvt2.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T05:57:32.125869"
+    },
+    "nel.goog": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T05:57:43.408106"
+    },
+    "games.games": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:10:31.040224"
+    },
+    "ddot.in": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:10:33.792691"
+    },
+    "nixiregistry.in": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:10:35.173739"
+    },
+    "dynadot.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:10:38.455972"
+    },
+    "registry.in": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:10:39.092541"
+    },
+    "withgoogle.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:16:47.738113"
+    },
+    "windows.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:17:04.275399"
+    },
+    "msn.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:17:27.712277"
+    },
+    "msftconnecttest.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:24:23.946320"
+    },
+    "whatsapp.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-13T06:26:34.168005"
     }
 }
