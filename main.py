@@ -5,6 +5,10 @@ import time
 import signal
 import logging
 import threading
+import socket
+import uuid
+import platform
+import getpass
 from datetime import datetime
 from typing import Dict, Any, List
 
@@ -23,6 +27,37 @@ import config
 from collectors.dns_sniffer import DNSSniffer
 from engine.correlation import CorrelationEngine
 from utils.kafka_producer import DNSKafkaProducer
+
+def get_device_fingerprint() -> Dict[str, str]:
+    """Retrieves unique local system and environment information."""
+    # Get IP Address
+    try:
+        hostname = socket.gethostname()
+        ip = socket.gethostbyname(hostname)
+    except Exception:
+        ip = "127.0.0.1"
+        
+    # Get MAC Address
+    try:
+        mac_num = uuid.getnode()
+        mac_str = ':'.join(['{:02x}'.format((mac_num >> ele) & 0xff) for ele in range(0,8*6,8)][::-1])
+    except Exception:
+        mac_str = "00:00:00:00:00:00"
+        
+    # Get OS and OS version from config or system fallback
+    os_name = config.ASSET_CONTEXT.get("operating_system", platform.system())
+    
+    # Get Username
+    username = config.USER_CONTEXT.get("username", getpass.getuser())
+    
+    return {
+        "ip": ip,
+        "mac_address": mac_str,
+        "os": os_name,
+        "username": username,
+        "agent_name": "DeepCytes DNS Agent"
+    }
+
 
 # Configure python logger (writes debug logs to a separate file so console stays clean for the UI)
 os.makedirs(config.LOG_DIR, exist_ok=True)
@@ -136,14 +171,34 @@ def _async_handle_correlated_event(raw_event: Dict[str, Any]):
         global reputation_stats
         global risk_factor_stats
         # Build the final wrapper structure required by the user
+        fingerprint = get_device_fingerprint()
+        
+        # Map severity from risk classification
+        sev_raw = soc_event.get("risk", {}).get("severity", "LOW")
+        if sev_raw in ["CRITICAL", "HIGH"]:
+            severity = "CRITICAL"
+        elif sev_raw == "MEDIUM":
+            severity = "LESS_CRITICAL"
+        else:
+            severity = "INFORMATORY"
+            
+        # Determine event type based on alerts triggered
+        alerts = soc_event.get("alerts", [])
+        if alerts:
+            event_type = alerts[0]
+        else:
+            event_type = "DNS_QUERY"
+            
         log_wrapper = {
+            "device_fingerprint": fingerprint,
+            "dns_fingerprint": fingerprint,
             "event_id": soc_event["event_id"],
-            "timestamp": soc_event["timestamp"],
-            "file_details": {
-                "output_file": config.OUTPUT_LOG_FILE,
-                "format": "JSON-Lines (NDJSON)"
-            },
-            "data": soc_event
+            "eventid": soc_event["event_id"],
+            "event_type": event_type,
+            "event type": event_type,
+            "severity": severity,
+            "payload": soc_event,
+            "payload message": soc_event
         }
         
         # Write to local file (thread-safe append with immediate flush/sync to avoid caching delays)

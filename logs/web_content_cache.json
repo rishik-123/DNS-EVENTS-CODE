@@ -577,5 +577,166 @@
         "matched_signatures": [],
         "status_code": 0,
         "error": "HTTP Error 403: Forbidden"
+    },
+    "chat.openai.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "o33249.ingest.us.sentry.io": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "[WinError 10053] An established connection was aborted by the software in your host machine"
+    },
+    "whois.nic.io": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "whois.identitydigital.services": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "js.stripe.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 403: FORBIDDEN"
+    },
+    "a-ring-fallback.msedge.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "whois.safenames.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "api.cline.bot": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "[WinError 10053] An established connection was aborted by the software in your host machine"
+    },
+    "openrouter.ai": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "whois.nic.ai": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "stripe.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "m.stripe.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "roaming.svc.cloud.microsoft": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "i.abcom.in": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 403: Forbidden"
+    },
+    "whois.gandi.net": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "my.microsoftpersonalcontent.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "crl3.digicert.com": {
+        "checked": true,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 200,
+        "error": "none"
+    },
+    "default.exp-tas.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 400: Bad Request"
+    },
+    "browser.events.data.msn.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "<urlopen error timed out>"
+    },
+    "antigravity-unleash.goog": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 404: Not Found"
+    },
+    "onedriveclucproddm20013.blob.core.windows.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 400: Value for one of the query parameters specified in the request URI is invalid."
+    },
+    "ntp.msn.com": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 508: Loop Detected"
+    },
+    "inference.location.live.net": {
+        "checked": false,
+        "is_malicious": false,
+        "matched_signatures": [],
+        "status_code": 0,
+        "error": "HTTP Error 403: Forbidden"
     }
 }

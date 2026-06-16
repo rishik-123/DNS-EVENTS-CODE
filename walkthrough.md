@@ -1,137 +1,93 @@
-# DeepCytes DNS Agent: Mini SOC Telemetry Collector
+# DeepCytes DNS Agent: Walkthrough of Telemetry & Visualization Updates
 
-Welcome to the **DeepCytes DNS Agent** documentation. This project was developed as a modular, enterprise-grade Security Operations Center (SOC) agent written in Python. It captures raw DNS transactions, traces their originating endpoint processes, enriches them with threat intelligence, geographical information, and asset identities, and runs heuristics to flag DNS Tunneling, DGA beaconing, typosquatting, and fast-flux techniques.
-
-All events are correlated and exported into a unified JSON format designed for ingestion by SIEM and XDR data pipelines (such as Wazuh, Elastic, or Splunk).
+This walkthrough details the changes made to the DNS security agent to support the new JSON schema, single Kafka topic ingestion, frontend dashboard charts, and visual report generation.
 
 ---
 
 ## 📂 Project Architecture and Directory Structure
 
-The project has been fully modularized into logical directory layers. Here is the structure of the workspace:
+The project remains structured modularly, with recent additions for report generation and frontend visualizations:
 
 ```
 c:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES\
 │
-├── config.py                  # Global configurations, thresholds, static asset context, and threat feeds
-├── main.py                    # Entrypoint script, orchestrates execution threads, handles file logs, and TUI Dashboard
+├── config.py                  # Global configurations (Updated to use single Kafka raw events topic)
+├── main.py                    # Core execution engine (Updated with get_device_fingerprint and new JSON wrapping)
+├── dashboard.py               # SOC Telemetry Frontend (Updated with responsive Chart.js graphs)
+├── generate_soc_docx.py       # [NEW] Generates the SOC Analyst Visualization Blueprint document
+├── DNS_SOC_Analyst_Visualizations.docx # [NEW] Generated visual blueprint report
 │
 ├── utils/                     # Statistical & mathematical utilities
-│   ├── __init__.py
-│   ├── entropy.py             # Calculates Shannon Entropy of strings (randomness)
-│   ├── typosquat.py           # Detects typosquatting using Levenshtein distance & character swaps
-│   └── dga.py                 # Calculates DGA score via character & transition distribution
-│
-├── collectors/                # Live system and network telemetry collectors
-│   ├── __init__.py
-│   ├── dns_sniffer.py         # Sniffs port 53 (Scapy) and maps ports to PIDs (with built-in simulator)
-│   └── process_collector.py   # Resolves process command lines, lineages, hashes, and signers using psutil
-│
-├── enrichers/                 # Intelligence and contextual enrichers
-│   ├── __init__.py
-│   ├── whois_enricher.py      # Queries WHOIS registration details (with caching and offline simulation)
-│   ├── geoip_enricher.py      # Queries Country, City, ASN (RFC 1918 local bypass and caching)
-│   ├── threat_intel.py        # Matches domains/IPs against Threat Feeds (categorization and votes)
-│   └── asset_enricher.py      # Binds hostname, OS details, department, and user roles to the event
-│
-└── engine/                    # Analytical and correlation engines
-    ├── __init__.py
-    ├── tunneling_detector.py  # Evaluates payload sizes, query rates, unique subdomains, and tunneling confidence
-    ├── historical_tracker.py  # Tracks temporal history (first seen, last seen, frequency, unique subdomains)
-    └── correlation.py         # Schema Builder: Combines all layers into a single normalized JSON SOC event
+│   ├── kafka_producer.py      # Kafka integration (Updated to support new schema and single topic routing)
+│   ├── ...
 ```
 
 ---
 
-## 📊 Core Telemetry Layers & Fields Collected
+## 🔒 1. Updated JSON Log Format & Device Fingerprinting
 
-Every DNS transaction is processed into a single correlated JSON event across the following structured layers:
+The log events written to `logs/dns_soc_events.json` have been restructured to output a standardized XDR format. Each line contains:
+1. `device_fingerprint`: Holds host identifier variables collected at runtime (`ip`, `mac_address`, `os`, `username`, `agent_name`).
+2. `event_id`: Unique tracking ID.
+3. `event_type`: Mapped from alerts (e.g. `THREAT_INTEL_MATCH_PHISHING`) or defaults to `DNS_QUERY`.
+4. `severity`: Mapped to `CRITICAL`, `LESS_CRITICAL`, or `INFORMATORY`.
+5. `payload`: The full nested telemetry content (original `soc_event`).
 
-| Layer | Fields Collected | Security Purpose & Derivation |
-| :--- | :--- | :--- |
-| **Meta Info** | `event_id`, `timestamp`, `alerts` | Event tracking, timestamping, and listing triggered security flags. |
-| **DNS Transaction** | `client_ip`, `query`, `query_type`, `response_code`, `response_ip`, `response_cname`, `ttl`, `recursive`, `authoritative` | Captures basic DNS log data (Zeek/EDR equivalent). |
-| **Domain Analysis** | `domain`, `tld`, `subdomain`, `subdomain_length`, `query_length`, `entropy`, `is_dga`, `dga_confidence`, `domain_age_days`, `creation_date`, `registrar`, `is_newly_registered`, `is_typosquat`, `typosquat_target` | Identifies machine-generated domains, newly registered infrastructure, and brand typosquatting. |
-| **Tunneling Analysis** | `is_tunneling_suspect`, `tunneling_score`, `payload_size_bytes`, `unique_subdomains_count`, `query_rate_per_minute` | Flags hidden communication channels, high-frequency beacons, and cache-evasion tactics. |
-| **Process Lineage** | `pid`, `process_name`, `parent_pid`, `parent_process`, `command_line`, `exe_path`, `process_hash`, `process_sha256`, `signer` | Links the network query to local process lineage, file hashes, and signature trust. |
-| **Identity & User** | `username`, `role`, `privilege` | Contextualizes permissions (User vs Admin) and associates activity with a user. |
-| **Asset Context** | `hostname`, `operating_system`, `os_version`, `criticality`, `business_unit`, `department` | Evaluates business impact by measuring asset criticality and corporate department. |
-| **Threat Intelligence** | `is_in_threat_feed`, `threat_category`, `feed_source`, `reputation_score`, `malicious_votes`, `suspicious_votes` | Cross-references active indicators against known threat feeds. |
-| **Geolocation** | `resolved_locations` (array of `ip`, `country`, `city`, `asn` objects) | Identifies where the domain is hosted and warns of hosting regions with high abuse rates. |
-| **Historical Context** | `first_seen`, `last_seen`, `frequency` | Tracks baseline patterns of domain requests to isolate statistical anomalies. |
-
----
-
-## 🛠️ Handling Edge Cases and Advanced Constraints
-
-A key differentiator of this agent is its resilience in production SOC operations. The following edge cases are handled natively:
-
-### 1. Administrative Privileges & Sniffing Fallback
-Sniffing raw packet interfaces via Scapy requires administrative permissions (Root on Linux, Administrator on Windows). 
-* **Handling**: If the sniffer encounters a permission or socket error, it will gracefully warn the analyst, pivot configuration, and automatically fallback to **Simulation Mode** (which continues generating diverse, realistic security events linked to real running PIDs on the system) so the agent never crashes.
-
-### 2. DNS Client Service (`svchost.exe`) Mapping
-On Windows, most standard applications do not resolve DNS queries directly. Instead, they make API calls (like `GetAddrInfo`) to the OS DNS resolver cache service (`dnscache`), causing Scapy to trace the originating UDP socket to a `svchost.exe` process.
-* **Handling**: The correlation engine accepts direct EDR telemetry input. When running in Simulation Mode, the agent maps queries back to their logical application origin (e.g. `chrome.exe` or `powershell.exe`) to showcase the target XDR correlation layout.
-
-### 3. WHOIS and GeoIP Rate Limiting
-Public lookup services for WHOIS and GeoIP heavily rate-limit repeated queries (e.g. `ip-api.com` throttles to 45 requests/minute).
-* **Handling**:
-  - **Local RFC 1918 Checks**: The GeoIP module checks if IP addresses are private or loopback ranges (using Python's `ipaddress` library). Private IPs bypass the network lookups entirely and are labeled as `Internal Network` to conserve API request quotas.
-  - **Persistent JSON Caching**: Both WHOIS and GeoIP utilities write resolved lookups to local cache databases (`logs/whois_cache.json` and `logs/geoip_cache.json`). Repeated requests read directly from memory/cache, dramatically accelerating correlation time.
-  - **Offline Fallback Database**: If network connections fail or queries get throttled, the agent references an offline catalog of threat and simulation domains to preserve analytical integrity.
-
-### 4. Fast Flux and Low TTL Evases
-Malware command-and-control networks rotate IP resolutions rapidly using Low Time-To-Live values (e.g. TTL = 10 or 30).
-* **Handling**: The correlation engine computes a `SUSPICIOUS_LOW_TTL_FAST_FLUX` alert if a query resolves to multiple distinct public IP ranges while returning a TTL value under 15 seconds.
-
----
-
-## 🚀 Running and Validating the Agent
-
-To execute the collector and verify its behaviors:
-
-### 1. Requirements
-Ensure the following packages are installed:
-```bash
-pip install psutil scapy python-whois dnspython rich tldextract
-```
-
-### 2. Start the Agent
-Simply run the entrypoint script:
-```bash
-python main.py
-```
-* The console will start up the dashboard, showing live event metrics and a scrolling table of events.
-* Exit the agent at any time by pressing **Ctrl+C**.
-
-### 3. Inspecting Saved JSON Logs
-The correlated JSON events are written line-by-line in JSON-Lines format (which is the industry standard for SIEM ingestors like Wazuh and Logstash).
-You can read the resulting file located at:
-`logs/dns_soc_events.json`
-
-Each line contains a wrapper object structured as follows:
+### Example Structured Output
 ```json
 {
-  "event_id": "08336d4c-7b3d-4227-8e3b-f07141207ffb",
-  "timestamp": "2026-06-04T16:00:09Z",
-  "file_details": {
-    "output_file": "C:\\Users\\Abcom\\OneDrive\\Desktop\\SLA AND PROJECTS\\Internship Deepcytes DNS BASED EVENTS CODES\\logs\\dns_soc_events.json",
-    "format": "JSON-Lines (NDJSON)"
+  "device_fingerprint": {
+    "ip": "192.168.0.101",
+    "mac_address": "94:e2:3c:1d:cd:2e",
+    "os": "Windows 11 Enterprise",
+    "username": "rishik_admin",
+    "agent_name": "DeepCytes DNS Agent"
   },
-  "data": {
-    "event_id": "08336d4c-7b3d-4227-8e3b-f07141207ffb",
-    "timestamp": "2026-06-04T16:00:09Z",
-    "alerts": ["THREAT_INTEL_MATCH_PHISHING"],
-    "dns": { ... },
-    "domain_analysis": { ... },
-    "tunneling_analysis": { ... },
-    "process": { ... },
-    "user": { ... },
-    "asset": { ... },
-    "threat_intel": { ... },
-    "geolocation": [ ... ],
-    "history": { ... }
+  "event_id": "537e61fe-51fa-40c6-9569-a80673f94c3c",
+  "event_type": "DNS_QUERY",
+  "severity": "INFORMATORY",
+  "payload": {
+    "event_id": "537e61fe-51fa-40c6-9569-a80673f94c3c",
+    "timestamp": "2026-06-16T12:03:35Z",
+    "alerts": [],
+    "dns": { "client_ip": "192.168.1.52", "query": "github.com", "query_type": "A" },
+    "process": { "pid": 4824, "process_name": "chrome.exe" },
+    "risk": { "score": 0, "severity": "LOW" }
   }
 }
 ```
+
+---
+
+## 📡 2. Kafka Topic Consolidation
+
+Per the updated instructions, we consolidated Kafka routing by:
+- Deleting the `dns-alerts` topic from configurations.
+- Routing all telemetry data (benign traffic, DGA, typosquat, and tunneling alerts alike) into a single, high-throughput topic: **`dns-events-raw`** (controlled via `config.KAFKA_TOPIC_RAW`).
+- Modifying `utils/kafka_producer.py` to transparently extract internal data from both the old `"data"` schema and the new `"payload"` schema.
+
+---
+
+## 📊 3. Modern SOC Frontend Visualizations
+
+The frontend dashboard (`dashboard.py`) was enhanced with a premium, responsive chart system powered by **Chart.js** via CDN.
+We added:
+1. **Severity Distribution (Doughnut Chart)**: Shows a breakdown of `Critical`, `Less Critical`, and `Informatory` traffic volume.
+2. **New Domains Trend (Frequency Graph)**: A line chart graphing new domain queries over a rolling timeline to flag registration spikes.
+3. **Active Threat Vectors (Horizontal Bar Chart)**: Plots alert frequencies for DGA, Tunneling, Typosquatting, and Threat Intel feeds horizontally.
+4. **Top Talkers (Horizontal Bar Chart)**: Visualizes the most frequently queried destination domains to help detect anomalous beacons.
+5. **Entropy vs. Risk Score (2D Scatter Plot)**: Plots character-based Shannon Entropy values against calculated Risk Scores to expose high-entropy tunneling outliers.
+
+The dashboard remains fully backwards-compatible, parsing historical log files using `log.payload || log.data || {}` safely.
+
+---
+
+## 📄 4. SOC Visual Blueprint Report (`.docx`)
+
+We created a custom Python script [generate_soc_docx.py](file:///C:/Users/Abcom/OneDrive/Desktop/SLA%20AND%20PROJECTS/Internship%20Deepcytes%20DNS%20BASED%20EVENTS%20CODES/generate_soc_docx.py) and generated the document:
+**[DNS_SOC_Analyst_Visualizations.docx](file:///C:/Users/Abcom/OneDrive/Desktop/SLA%20AND%20PROJECTS/Internship%20Deepcytes%20DNS%20BASED%20EVENTS%20CODES/DNS_SOC_Analyst_Visualizations.docx)**
+
+The document details:
+- **Core Graphs**: Hourly New Domain Trend, Severity Distribution, Threat Vectors, Top Talkers, and Entropy Scatter Plots.
+- **Utility**: Why each visualization is critical to a SOC analyst's daily workflow.
+- **Connections**: What telemetry metrics (e.g. WHOIS dates, Shannon entropy, risk scores) connect to construct these views.

@@ -2,106 +2,181 @@
     "domains": {
         "github.com": {
             "first_seen": "2026-06-04T16:04:20Z",
-            "last_seen": "2026-06-13T06:27:50Z",
-            "frequency": 249,
+            "last_seen": "2026-06-16T13:03:45Z",
+            "frequency": 317,
             "subdomains": [
                 "collector"
             ],
             "timestamps": [
-                1781332070.7217536,
-                1781332070.8206902,
-                1781332070.8252597,
-                1781332070.8902254
+                1781614805.0149465,
+                1781614849.0957925,
+                1781614893.0796587,
+                1781614937.1519983,
+                1781614981.1220915,
+                1781615025.1558685
             ]
         },
         "micros0ft-login.xyz": {
             "first_seen": "2026-06-04T16:04:24Z",
-            "last_seen": "2026-06-11T17:02:58Z",
-            "frequency": 236,
+            "last_seen": "2026-06-16T13:03:49Z",
+            "frequency": 301,
             "subdomains": [],
-            "timestamps": []
+            "timestamps": [
+                1781614809.0041852,
+                1781614853.036555,
+                1781614897.0640602,
+                1781614941.079042,
+                1781614985.1020296,
+                1781615029.1167934
+            ]
         },
         "qwe921x.biz": {
             "first_seen": "2026-06-04T16:04:28Z",
-            "last_seen": "2026-06-11T17:03:02Z",
-            "frequency": 235,
+            "last_seen": "2026-06-16T13:03:53Z",
+            "frequency": 300,
             "subdomains": [],
-            "timestamps": []
+            "timestamps": [
+                1781614769.0002854,
+                1781614813.0301902,
+                1781614857.1637545,
+                1781614901.144643,
+                1781614945.1326358,
+                1781614989.18853,
+                1781615033.1445515
+            ]
         },
         "attacker-c2.ru": {
             "first_seen": "2026-06-04T16:04:33Z",
-            "last_seen": "2026-06-11T16:20:50Z",
-            "frequency": 456,
+            "last_seen": "2026-06-16T13:04:01Z",
+            "frequency": 586,
             "subdomains": [
                 "agvsbg8td29ybgq",
                 "dghpcybpcybhihrlc3q"
             ],
-            "timestamps": []
+            "timestamps": [
+                1781614772.9970055,
+                1781614776.9984806,
+                1781614817.0256834,
+                1781614821.0547924,
+                1781614861.099607,
+                1781614865.1364937,
+                1781614905.1729398,
+                1781614909.1677492,
+                1781614949.1333408,
+                1781614953.1992867,
+                1781614993.1853821,
+                1781614997.119609,
+                1781615037.1137843,
+                1781615041.1144323
+            ]
         },
         "gmail.com": {
             "first_seen": "2026-06-04T16:04:41Z",
-            "last_seen": "2026-06-11T16:20:54Z",
-            "frequency": 226,
+            "last_seen": "2026-06-16T13:04:05Z",
+            "frequency": 291,
             "subdomains": [],
-            "timestamps": []
+            "timestamps": [
+                1781614780.996497,
+                1781614825.1066718,
+                1781614869.2690876,
+                1781614913.1139286,
+                1781614957.1623669,
+                1781615001.122475,
+                1781615045.1481051
+            ]
         },
         "dynamic-dns-malware.ru": {
             "first_seen": "2026-06-04T16:04:45Z",
-            "last_seen": "2026-06-11T16:20:58Z",
-            "frequency": 226,
+            "last_seen": "2026-06-16T13:04:09Z",
+            "frequency": 290,
             "subdomains": [],
-            "timestamps": []
+            "timestamps": [
+                1781614785.0501156,
+                1781614829.105192,
+                1781614873.1288168,
+                1781614917.2074583,
+                1781614961.1790583,
+                1781615005.1397038,
+                1781615049.172547
+            ]
         },
         "company.com": {
             "first_seen": "2026-06-04T16:04:49Z",
-            "last_seen": "2026-06-11T16:21:02Z",
-            "frequency": 224,
+            "last_seen": "2026-06-16T13:04:13Z",
+            "frequency": 288,
             "subdomains": [
                 "portal"
             ],
-            "timestamps": []
+            "timestamps": [
+                1781614789.0074568,
+                1781614833.0980566,
+                1781614877.1504405,
+                1781614921.1136858,
+                1781614965.1266267,
+                1781615009.139438,
+                1781615053.1787262
+            ]
         },
         "3v5w1km5gv.xyz": {
             "first_seen": "2026-06-09T09:38:24Z",
-            "last_seen": "2026-06-11T16:21:06Z",
-            "frequency": 11,
+            "last_seen": "2026-06-16T13:04:17Z",
+            "frequency": 75,
             "subdomains": [],
-            "timestamps": []
+            "timestamps": [
+                1781614793.0095363,
+                1781614837.0555878,
+                1781614881.0921314,
+                1781614925.0928133,
+                1781614969.1952639,
+                1781615013.212531,
+                1781615057.158077
+            ]
         },
         "uacounter.com": {
             "first_seen": "2026-06-09T09:38:41Z",
-            "last_seen": "2026-06-11T16:21:10Z",
-            "frequency": 14,
+            "last_seen": "2026-06-16T13:04:21Z",
+            "frequency": 78,
             "subdomains": [
                 "cdn"
             ],
-            "timestamps": []
+            "timestamps": [
+                1781614797.2717338,
+                1781614841.0427005,
+                1781614885.0932992,
+                1781614929.095269,
+                1781614973.1167338,
+                1781615017.1319444,
+                1781615061.1439638
+            ]
         },
         "ztvnhmhm4zj95w3.xyz": {
             "first_seen": "2026-06-09T09:39:47Z",
-            "last_seen": "2026-06-11T16:21:14Z",
-            "frequency": 18,
+            "last_seen": "2026-06-16T13:04:25Z",
+            "frequency": 82,
             "subdomains": [],
-            "timestamps": []
+            "timestamps": [
+                1781614801.0860748,
+                1781614845.0753887,
+                1781614889.1210136,
+                1781614933.1046305,
+                1781614977.1684735,
+                1781615021.1416068,
+                1781615065.149342
+            ]
         },
         "192.in-addr.arpa": {
             "first_seen": "2026-06-09T09:59:05Z",
-            "last_seen": "2026-06-13T06:29:04Z",
-            "frequency": 81,
+            "last_seen": "2026-06-16T07:38:22Z",
+            "frequency": 83,
             "subdomains": [
                 "1.0.168"
             ],
-            "timestamps": [
-                1781331911.5229046,
-                1781331911.5320115,
-                1781332144.171312,
-                1781332144.178956
-            ]
+            "timestamps": []
         },
         "google.com": {
             "first_seen": "2026-06-09T09:59:34Z",
-            "last_seen": "2026-06-13T06:28:46Z",
-            "frequency": 166,
+            "last_seen": "2026-06-16T07:38:22Z",
+            "frequency": 169,
             "subdomains": [
                 "docs",
                 "www",
@@ -109,33 +184,12 @@
                 "ogs",
                 "clients4"
             ],
-            "timestamps": [
-                1781331920.303668,
-                1781331920.3056836,
-                1781331920.3171675,
-                1781331920.3347304,
-                1781331991.3703222,
-                1781331991.3703222,
-                1781331991.376765,
-                1781331991.3793669,
-                1781331999.5323064,
-                1781331999.5363512,
-                1781331999.6050746,
-                1781331999.6780365,
-                1781332111.5965269,
-                1781332111.9903202,
-                1781332111.991319,
-                1781332112.0049984,
-                1781332126.4986846,
-                1781332126.501635,
-                1781332126.5309308,
-                1781332126.5331426
-            ]
+            "timestamps": []
         },
         "microsoft.com": {
             "first_seen": "2026-06-09T09:59:39Z",
-            "last_seen": "2026-06-13T06:29:06Z",
-            "frequency": 169,
+            "last_seen": "2026-06-16T12:13:14Z",
+            "frequency": 366,
             "subdomains": [
                 "browser.events.data",
                 "self.events.data",
@@ -152,31 +206,19 @@
                 "kv801.prod.do.dsp.mp",
                 "fe2cr.update",
                 "tas02.cws.update",
-                "oneocsp"
+                "oneocsp",
+                "disc601.prod.do.dsp.mp",
+                "array506.prod.do.dsp.mp",
+                "array616.prod.do.dsp.mp",
+                "officeclient",
+                "msedge.b.tlu.dl.delivery.mp"
             ],
-            "timestamps": [
-                1781331886.786966,
-                1781331886.7984164,
-                1781331911.5755954,
-                1781331911.5854497,
-                1781331911.5894437,
-                1781331911.6044462,
-                1781331961.8931305,
-                1781331961.8962977,
-                1781331961.906247,
-                1781331961.9125993,
-                1781331990.6354473,
-                1781331990.6354473,
-                1781332145.047919,
-                1781332145.0513172,
-                1781332146.6135983,
-                1781332146.6212544
-            ]
+            "timestamps": []
         },
         "googleapis.com": {
             "first_seen": "2026-06-09T09:59:45Z",
-            "last_seen": "2026-06-13T06:28:21Z",
-            "frequency": 73,
+            "last_seen": "2026-06-16T12:13:53Z",
+            "frequency": 206,
             "subdomains": [
                 "www",
                 "firebaselogging-pa",
@@ -184,42 +226,26 @@
                 "play",
                 "cloudcode-pa",
                 "optimizationguide-pa",
-                "clientservices"
+                "clientservices",
+                "oauth2",
+                "people",
+                "update"
             ],
-            "timestamps": [
-                1781331960.7037857,
-                1781331960.7521865,
-                1781331964.7447052,
-                1781331964.784564,
-                1781331997.1275363,
-                1781331997.2140162,
-                1781332099.2817385,
-                1781332099.2847881,
-                1781332101.728494,
-                1781332101.799718
-            ]
+            "timestamps": []
         },
         "iana.org": {
             "first_seen": "2026-06-09T09:59:52Z",
-            "last_seen": "2026-06-13T06:26:33Z",
-            "frequency": 89,
+            "last_seen": "2026-06-16T12:13:26Z",
+            "frequency": 154,
             "subdomains": [
                 "whois"
             ],
-            "timestamps": [
-                1781331992.555414,
-                1781331992.5664012,
-                1781331992.825456,
-                1781331993.0007443,
-                1781331993.07272,
-                1781331993.4629743,
-                1781331993.5390532
-            ]
+            "timestamps": []
         },
         "msedge.net": {
             "first_seen": "2026-06-11T05:40:12Z",
-            "last_seen": "2026-06-13T06:22:54Z",
-            "frequency": 57,
+            "last_seen": "2026-06-16T07:38:23Z",
+            "frequency": 71,
             "subdomains": [
                 "fp",
                 "dual-s-ring",
@@ -230,14 +256,15 @@
                 "t-ring-fallback-s2",
                 "a-ring",
                 "mr-prod-t",
-                "c-ring"
+                "c-ring",
+                "a-ring-fallback"
             ],
             "timestamps": []
         },
         "virustotal.com": {
             "first_seen": "2026-06-11T05:40:48Z",
-            "last_seen": "2026-06-13T06:24:22Z",
-            "frequency": 27,
+            "last_seen": "2026-06-16T12:13:25Z",
+            "frequency": 49,
             "subdomains": [
                 "www"
             ],
@@ -245,20 +272,17 @@
         },
         "verisign-grs.com": {
             "first_seen": "2026-06-11T05:40:58Z",
-            "last_seen": "2026-06-13T06:26:33Z",
-            "frequency": 19,
+            "last_seen": "2026-06-16T12:13:25Z",
+            "frequency": 32,
             "subdomains": [
                 "whois"
             ],
-            "timestamps": [
-                1781331993.3335586,
-                1781331993.3971395
-            ]
+            "timestamps": []
         },
         "pki.goog": {
             "first_seen": "2026-06-11T06:45:25Z",
-            "last_seen": "2026-06-11T16:54:02Z",
-            "frequency": 4,
+            "last_seen": "2026-06-16T12:05:41Z",
+            "frequency": 12,
             "subdomains": [
                 "c"
             ],
@@ -266,19 +290,10 @@
         },
         "ip-api.com": {
             "first_seen": "2026-06-11T06:45:28Z",
-            "last_seen": "2026-06-13T06:27:50Z",
-            "frequency": 59,
+            "last_seen": "2026-06-16T12:13:25Z",
+            "frequency": 139,
             "subdomains": [],
-            "timestamps": [
-                1781331886.8723497,
-                1781331886.9454517,
-                1781331962.0073779,
-                1781331962.0145466,
-                1781331990.7079945,
-                1781331990.7105823,
-                1781332071.1221128,
-                1781332071.123366
-            ]
+            "timestamps": []
         },
         "codenames.game": {
             "first_seen": "2026-06-11T06:46:32Z",
@@ -305,8 +320,8 @@
         },
         "windowsupdate.com": {
             "first_seen": "2026-06-11T06:51:01Z",
-            "last_seen": "2026-06-13T04:51:39Z",
-            "frequency": 9,
+            "last_seen": "2026-06-16T12:08:16Z",
+            "frequency": 29,
             "subdomains": [
                 "ctldl",
                 "download"
@@ -331,21 +346,12 @@
             "subdomains": [
                 "web"
             ],
-            "timestamps": [
-                1781331935.0294552,
-                1781331935.0567658,
-                1781331935.0593386,
-                1781331935.068007,
-                1781331997.5002766,
-                1781331997.5057807,
-                1781331997.5154724,
-                1781331997.5274255
-            ]
+            "timestamps": []
         },
         "azureedge.net": {
             "first_seen": "2026-06-11T16:40:11Z",
-            "last_seen": "2026-06-11T16:40:11Z",
-            "frequency": 1,
+            "last_seen": "2026-06-16T08:43:45Z",
+            "frequency": 5,
             "subdomains": [
                 "edge-consumer-static"
             ],
@@ -353,24 +359,17 @@
         },
         "googleusercontent.com": {
             "first_seen": "2026-06-11T16:42:35Z",
-            "last_seen": "2026-06-13T06:28:21Z",
-            "frequency": 18,
+            "last_seen": "2026-06-16T12:09:18Z",
+            "frequency": 54,
             "subdomains": [
                 "lh3"
             ],
-            "timestamps": [
-                1781331974.5275621,
-                1781331974.5306995,
-                1781331974.5657473,
-                1781331974.5903687,
-                1781332101.9138103,
-                1781332101.946642
-            ]
+            "timestamps": []
         },
         "markmonitor.com": {
             "first_seen": "2026-06-11T16:42:41Z",
-            "last_seen": "2026-06-13T05:57:30Z",
-            "frequency": 4,
+            "last_seen": "2026-06-16T08:00:51Z",
+            "frequency": 6,
             "subdomains": [
                 "whois"
             ],
@@ -378,8 +377,8 @@
         },
         "vscode-cdn.net": {
             "first_seen": "2026-06-11T16:47:42Z",
-            "last_seen": "2026-06-11T16:47:50Z",
-            "frequency": 4,
+            "last_seen": "2026-06-16T08:36:40Z",
+            "frequency": 8,
             "subdomains": [
                 "main"
             ],
@@ -387,8 +386,8 @@
         },
         "comlaude.com": {
             "first_seen": "2026-06-11T16:47:53Z",
-            "last_seen": "2026-06-13T06:24:23Z",
-            "frequency": 8,
+            "last_seen": "2026-06-16T08:07:06Z",
+            "frequency": 10,
             "subdomains": [
                 "whois"
             ],
@@ -396,17 +395,18 @@
         },
         "bing.com": {
             "first_seen": "2026-06-11T16:53:46Z",
-            "last_seen": "2026-06-12T05:15:47Z",
-            "frequency": 16,
+            "last_seen": "2026-06-16T08:43:22Z",
+            "frequency": 31,
             "subdomains": [
-                "www"
+                "www",
+                "c"
             ],
             "timestamps": []
         },
         "lencr.org": {
             "first_seen": "2026-06-11T16:54:02Z",
-            "last_seen": "2026-06-11T16:54:05Z",
-            "frequency": 2,
+            "last_seen": "2026-06-16T08:57:14Z",
+            "frequency": 6,
             "subdomains": [
                 "x1.c"
             ],
@@ -414,8 +414,8 @@
         },
         "publicinterestregistry.org": {
             "first_seen": "2026-06-11T16:54:06Z",
-            "last_seen": "2026-06-11T16:54:10Z",
-            "frequency": 2,
+            "last_seen": "2026-06-16T12:13:26Z",
+            "frequency": 4,
             "subdomains": [
                 "whois"
             ],
@@ -423,10 +423,11 @@
         },
         "office.com": {
             "first_seen": "2026-06-11T17:15:00Z",
-            "last_seen": "2026-06-13T04:51:24Z",
-            "frequency": 6,
+            "last_seen": "2026-06-16T08:51:39Z",
+            "frequency": 15,
             "subdomains": [
-                "ecs"
+                "ecs",
+                "substrate"
             ],
             "timestamps": []
         },
@@ -457,8 +458,8 @@
         },
         "nic.google": {
             "first_seen": "2026-06-13T04:51:05Z",
-            "last_seen": "2026-06-13T05:57:43Z",
-            "frequency": 4,
+            "last_seen": "2026-06-16T08:35:19Z",
+            "frequency": 6,
             "subdomains": [
                 "whois"
             ],
@@ -476,8 +477,8 @@
         },
         "corporatedomains.com": {
             "first_seen": "2026-06-13T04:51:22Z",
-            "last_seen": "2026-06-13T04:51:22Z",
-            "frequency": 4,
+            "last_seen": "2026-06-16T12:13:26Z",
+            "frequency": 6,
             "subdomains": [
                 "whois"
             ],
@@ -485,10 +486,12 @@
         },
         "live.com": {
             "first_seen": "2026-06-13T04:51:38Z",
-            "last_seen": "2026-06-13T04:51:38Z",
-            "frequency": 2,
+            "last_seen": "2026-06-16T08:43:18Z",
+            "frequency": 8,
             "subdomains": [
-                "mrodevicemgr.officeapps"
+                "mrodevicemgr.officeapps",
+                "login",
+                "storage"
             ],
             "timestamps": []
         },
@@ -546,8 +549,8 @@
         },
         "nixiregistry.in": {
             "first_seen": "2026-06-13T06:10:33Z",
-            "last_seen": "2026-06-13T06:10:34Z",
-            "frequency": 4,
+            "last_seen": "2026-06-16T07:47:29Z",
+            "frequency": 6,
             "subdomains": [
                 "whois"
             ],
@@ -589,32 +592,33 @@
             "subdomains": [
                 "csp"
             ],
-            "timestamps": [
-                1781332183.3969562
-            ]
+            "timestamps": []
         },
         "windows.net": {
             "first_seen": "2026-06-13T06:17:01Z",
-            "last_seen": "2026-06-13T06:17:01Z",
-            "frequency": 1,
+            "last_seen": "2026-06-16T08:37:29Z",
+            "frequency": 3,
             "subdomains": [
-                "onedriveclucproddm20005.blob.core"
+                "onedriveclucproddm20005.blob.core",
+                "onedriveclucproddm20013.blob.core"
             ],
             "timestamps": []
         },
         "msn.com": {
             "first_seen": "2026-06-13T06:17:22Z",
-            "last_seen": "2026-06-13T06:17:28Z",
-            "frequency": 4,
+            "last_seen": "2026-06-16T12:13:27Z",
+            "frequency": 24,
             "subdomains": [
-                "assets"
+                "assets",
+                "browser.events.data",
+                "ntp"
             ],
             "timestamps": []
         },
         "msftconnecttest.com": {
             "first_seen": "2026-06-13T06:24:21Z",
-            "last_seen": "2026-06-13T06:24:21Z",
-            "frequency": 1,
+            "last_seen": "2026-06-16T08:10:37Z",
+            "frequency": 5,
             "subdomains": [
                 "www"
             ],
@@ -627,14 +631,175 @@
             "subdomains": [
                 "media-bom2-1.cdn"
             ],
-            "timestamps": [
-                1781331991.8829024,
-                1781331991.9085166,
-                1781331991.9404335,
-                1781331991.940945,
-                1781331992.5791688,
-                1781331992.5845509
-            ]
+            "timestamps": []
+        },
+        "openai.com": {
+            "first_seen": "2026-06-16T07:37:38Z",
+            "last_seen": "2026-06-16T07:37:38Z",
+            "frequency": 2,
+            "subdomains": [
+                "chat"
+            ],
+            "timestamps": []
+        },
+        "sentry.io": {
+            "first_seen": "2026-06-16T07:37:41Z",
+            "last_seen": "2026-06-16T07:37:41Z",
+            "frequency": 2,
+            "subdomains": [
+                "o33249.ingest.us"
+            ],
+            "timestamps": []
+        },
+        "nic.io": {
+            "first_seen": "2026-06-16T07:37:42Z",
+            "last_seen": "2026-06-16T07:37:47Z",
+            "frequency": 4,
+            "subdomains": [
+                "whois"
+            ],
+            "timestamps": []
+        },
+        "identitydigital.services": {
+            "first_seen": "2026-06-16T07:37:47Z",
+            "last_seen": "2026-06-16T07:37:51Z",
+            "frequency": 3,
+            "subdomains": [
+                "whois"
+            ],
+            "timestamps": []
+        },
+        "stripe.com": {
+            "first_seen": "2026-06-16T07:37:57Z",
+            "last_seen": "2026-06-16T07:39:49Z",
+            "frequency": 16,
+            "subdomains": [
+                "js",
+                "m"
+            ],
+            "timestamps": []
+        },
+        "safenames.net": {
+            "first_seen": "2026-06-16T07:38:14Z",
+            "last_seen": "2026-06-16T07:38:21Z",
+            "frequency": 4,
+            "subdomains": [
+                "whois"
+            ],
+            "timestamps": []
+        },
+        "cline.bot": {
+            "first_seen": "2026-06-16T07:38:28Z",
+            "last_seen": "2026-06-16T07:38:28Z",
+            "frequency": 2,
+            "subdomains": [
+                "api"
+            ],
+            "timestamps": []
+        },
+        "openrouter.ai": {
+            "first_seen": "2026-06-16T07:38:30Z",
+            "last_seen": "2026-06-16T07:38:30Z",
+            "frequency": 2,
+            "subdomains": [],
+            "timestamps": []
+        },
+        "nic.ai": {
+            "first_seen": "2026-06-16T07:38:34Z",
+            "last_seen": "2026-06-16T07:38:39Z",
+            "frequency": 4,
+            "subdomains": [
+                "whois"
+            ],
+            "timestamps": []
+        },
+        "cloud.microsoft": {
+            "first_seen": "2026-06-16T07:40:55Z",
+            "last_seen": "2026-06-16T08:26:11Z",
+            "frequency": 7,
+            "subdomains": [
+                "roaming.svc"
+            ],
+            "timestamps": []
+        },
+        "abcom.in": {
+            "first_seen": "2026-06-16T07:47:28Z",
+            "last_seen": "2026-06-16T07:47:28Z",
+            "frequency": 2,
+            "subdomains": [
+                "i"
+            ],
+            "timestamps": []
+        },
+        "gandi.net": {
+            "first_seen": "2026-06-16T07:47:29Z",
+            "last_seen": "2026-06-16T07:47:29Z",
+            "frequency": 3,
+            "subdomains": [
+                "whois"
+            ],
+            "timestamps": []
+        },
+        "microsoftpersonalcontent.com": {
+            "first_seen": "2026-06-16T08:00:49Z",
+            "last_seen": "2026-06-16T08:00:49Z",
+            "frequency": 2,
+            "subdomains": [
+                "my"
+            ],
+            "timestamps": []
+        },
+        "digicert.com": {
+            "first_seen": "2026-06-16T08:00:58Z",
+            "last_seen": "2026-06-16T12:11:07Z",
+            "frequency": 6,
+            "subdomains": [
+                "crl3"
+            ],
+            "timestamps": []
+        },
+        "exp-tas.com": {
+            "first_seen": "2026-06-16T08:07:05Z",
+            "last_seen": "2026-06-16T12:07:05Z",
+            "frequency": 10,
+            "subdomains": [
+                "default"
+            ],
+            "timestamps": []
+        },
+        "run.app": {
+            "first_seen": "2026-06-16T08:34:46Z",
+            "last_seen": "2026-06-16T08:34:47Z",
+            "frequency": 4,
+            "subdomains": [
+                "antigravity-ide-auto-updater-974169037036.us-central1"
+            ],
+            "timestamps": []
+        },
+        "antigravity-unleash.goog": {
+            "first_seen": "2026-06-16T08:35:18Z",
+            "last_seen": "2026-06-16T08:35:18Z",
+            "frequency": 2,
+            "subdomains": [],
+            "timestamps": []
+        },
+        "doubleclick.net": {
+            "first_seen": "2026-06-16T12:10:07Z",
+            "last_seen": "2026-06-16T12:10:07Z",
+            "frequency": 4,
+            "subdomains": [
+                "googleads.g"
+            ],
+            "timestamps": []
+        },
+        "live.net": {
+            "first_seen": "2026-06-16T12:13:25Z",
+            "last_seen": "2026-06-16T12:13:25Z",
+            "frequency": 2,
+            "subdomains": [
+                "inference.location"
+            ],
+            "timestamps": []
         }
     }
 }

@@ -116,5 +116,5 @@ USER_CONTEXT = {
 KAFKA_ENABLED = True  # Set to True to enable Kafka output
 KAFKA_BOOTSTRAP_SERVERS = ["localhost:9092"]
 KAFKA_TOPIC_RAW = "dns-events-raw"
-KAFKA_TOPIC_ALERTS = "dns-alerts"
+
 

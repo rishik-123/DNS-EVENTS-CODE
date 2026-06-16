@@ -20,6 +20,7 @@ HTML_CONTENT = """<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeepCytes DNS Agent - SOC Telemetry Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -426,6 +427,41 @@ HTML_CONTENT = """<!DOCTYPE html>
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+
+        /* Charts Grid Styling */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .chart-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 20px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+        .chart-card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+        .chart-card-header {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .chart-canvas-container {
+            flex-grow: 1;
+            position: relative;
+            min-height: 0;
+        }
     </style>
 </head>
 <body>
@@ -498,6 +534,40 @@ HTML_CONTENT = """<!DOCTYPE html>
             </div>
         </section>
 
+        <!-- Charts Grid Section -->
+        <section class="charts-grid">
+            <div class="chart-card">
+                <div class="chart-card-header">Severity Distribution</div>
+                <div class="chart-canvas-container">
+                    <canvas id="severityChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-card-header">New Domains Hourly Trend</div>
+                <div class="chart-canvas-container">
+                    <canvas id="newDomainChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-card-header">Active Threat Vectors</div>
+                <div class="chart-canvas-container">
+                    <canvas id="vectorChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-card-header">Top Talkers (Domain Frequency)</div>
+                <div class="chart-canvas-container">
+                    <canvas id="topTalkersChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-card-header">Subdomain Entropy vs. Risk Score</div>
+                <div class="chart-canvas-container">
+                    <canvas id="entropyScatterChart"></canvas>
+                </div>
+            </div>
+        </section>
+
         <!-- Logs Stream Workspace -->
         <main class="workspace-grid">
             <div class="panel">
@@ -542,7 +612,210 @@ HTML_CONTENT = """<!DOCTYPE html>
         let tunnelingCount = 0;
         let intelCount = 0;
         
+        let severityChartInstance = null;
+        let newDomainChartInstance = null;
+        let vectorChartInstance = null;
+        let topTalkersChartInstance = null;
+        let entropyScatterChartInstance = null;
+        
         const soundToggle = document.getElementById('soundToggle');
+
+        function initCharts() {
+            // Severity Chart (Doughnut)
+            const ctxSev = document.getElementById('severityChart').getContext('2d');
+            severityChartInstance = new Chart(ctxSev, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Informatory', 'Less Critical', 'Critical'],
+                    datasets: [{
+                        data: [0, 0, 0],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.75)', // Emerald
+                            'rgba(245, 158, 11, 0.75)', // Yellow
+                            'rgba(239, 68, 68, 0.75)'   // Red
+                        ],
+                        borderColor: [
+                            '#10b981',
+                            '#f59e0b',
+                            '#ef4444'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#9ca3af', font: { family: 'Inter', size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            // New Domain Trend (Line)
+            const ctxNew = document.getElementById('newDomainChart').getContext('2d');
+            newDomainChartInstance = new Chart(ctxNew, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'New Domains',
+                        data: [],
+                        borderColor: '#06b6d4',
+                        backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                        fill: true,
+                        tension: 0.35,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 }, stepSize: 1 },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Active Threat Vectors (Bar)
+            const ctxVec = document.getElementById('vectorChart').getContext('2d');
+            vectorChartInstance = new Chart(ctxVec, {
+                type: 'bar',
+                data: {
+                    labels: ['Tunneling', 'DGA', 'Typosquat', 'Threat Intel'],
+                    datasets: [{
+                        data: [0, 0, 0, 0],
+                        backgroundColor: [
+                            'rgba(245, 158, 11, 0.75)',  // Yellow
+                            'rgba(249, 115, 22, 0.75)',  // Orange
+                            'rgba(6, 182, 212, 0.75)',   // Cyan
+                            'rgba(139, 92, 246, 0.75)'   // Purple
+                        ],
+                        borderColor: [
+                            '#f59e0b',
+                            '#f97316',
+                            '#06b6d4',
+                            '#8b5cf6'
+                        ],
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 }, stepSize: 1 },
+                            beginAtZero: true
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 } }
+                        }
+                    }
+                }
+            });
+
+            // Top Talkers (Horizontal Bar Chart)
+            const ctxTop = document.getElementById('topTalkersChart').getContext('2d');
+            topTalkersChartInstance = new Chart(ctxTop, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Query Count',
+                        data: [],
+                        backgroundColor: 'rgba(6, 182, 212, 0.75)',
+                        borderColor: '#06b6d4',
+                        borderWidth: 1.5
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 }, stepSize: 1 },
+                            beginAtZero: true
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 } }
+                        }
+                    }
+                }
+            });
+
+            // Entropy vs. Risk Score Scatter Plot
+            const ctxEntropy = document.getElementById('entropyScatterChart').getContext('2d');
+            entropyScatterChartInstance = new Chart(ctxEntropy, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'DNS Query Events',
+                        data: [],
+                        backgroundColor: 'rgba(139, 92, 246, 0.75)',
+                        borderColor: '#8b5cf6',
+                        borderWidth: 1,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Domain: ${context.raw.domain} | Entropy: ${context.parsed.x.toFixed(2)} | Risk: ${context.parsed.y}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Subdomain Entropy', color: '#9ca3af', font: { family: 'Inter', size: 10 } },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 } },
+                            min: 0,
+                            max: 6
+                        },
+                        y: {
+                            title: { display: true, text: 'Risk Score', color: '#9ca3af', font: { family: 'Inter', size: 10 } },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter', size: 9 } },
+                            min: 0,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
 
         // Play synth alert beep using Web Audio API (zero file dependencies)
         function playAlertSound() {
@@ -614,16 +887,71 @@ HTML_CONTENT = """<!DOCTYPE html>
             let currentDga = 0;
             let currentTunnel = 0;
             let currentIntel = 0;
+            let currentTyposquat = 0;
+            
+            let infCount = 0;
+            let lessCritCount = 0;
+            let critCount = 0;
+            
+            let newDomainBuckets = {};
+            let domainCounts = {};
+            let scatterPoints = [];
 
             logs.forEach(log => {
-                const innerData = log.data || {};
+                const innerData = log["payload message"] || log.payload || log.data || {};
                 const alerts = innerData.alerts || [];
+                
+                // Parse mapped severity or fall back to risk.severity mapping
+                let sev = log.severity;
+                if (!sev) {
+                    const sevRaw = innerData.risk ? innerData.risk.severity : "LOW";
+                    if (sevRaw === "CRITICAL" || sevRaw === "HIGH") sev = "CRITICAL";
+                    else if (sevRaw === "MEDIUM") sev = "LESS_CRITICAL";
+                    else sev = "INFORMATORY";
+                }
+                
+                if (sev === "CRITICAL") critCount++;
+                else if (sev === "LESS_CRITICAL") lessCritCount++;
+                else infCount++;
+                
                 if (alerts.length > 0) {
                     currentAlerts++;
                     alerts.forEach(a => {
                         if (a.includes('DGA')) currentDga++;
                         if (a.includes('TUNNELING')) currentTunnel++;
+                        if (a.includes('TYPOSQUATTING')) currentTyposquat++;
                         if (a.includes('THREAT') || a.includes('CORUNA')) currentIntel++;
+                    });
+                }
+                
+                // Track frequency trend for newly registered domains
+                const domainAnalysis = innerData.domain_analysis || {};
+                const isNew = domainAnalysis.is_newly_registered || false;
+                let timestamp = log.timestamp || innerData.timestamp || "";
+                if (timestamp && isNew) {
+                    let timePart = timestamp.split("T")[1] || "";
+                    let hm = timePart.split(":").slice(0, 2).join(":"); // "HH:MM"
+                    if (hm) {
+                        newDomainBuckets[hm] = (newDomainBuckets[hm] || 0) + 1;
+                    }
+                }
+
+                // Count domains for Top Talkers
+                const dns = innerData.dns || {};
+                const query = dns.query || "";
+                if (query) {
+                    domainCounts[query] = (domainCounts[query] || 0) + 1;
+                }
+
+                // Collect points for Entropy vs Risk Scatter Plot
+                const entropy = domainAnalysis.entropy;
+                const risk = innerData.risk || {};
+                const score = risk.score !== undefined ? risk.score : 0;
+                if (entropy !== undefined && entropy !== null && query) {
+                    scatterPoints.push({
+                        x: parseFloat(entropy),
+                        y: parseFloat(score),
+                        domain: query
                     });
                 }
             });
@@ -634,6 +962,53 @@ HTML_CONTENT = """<!DOCTYPE html>
             document.getElementById('stat-dga').innerText = currentDga;
             document.getElementById('stat-tunnel').innerText = currentTunnel;
             document.getElementById('stat-intel').innerText = currentIntel;
+
+            // Update Chart 1: Severity Distribution
+            if (severityChartInstance) {
+                severityChartInstance.data.datasets[0].data = [infCount, lessCritCount, critCount];
+                severityChartInstance.update();
+            }
+
+            // Update Chart 2: New Domains Trend
+            if (newDomainChartInstance) {
+                let sortedHM = Object.keys(newDomainBuckets).sort();
+                // Take last 8 data points for cleaner line chart
+                if (sortedHM.length > 8) sortedHM = sortedHM.slice(-8);
+                
+                if (sortedHM.length === 0) {
+                    const now = new Date();
+                    const currentHM = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+                    newDomainChartInstance.data.labels = [currentHM];
+                    newDomainChartInstance.data.datasets[0].data = [0];
+                } else {
+                    newDomainChartInstance.data.labels = sortedHM;
+                    newDomainChartInstance.data.datasets[0].data = sortedHM.map(hm => newDomainBuckets[hm]);
+                }
+                newDomainChartInstance.update();
+            }
+
+            // Update Chart 3: Active Threat Vectors
+            if (vectorChartInstance) {
+                vectorChartInstance.data.datasets[0].data = [currentTunnel, currentDga, currentTyposquat, currentIntel];
+                vectorChartInstance.update();
+            }
+
+            // Update Chart 4: Top Talkers
+            if (topTalkersChartInstance) {
+                let sortedDomains = Object.keys(domainCounts).sort((a, b) => domainCounts[b] - domainCounts[a]);
+                let top5Domains = sortedDomains.slice(0, 5);
+                let top5Counts = top5Domains.map(d => domainCounts[d]);
+
+                topTalkersChartInstance.data.labels = top5Domains;
+                topTalkersChartInstance.data.datasets[0].data = top5Counts;
+                topTalkersChartInstance.update();
+            }
+
+            // Update Chart 5: Entropy vs. Risk Score Scatter Plot
+            if (entropyScatterChartInstance) {
+                entropyScatterChartInstance.data.datasets[0].data = scatterPoints;
+                entropyScatterChartInstance.update();
+            }
 
             // Animate alert KPI card if there are triggers
             const alertCard = document.getElementById('kpi-alerts-card');
@@ -657,14 +1032,14 @@ HTML_CONTENT = """<!DOCTYPE html>
             document.getElementById('record-count-label').innerText = `Displaying latest ${logs.length} events`;
 
             logs.forEach((log, index) => {
-                const innerData = log.data || {};
+                const innerData = log["payload message"] || log.payload || log.data || {};
                 const dns = innerData.dns || {};
                 const process = innerData.process || {};
                 const locationList = innerData.geolocation || [];
                 const alerts = innerData.alerts || [];
                 
                 // Parse timestamp
-                let timeStr = log.timestamp || "";
+                let timeStr = log.timestamp || innerData.timestamp || "";
                 if (timeStr.includes("T")) {
                     timeStr = timeStr.split("T")[1].replace("Z", "");
                 }
@@ -728,7 +1103,8 @@ HTML_CONTENT = """<!DOCTYPE html>
             });
         }
 
-        // Poll every 1 second
+        // Initialize charts and poll every 1 second
+        initCharts();
         setInterval(fetchLogs, 1000);
         fetchLogs();
     </script>
@@ -738,6 +1114,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
 class ThreadingHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
+    allow_reuse_address = True
 
 class DashboardHandler(http.server.BaseHTTPRequestHandler):
     # Suppress console log output of http.server requests to keep console clean

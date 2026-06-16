@@ -19,7 +19,7 @@
             "harmless_votes": 56,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-09T09:37:23.848017"
+        "cached_at": "2026-06-16T07:36:24.693719"
     },
     "agvsbg8td29ybgq.attacker-c2.ru": {
         "vt_data": {
@@ -28,9 +28,9 @@
             "reputation": 0,
             "is_malicious": false,
             "harmless_votes": 0,
-            "undetected_votes": 0
+            "undetected_votes": 91
         },
-        "cached_at": "2026-06-09T09:37:47.913445"
+        "cached_at": "2026-06-16T07:36:33.565709"
     },
     "dghpcybpcybhihrlc3q.attacker-c2.ru": {
         "vt_data": {
@@ -39,20 +39,20 @@
             "reputation": 0,
             "is_malicious": false,
             "harmless_votes": 0,
-            "undetected_votes": 0
+            "undetected_votes": 91
         },
-        "cached_at": "2026-06-09T09:37:54.861855"
+        "cached_at": "2026-06-16T07:36:45.765658"
     },
     "gmail.com": {
         "vt_data": {
-            "malicious_votes": 1,
+            "malicious_votes": 0,
             "suspicious_votes": 0,
             "reputation": 109,
-            "is_malicious": true,
-            "harmless_votes": 57,
+            "is_malicious": false,
+            "harmless_votes": 58,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-09T09:38:05.117054"
+        "cached_at": "2026-06-16T07:36:46.837775"
     },
     "dynamic-dns-malware.ru": {
         "vt_data": {
@@ -61,9 +61,9 @@
             "reputation": 0,
             "is_malicious": false,
             "harmless_votes": 0,
-            "undetected_votes": 0
+            "undetected_votes": 91
         },
-        "cached_at": "2026-06-09T09:38:13.356701"
+        "cached_at": "2026-06-16T07:36:45.838513"
     },
     "portal.company.com": {
         "vt_data": {
@@ -74,7 +74,7 @@
             "harmless_votes": 57,
             "undetected_votes": 34
         },
-        "cached_at": "2026-06-09T09:38:20.446794"
+        "cached_at": "2026-06-16T07:36:49.676881"
     },
     "3v5w1km5gv.xyz": {
         "vt_data": {
@@ -85,7 +85,7 @@
             "harmless_votes": 45,
             "undetected_votes": 28
         },
-        "cached_at": "2026-06-09T09:38:37.498595"
+        "cached_at": "2026-06-16T07:36:53.057939"
     },
     "cdn.uacounter.com": {
         "vt_data": {
@@ -96,7 +96,7 @@
             "harmless_votes": 43,
             "undetected_votes": 30
         },
-        "cached_at": "2026-06-09T09:38:49.040841"
+        "cached_at": "2026-06-16T07:36:56.749827"
     },
     "qwe921x.biz": {
         "vt_data": {
@@ -105,20 +105,20 @@
             "reputation": 0,
             "is_malicious": false,
             "harmless_votes": 0,
-            "undetected_votes": 0
+            "undetected_votes": 91
         },
-        "cached_at": "2026-06-09T09:39:13.359857"
+        "cached_at": "2026-06-16T07:36:30.126116"
     },
     "ztvnhmhm4zj95w3.xyz": {
         "vt_data": {
-            "malicious_votes": 20,
+            "malicious_votes": 18,
             "suspicious_votes": 0,
             "reputation": -11,
             "is_malicious": true,
-            "harmless_votes": 43,
-            "undetected_votes": 28
+            "harmless_votes": 44,
+            "undetected_votes": 29
         },
-        "cached_at": "2026-06-09T09:39:53.583599"
+        "cached_at": "2026-06-16T07:37:01.324928"
     },
     "1.0.168.192.in-addr.arpa": {
         "vt_data": {
@@ -129,7 +129,7 @@
             "harmless_votes": 56,
             "undetected_votes": 35
         },
-        "cached_at": "2026-06-13T04:37:55.520209"
+        "cached_at": "2026-06-16T07:38:27.901919"
     },
     "google.com": {
         "vt_data": {
@@ -173,7 +173,7 @@
             "harmless_votes": 57,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-13T04:51:24.594703"
+        "cached_at": "2026-06-16T07:37:47.474044"
     },
     "browser.events.data.microsoft.com": {
         "vt_data": {
@@ -214,10 +214,10 @@
             "suspicious_votes": 0,
             "reputation": 262,
             "is_malicious": false,
-            "harmless_votes": 58,
-            "undetected_votes": 33
+            "harmless_votes": 56,
+            "undetected_votes": 35
         },
-        "cached_at": "2026-06-11T05:40:54.358950"
+        "cached_at": "2026-06-16T07:38:38.468566"
     },
     "whois.verisign-grs.com": {
         "vt_data": {
@@ -228,7 +228,7 @@
             "harmless_votes": 58,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-11T05:41:16.341038"
+        "cached_at": "2026-06-16T07:37:44.858852"
     },
     "c.pki.goog": {
         "vt_data": {
@@ -236,10 +236,10 @@
             "suspicious_votes": 0,
             "reputation": -16,
             "is_malicious": false,
-            "harmless_votes": 60,
-            "undetected_votes": 31
+            "harmless_votes": 59,
+            "undetected_votes": 32
         },
-        "cached_at": "2026-06-11T06:45:27.599299"
+        "cached_at": "2026-06-16T07:47:11.051622"
     },
     "ip-api.com": {
         "vt_data": {
@@ -247,10 +247,10 @@
             "suspicious_votes": 0,
             "reputation": -8,
             "is_malicious": true,
-            "harmless_votes": 60,
-            "undetected_votes": 30
+            "harmless_votes": 61,
+            "undetected_votes": 29
         },
-        "cached_at": "2026-06-11T06:45:32.011672"
+        "cached_at": "2026-06-16T07:37:43.773686"
     },
     "self.events.data.microsoft.com": {
         "vt_data": {
@@ -302,10 +302,10 @@
             "suspicious_votes": 0,
             "reputation": -7,
             "is_malicious": false,
-            "harmless_votes": 60,
-            "undetected_votes": 31
+            "harmless_votes": 57,
+            "undetected_votes": 34
         },
-        "cached_at": "2026-06-11T06:48:23.946048"
+        "cached_at": "2026-06-16T12:43:30.099019"
     },
     "daily-cloudcode-pa.googleapis.com": {
         "vt_data": {
@@ -324,10 +324,10 @@
             "suspicious_votes": 0,
             "reputation": 9,
             "is_malicious": false,
-            "harmless_votes": 60,
-            "undetected_votes": 31
+            "harmless_votes": 59,
+            "undetected_votes": 32
         },
-        "cached_at": "2026-06-11T06:51:13.347648"
+        "cached_at": "2026-06-16T07:55:26.112264"
     },
     "dual-s-ring.msedge.net": {
         "vt_data": {
@@ -349,7 +349,7 @@
             "harmless_votes": 60,
             "undetected_votes": 31
         },
-        "cached_at": "2026-06-11T16:39:34.357657"
+        "cached_at": "2026-06-16T07:38:18.672537"
     },
     "716697c983504f1ccb1023288f9a87fb.azr.footprintdns.com": {
         "vt_data": {
@@ -368,10 +368,10 @@
             "suspicious_votes": 0,
             "reputation": 59,
             "is_malicious": true,
-            "harmless_votes": 60,
-            "undetected_votes": 30
+            "harmless_votes": 57,
+            "undetected_votes": 33
         },
-        "cached_at": "2026-06-11T16:39:54.073753"
+        "cached_at": "2026-06-16T12:43:41.468173"
     },
     "functional.events.data.microsoft.com": {
         "vt_data": {
@@ -386,14 +386,14 @@
     },
     "edge-consumer-static.azureedge.net": {
         "vt_data": {
-            "malicious_votes": 1,
+            "malicious_votes": 0,
             "suspicious_votes": 0,
             "reputation": 0,
-            "is_malicious": true,
-            "harmless_votes": 60,
-            "undetected_votes": 30
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
         },
-        "cached_at": "2026-06-11T16:40:14.867344"
+        "cached_at": "2026-06-16T08:43:47.756616"
     },
     "substrate.office.com": {
         "vt_data": {
@@ -426,7 +426,7 @@
             "harmless_votes": 58,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-11T16:42:45.860022"
+        "cached_at": "2026-06-16T08:00:52.721087"
     },
     "edge.microsoft.com": {
         "vt_data": {
@@ -467,10 +467,10 @@
             "suspicious_votes": 0,
             "reputation": 0,
             "is_malicious": false,
-            "harmless_votes": 58,
-            "undetected_votes": 33
+            "harmless_votes": 56,
+            "undetected_votes": 35
         },
-        "cached_at": "2026-06-11T16:47:48.120774"
+        "cached_at": "2026-06-16T08:36:42.206416"
     },
     "cloudcode-pa.googleapis.com": {
         "vt_data": {
@@ -492,7 +492,7 @@
             "harmless_votes": 58,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-11T16:47:57.712343"
+        "cached_at": "2026-06-16T08:07:08.462370"
     },
     "antigravity-ide-auto-updater-974169037036.us-central1.run.app": {
         "vt_data": {
@@ -503,7 +503,7 @@
             "harmless_votes": 56,
             "undetected_votes": 35
         },
-        "cached_at": "2026-06-11T16:48:05.235436"
+        "cached_at": "2026-06-16T08:34:48.766887"
     },
     "whois.nic.google": {
         "vt_data": {
@@ -514,7 +514,7 @@
             "harmless_votes": 57,
             "undetected_votes": 34
         },
-        "cached_at": "2026-06-11T16:48:09.819434"
+        "cached_at": "2026-06-16T08:35:20.799012"
     },
     "www.bing.com": {
         "vt_data": {
@@ -533,10 +533,10 @@
             "suspicious_votes": 0,
             "reputation": -1,
             "is_malicious": false,
-            "harmless_votes": 61,
-            "undetected_votes": 30
+            "harmless_votes": 59,
+            "undetected_votes": 32
         },
-        "cached_at": "2026-06-11T16:54:05.560492"
+        "cached_at": "2026-06-16T07:47:11.100386"
     },
     "whois.publicinterestregistry.org": {
         "vt_data": {
@@ -547,7 +547,7 @@
             "harmless_votes": 56,
             "undetected_votes": 35
         },
-        "cached_at": "2026-06-11T16:54:09.525305"
+        "cached_at": "2026-06-16T12:13:28.110345"
     },
     "mobile.events.data.microsoft.com": {
         "vt_data": {
@@ -701,7 +701,7 @@
             "harmless_votes": 56,
             "undetected_votes": 35
         },
-        "cached_at": "2026-06-13T04:51:24.782683"
+        "cached_at": "2026-06-16T12:13:28.231799"
     },
     "download.windowsupdate.com": {
         "vt_data": {
@@ -742,10 +742,10 @@
             "suspicious_votes": 0,
             "reputation": -4,
             "is_malicious": false,
-            "harmless_votes": 59,
-            "undetected_votes": 32
+            "harmless_votes": 57,
+            "undetected_votes": 34
         },
-        "cached_at": "2026-06-13T05:57:32.883811"
+        "cached_at": "2026-06-16T12:49:04.418763"
     },
     "b1.nel.goog": {
         "vt_data": {
@@ -756,7 +756,7 @@
             "harmless_votes": 58,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-13T05:57:47.133212"
+        "cached_at": "2026-06-16T12:55:22.642465"
     },
     "games.games": {
         "vt_data": {
@@ -789,7 +789,7 @@
             "harmless_votes": 58,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-13T06:10:39.822423"
+        "cached_at": "2026-06-16T07:47:31.369922"
     },
     "whois.dynadot.com": {
         "vt_data": {
@@ -841,10 +841,10 @@
             "suspicious_votes": 0,
             "reputation": -3,
             "is_malicious": false,
-            "harmless_votes": 60,
-            "undetected_votes": 31
+            "harmless_votes": 59,
+            "undetected_votes": 32
         },
-        "cached_at": "2026-06-13T06:17:40.080728"
+        "cached_at": "2026-06-16T08:01:19.260184"
     },
     "mr-prod-t.msedge.net": {
         "vt_data": {
@@ -874,10 +874,10 @@
             "suspicious_votes": 0,
             "reputation": 14,
             "is_malicious": false,
-            "harmless_votes": 60,
-            "undetected_votes": 31
+            "harmless_votes": 59,
+            "undetected_votes": 32
         },
-        "cached_at": "2026-06-13T06:24:27.091460"
+        "cached_at": "2026-06-16T07:38:30.740598"
     },
     "media-bom2-1.cdn.whatsapp.net": {
         "vt_data": {
@@ -888,6 +888,391 @@
             "harmless_votes": 58,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-13T06:26:36.060275"
+        "cached_at": "2026-06-16T12:46:31.488069"
+    },
+    "chat.openai.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 5,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T07:37:47.405264"
+    },
+    "o33249.ingest.us.sentry.io": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 35
+        },
+        "cached_at": "2026-06-16T07:37:47.182762"
+    },
+    "whois.nic.io": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 35
+        },
+        "cached_at": "2026-06-16T07:37:52.721188"
+    },
+    "whois.identitydigital.services": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T07:37:56.430813"
+    },
+    "js.stripe.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 1,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-16T07:38:14.138691"
+    },
+    "whois.safenames.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 35
+        },
+        "cached_at": "2026-06-16T07:38:20.191793"
+    },
+    "a-ring-fallback.msedge.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 1,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T07:38:27.590781"
+    },
+    "api.cline.bot": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 1,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T07:38:34.229012"
+    },
+    "openrouter.ai": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 1,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T07:38:39.775013"
+    },
+    "whois.nic.ai": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 55,
+            "undetected_votes": 36
+        },
+        "cached_at": "2026-06-16T07:38:48.939755"
+    },
+    "m.stripe.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T07:39:55.840527"
+    },
+    "stripe.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 6,
+            "is_malicious": false,
+            "harmless_votes": 61,
+            "undetected_votes": 30
+        },
+        "cached_at": "2026-06-16T07:39:55.182428"
+    },
+    "roaming.svc.cloud.microsoft": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 1,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 35
+        },
+        "cached_at": "2026-06-16T07:40:56.911035"
+    },
+    "i.abcom.in": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 55,
+            "undetected_votes": 36
+        },
+        "cached_at": "2026-06-16T07:47:30.591959"
+    },
+    "whois.gandi.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T07:47:31.601099"
+    },
+    "my.microsoftpersonalcontent.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -60,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-16T08:00:51.209728"
+    },
+    "crl3.digicert.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -33,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-16T08:01:00.176641"
+    },
+    "default.exp-tas.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 3,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-16T08:07:07.468688"
+    },
+    "browser.events.data.msn.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T08:26:01.135870"
+    },
+    "antigravity-unleash.goog": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 1,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T08:35:20.823736"
+    },
+    "onedriveclucproddm20013.blob.core.windows.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T08:37:31.335187"
+    },
+    "ntp.msn.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -2,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-16T08:43:24.357427"
+    },
+    "inference.location.live.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 58,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-16T12:13:26.975413"
+    },
+    "img-s-msn-com.akamaized.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -6,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T12:44:23.186187"
+    },
+    "sb.scorecardresearch.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -47,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T12:44:25.549306"
+    },
+    "c.msn.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 1,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-16T12:44:30.987815"
+    },
+    "api.msn.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T12:44:34.261598"
+    },
+    "dit.whatsapp.net": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -2,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-16T12:47:53.588430"
+    },
+    "events.launchdarkly.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 61,
+            "undetected_votes": 30
+        },
+        "cached_at": "2026-06-16T12:48:15.548242"
+    },
+    "skydrive.wns.windows.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T12:53:31.213940"
+    },
+    "client.wns.windows.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": -2,
+            "is_malicious": false,
+            "harmless_votes": 60,
+            "undetected_votes": 31
+        },
+        "cached_at": "2026-06-16T12:53:31.846794"
+    },
+    "activity.windows.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 59,
+            "undetected_votes": 32
+        },
+        "cached_at": "2026-06-16T12:53:37.763533"
+    },
+    "cdn.jsdelivr.net": {
+        "vt_data": {
+            "malicious_votes": 1,
+            "suspicious_votes": 0,
+            "reputation": -7,
+            "is_malicious": true,
+            "harmless_votes": 57,
+            "undetected_votes": 33
+        },
+        "cached_at": "2026-06-16T12:54:17.213913"
+    },
+    "www.jsdelivr.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 57,
+            "undetected_votes": 34
+        },
+        "cached_at": "2026-06-16T12:54:16.431789"
+    },
+    "otel.scribehow.com": {
+        "vt_data": {
+            "malicious_votes": 0,
+            "suspicious_votes": 0,
+            "reputation": 0,
+            "is_malicious": false,
+            "harmless_votes": 56,
+            "undetected_votes": 35
+        },
+        "cached_at": "2026-06-16T13:02:56.828441"
     }
 }

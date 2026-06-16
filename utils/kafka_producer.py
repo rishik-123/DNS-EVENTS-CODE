@@ -38,19 +38,13 @@ class DNSKafkaProducer:
             return
         
         try:
-            # Extract internal data
-            soc_event = event_wrapper.get("data", {})
-            alerts = soc_event.get("alerts", [])
+            # Extract internal data (fallback to "data" if using old schema)
+            soc_event = event_wrapper.get("payload", event_wrapper.get("data", {}))
             
-            # Determine topic
-            if alerts:
-                topic = getattr(config, "KAFKA_TOPIC_ALERTS", "dns-alerts")
-            else:
-                topic = getattr(config, "KAFKA_TOPIC_RAW", "dns-events-raw")
+            # Route all events to the single raw events topic
+            topic = getattr(config, "KAFKA_TOPIC_RAW", "dns-events-raw")
             
-            # Extract key: the query domain
-            #KEY CREATION FOR PRODUCER PARTITIONING
-            #ensures the data goes to a perticular partition 
+            # Extract key: the query domain for partition keying
             key = None
             dns_data = soc_event.get("dns", {})
             if dns_data:

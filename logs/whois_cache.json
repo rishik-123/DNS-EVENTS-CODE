@@ -53,21 +53,21 @@
         "creation_date": "unknown",
         "registrar": "unknown",
         "is_newly_registered": false,
-        "cached_at": "2026-06-09T09:38:35.941654"
+        "cached_at": "2026-06-16T12:17:29.625728"
     },
     "uacounter.com": {
         "domain_age_days": -1,
         "creation_date": "unknown",
         "registrar": "unknown",
         "is_newly_registered": false,
-        "cached_at": "2026-06-09T09:38:46.688401"
+        "cached_at": "2026-06-16T12:17:41.628079"
     },
     "ztvnhmhm4zj95w3.xyz": {
         "domain_age_days": -1,
         "creation_date": "unknown",
         "registrar": "unknown",
         "is_newly_registered": false,
-        "cached_at": "2026-06-09T09:39:48.931249"
+        "cached_at": "2026-06-16T12:17:34.631518"
     },
     "192.in-addr.arpa": {
         "domain_age_days": -1,
@@ -102,7 +102,7 @@
         "creation_date": "unknown",
         "registrar": "unknown",
         "is_newly_registered": false,
-        "cached_at": "2026-06-09T09:59:54.519900"
+        "cached_at": "2026-06-16T12:13:27.471362"
     },
     "msedge.net": {
         "domain_age_days": -1,
@@ -390,5 +390,173 @@
         "registrar": "unknown",
         "is_newly_registered": false,
         "cached_at": "2026-06-13T06:26:34.168005"
+    },
+    "openai.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:37:41.164974"
+    },
+    "sentry.io": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:37:45.317748"
+    },
+    "nic.io": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:37:48.539976"
+    },
+    "identitydigital.services": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:37:49.065499"
+    },
+    "stripe.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:38:12.502959"
+    },
+    "safenames.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:38:19.157935"
+    },
+    "cline.bot": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:38:30.565535"
+    },
+    "openrouter.ai": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:38:33.675546"
+    },
+    "nic.ai": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:38:43.291724"
+    },
+    "cloud.microsoft": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:40:55.895384"
+    },
+    "abcom.in": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:47:30.254178"
+    },
+    "gandi.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T07:47:31.378629"
+    },
+    "microsoftpersonalcontent.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T08:00:51.958436"
+    },
+    "digicert.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T08:01:00.549193"
+    },
+    "exp-tas.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T08:07:07.100474"
+    },
+    "antigravity-unleash.goog": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T08:35:19.230744"
+    },
+    "live.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T12:13:36.566206"
+    },
+    "akamaized.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T12:44:15.929383"
+    },
+    "scorecardresearch.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T12:44:18.602129"
+    },
+    "launchdarkly.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T12:48:24.592804"
+    },
+    "windows.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T12:53:29.604763"
+    },
+    "jsdelivr.net": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T12:54:11.044938"
+    },
+    "jsdelivr.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T12:54:14.521682"
+    },
+    "scribehow.com": {
+        "domain_age_days": -1,
+        "creation_date": "unknown",
+        "registrar": "unknown",
+        "is_newly_registered": false,
+        "cached_at": "2026-06-16T13:02:51.623136"
     }
 }
