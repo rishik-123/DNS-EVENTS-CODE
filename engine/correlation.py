@@ -1,9 +1,11 @@
+# Standard library imports used for event identification, logging, and timestamps.
 import uuid
 import logging
 import tldextract
 from datetime import datetime
 from typing import Dict, Any
 
+# Project configuration containing constants such as brand lists.
 import config
 from utils.entropy import calculate_entropy
 from utils.typosquat import detect_typosquatting
@@ -19,9 +21,12 @@ from enrichers.web_content_enricher import WebContentEnricher
 from engine.tunneling_detector import analyze_tunneling
 from engine.historical_tracker import HistoricalTracker
 
+# Create a module-level logger for engine activity and debugging.
 logger = logging.getLogger(__name__)
 
+# Main engine responsible for enriching, correlating, and scoring DNS events.
 class CorrelationEngine:
+    # Initialize all enrichers, trackers, and worker threads.
     def __init__(self):
         logger.info("Initializing SOC Correlation Engine and Enrichers...")
         self.whois_enricher = WHOISEnricher()
@@ -39,6 +44,7 @@ class CorrelationEngine:
         Ingests a raw DNS event, runs full enrichment pipeline, and outputs a normalized,
         structured SOC JSON security event.
         """
+        # Assign a unique identifier and normalized UTC timestamp.
         # Generate Event ID and Timestamp
         event_id = str(uuid.uuid4())
         timestamp_str = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -46,6 +52,7 @@ class CorrelationEngine:
         query = raw_event.get("query", "")
         query_type = raw_event.get("query_type", "A")
         
+        # Extract SLD, TLD, subdomain information, and entropy features.
         # 1. Parse Domain Layers
         domain_sld = "unknown"
         domain_tld = "unknown"
@@ -62,12 +69,15 @@ class CorrelationEngine:
             subdomain_length = len(subdomain)
             domain_entropy = calculate_entropy(extracted.domain)
 
+        # Detect algorithmically generated domains.
         # 2. Run DGA Analysis
         is_dga, dga_confidence = calculate_dga_score(query)
 
+        # Check whether the queried domain impersonates popular brands.
         # 3. Run Typosquatting Analysis
         is_typosquat, typosquat_target = detect_typosquatting(query, config.POPULAR_BRANDS)
 
+        # Gather process lineage and user context.
         # 4. Fetch Process and Identity lineage
         pid = raw_event.get("pid", 0)
         process_info = get_process_metadata(pid)
@@ -87,8 +97,11 @@ class CorrelationEngine:
             }
 
         # Submit enrichment tasks to thread pool
+        # Submit enrichment task to the thread pool for concurrent execution.
         future_whois = self.executor.submit(self.whois_enricher.enrich_domain, query)
+        # Submit enrichment task to the thread pool for concurrent execution.
         future_threat = self.executor.submit(self.threat_enricher.enrich_entity, query, response_ips)
+        # Submit enrichment task to the thread pool for concurrent execution.
         future_web_content = self.executor.submit(self.web_content_enricher.analyze_url_content, query)
         future_locations = [self.executor.submit(enrich_ip_wrapper, ip) for ip in response_ips]
 
@@ -113,6 +126,7 @@ class CorrelationEngine:
         web_content_info = future_web_content.result()
         resolved_locations = [f.result() for f in future_locations]
 
+        # Generate alerts and identify contributing risk factors.
         # 12. Core Security Alerts Triage
         alerts = []
         correlation_rules = []
@@ -183,6 +197,7 @@ class CorrelationEngine:
                 )
             })
 
+        # Aggregate findings into a bounded risk score.
         # 12. Risk Scoring
         risk_score = 0
         if is_tunneling:
@@ -206,6 +221,7 @@ class CorrelationEngine:
 
         risk_score = min(risk_score, 100)
 
+        # Convert numerical score into SOC severity levels.
         # 13. Severity Classification
         if risk_score >= 80:
             severity = "CRITICAL"
@@ -226,6 +242,7 @@ class CorrelationEngine:
         else:
             domain_risk_level = "LOW"
 
+        # Build the final normalized SOC event object.
         # Compile Consolidated SOC Event Schema
         soc_event = {
             # Meta Header
@@ -344,4 +361,4 @@ class CorrelationEngine:
             }
         }
         
-        return soc_event
+        return soc_event 
