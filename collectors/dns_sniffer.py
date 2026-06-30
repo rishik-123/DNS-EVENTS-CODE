@@ -8,6 +8,7 @@ import psutil
 from scapy.all import sniff, IP, UDP, DNS, DNSQR, DNSRR
 
 import config
+from utils.checkpoint_logger import log_checkpoint
 
 logger = logging.getLogger(__name__)
 
@@ -31,10 +32,10 @@ class DNSSniffer:
         """Starts sniffing DNS events (either real or simulated)."""
         self.running = True
         if config.SIMULATION_MODE:
-            logger.info("Starting DNS Sniffer in SIMULATION MODE...")
+            log_checkpoint("CHECKPOINT_SNIFFER_START", "Starting DNS Sniffer in SIMULATION MODE...")
             self.sniffer_thread = threading.Thread(target=self._run_simulation, daemon=True)
         else:
-            logger.info(f"Starting DNS Sniffer on interface {config.SNIFFER_INTERFACE or 'ALL'}...")
+            log_checkpoint("CHECKPOINT_SNIFFER_START", f"Starting DNS Sniffer on interface {config.SNIFFER_INTERFACE or 'ALL'}...", {"interface": config.SNIFFER_INTERFACE})
             self.sniffer_thread = threading.Thread(target=self._run_sniffing, daemon=True)
         self.sniffer_thread.start()
 
@@ -43,6 +44,7 @@ class DNSSniffer:
         self.running = False
         if self.sniffer_thread:
             self.sniffer_thread.join(timeout=2.0)
+            log_checkpoint("CHECKPOINT_SNIFFER_STOPPED", "DNS Sniffer thread stopped and joined.")
             logger.info("DNS Sniffer stopped.")
 
     def _update_port_pid_map(self):
@@ -162,6 +164,7 @@ class DNSSniffer:
                 }
             }
             
+            log_checkpoint("CHECKPOINT_PACKET_RECEIVED", f"DNS packet captured: {query_name} ({query_type})", {"domain": query_name, "type": query_type, "is_response": is_response})
             # Send raw event to main correlation engine
             self.callback(raw_event)
 
@@ -438,11 +441,15 @@ class DNSSniffer:
                     }
                 }
                 
+                log_checkpoint("CHECKPOINT_PACKET_RECEIVED", f"Simulated DNS event generated: {scenario['query']} ({scenario['query_type']})", {"domain": scenario['query'], "type": scenario['query_type']})
                 # Call callback
                 self.callback(raw_event)
                 
-                # Wait before generating next event (e.g. every 4 seconds)
-                time.sleep(4.0)
+                # Wait before generating next event (e.g. every 4 seconds) using interruptible check-sleep
+                for _ in range(40):
+                    if not self.running:
+                        break
+                    time.sleep(0.1)
                 
             except Exception as e:
                 logger.error(f"Error in simulation loop: {e}", exc_info=True)

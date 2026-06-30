@@ -36978,3 +36978,61 @@ kafka.errors.NoBrokersAvailable: NoBrokersAvailable
 2026-06-16 18:33:49,115 [DEBUG] collectors.process_collector: Process with PID 2560 not found (might have terminated).
 2026-06-16 18:33:57,112 [DEBUG] collectors.process_collector: Process with PID 18168 not found (might have terminated).
 2026-06-16 18:34:01,114 [DEBUG] collectors.process_collector: Process with PID 18168 not found (might have terminated).
+2026-06-30 19:34:10,488 [INFO] engine.correlation: Initializing SOC Correlation Engine and Enrichers...
+2026-06-30 19:34:10,953 [INFO] kafka_producer: Initializing Kafka Producer connecting to ['localhost:9092']...
+2026-06-30 19:34:10,953 [DEBUG] kafka.producer.kafka: Starting the Kafka producer
+2026-06-30 19:34:10,956 [DEBUG] kafka.metrics.metrics: Added sensor with name connections-closed
+2026-06-30 19:34:10,956 [DEBUG] kafka.metrics.metrics: Added sensor with name connections-created
+2026-06-30 19:34:10,958 [DEBUG] kafka.metrics.metrics: Added sensor with name select-time
+2026-06-30 19:34:10,958 [DEBUG] kafka.metrics.metrics: Added sensor with name io-time
+2026-06-30 19:34:10,959 [DEBUG] kafka.client: Initiating connection to node bootstrap-0 at localhost:9092
+2026-06-30 19:34:10,959 [DEBUG] kafka.metrics.metrics: Added sensor with name bytes-sent-received
+2026-06-30 19:34:10,959 [DEBUG] kafka.metrics.metrics: Added sensor with name bytes-sent
+2026-06-30 19:34:10,960 [DEBUG] kafka.metrics.metrics: Added sensor with name bytes-received
+2026-06-30 19:34:10,961 [DEBUG] kafka.metrics.metrics: Added sensor with name request-latency
+2026-06-30 19:34:10,961 [DEBUG] kafka.metrics.metrics: Added sensor with name node-bootstrap-0.bytes-sent
+2026-06-30 19:34:10,961 [DEBUG] kafka.metrics.metrics: Added sensor with name node-bootstrap-0.bytes-received
+2026-06-30 19:34:10,962 [DEBUG] kafka.metrics.metrics: Added sensor with name node-bootstrap-0.latency
+2026-06-30 19:34:10,972 [DEBUG] kafka.conn: <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <disconnected> [unspecified None]>: creating new socket
+2026-06-30 19:34:10,973 [DEBUG] kafka.conn: <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <disconnected> [IPv6 ('::1', 9092, 0, 0)]>: setting socket option (6, 1, 1)
+2026-06-30 19:34:10,973 [INFO] kafka.conn: <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2026-06-30 19:34:10,974 [INFO] kafka.conn: Probing node bootstrap-0 broker version
+2026-06-30 19:34:12,987 [ERROR] kafka_producer: Failed to initialize Kafka Producer: NoBrokersAvailable
+Traceback (most recent call last):
+  File "C:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES\utils\kafka_producer.py", line 21, in __init__
+    self.producer = KafkaProducer(
+                    ^^^^^^^^^^^^^^
+  File "C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\kafka\producer\kafka.py", line 383, in __init__
+    client = self.config['kafka_client'](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\kafka\client_async.py", line 234, in __init__
+    self.config['api_version'] = self.check_version(timeout=check_timeout)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\kafka\client_async.py", line 929, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+2026-06-30 19:34:13,169 [INFO] collectors.dns_sniffer: Simulating 11 diverse security scenarios...
+2026-06-30 19:34:13,220 [DEBUG] filelock: Attempting to acquire lock 2522388375568 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-30 19:34:13,222 [DEBUG] filelock: Lock 2522388375568 acquired on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-30 19:34:13,229 [DEBUG] filelock: Attempting to release lock 2522388375568 on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-30 19:34:13,231 [DEBUG] filelock: Lock 2522388375568 released on C:\Users\Abcom\AppData\Local\Programs\Python\Python311\Lib\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2026-06-30 19:34:17,427 [DEBUG] enrichers.threat_intel: Querying VirusTotal for micros0ft-login.xyz...
+2026-06-30 19:34:17,446 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-30 19:34:21,538 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/micros0ft-login.xyz HTTP/1.1" 200 None
+2026-06-30 19:34:21,612 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 392.
+2026-06-30 19:34:21,751 [DEBUG] enrichers.threat_intel: Querying VirusTotal for qwe921x.biz...
+2026-06-30 19:34:21,759 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-30 19:34:23,598 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/qwe921x.biz HTTP/1.1" 200 None
+2026-06-30 19:34:25,802 [DEBUG] enrichers.threat_intel: Querying VirusTotal for agvsbg8td29ybgq.attacker-c2.ru...
+2026-06-30 19:34:25,807 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-30 19:34:29,769 [DEBUG] enrichers.threat_intel: Querying VirusTotal for dghpcybpcybhihrlc3q.attacker-c2.ru...
+2026-06-30 19:34:29,774 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-30 19:34:30,151 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/agvsbg8td29ybgq.attacker-c2.ru HTTP/1.1" 200 None
+2026-06-30 19:34:31,788 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/dghpcybpcybhihrlc3q.attacker-c2.ru HTTP/1.1" 200 None
+2026-06-30 19:34:33,817 [DEBUG] enrichers.threat_intel: Querying VirusTotal for gmail.com...
+2026-06-30 19:34:33,825 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-30 19:34:35,887 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/gmail.com HTTP/1.1" 200 None
+2026-06-30 19:34:38,035 [DEBUG] collectors.process_collector: Access denied when gathering metadata for PID 392.
+2026-06-30 19:34:38,260 [DEBUG] enrichers.threat_intel: Querying VirusTotal for dynamic-dns-malware.ru...
+2026-06-30 19:34:38,267 [DEBUG] urllib3.connectionpool: Starting new HTTPS connection (1): www.virustotal.com:443
+2026-06-30 19:34:40,185 [DEBUG] urllib3.connectionpool: https://www.virustotal.com:443 "GET /api/v3/domains/dynamic-dns-malware.ru HTTP/1.1" 200 None

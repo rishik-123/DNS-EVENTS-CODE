@@ -19,7 +19,7 @@
             "harmless_votes": 56,
             "undetected_votes": 33
         },
-        "cached_at": "2026-06-16T07:36:24.693719"
+        "cached_at": "2026-06-30T14:04:21.541280"
     },
     "agvsbg8td29ybgq.attacker-c2.ru": {
         "vt_data": {
@@ -30,7 +30,7 @@
             "harmless_votes": 0,
             "undetected_votes": 91
         },
-        "cached_at": "2026-06-16T07:36:33.565709"
+        "cached_at": "2026-06-30T14:04:30.153537"
     },
     "dghpcybpcybhihrlc3q.attacker-c2.ru": {
         "vt_data": {
@@ -41,7 +41,7 @@
             "harmless_votes": 0,
             "undetected_votes": 91
         },
-        "cached_at": "2026-06-16T07:36:45.765658"
+        "cached_at": "2026-06-30T14:04:31.790852"
     },
     "gmail.com": {
         "vt_data": {
@@ -49,10 +49,10 @@
             "suspicious_votes": 0,
             "reputation": 109,
             "is_malicious": false,
-            "harmless_votes": 58,
-            "undetected_votes": 33
+            "harmless_votes": 59,
+            "undetected_votes": 32
         },
-        "cached_at": "2026-06-16T07:36:46.837775"
+        "cached_at": "2026-06-30T14:04:35.890960"
     },
     "dynamic-dns-malware.ru": {
         "vt_data": {
@@ -63,7 +63,7 @@
             "harmless_votes": 0,
             "undetected_votes": 91
         },
-        "cached_at": "2026-06-16T07:36:45.838513"
+        "cached_at": "2026-06-30T14:04:40.187660"
     },
     "portal.company.com": {
         "vt_data": {
@@ -107,7 +107,7 @@
             "harmless_votes": 0,
             "undetected_votes": 91
         },
-        "cached_at": "2026-06-16T07:36:30.126116"
+        "cached_at": "2026-06-30T14:04:23.599304"
     },
     "ztvnhmhm4zj95w3.xyz": {
         "vt_data": {

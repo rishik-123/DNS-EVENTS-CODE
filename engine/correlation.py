@@ -20,6 +20,7 @@ from enrichers.web_content_enricher import WebContentEnricher
 
 from engine.tunneling_detector import analyze_tunneling
 from engine.historical_tracker import HistoricalTracker
+from utils.checkpoint_logger import log_checkpoint
 
 # Create a module-level logger for engine activity and debugging.
 logger = logging.getLogger(__name__)
@@ -44,6 +45,8 @@ class CorrelationEngine:
         Ingests a raw DNS event, runs full enrichment pipeline, and outputs a normalized,
         structured SOC JSON security event.
         """
+        query = raw_event.get("query", "")
+        log_checkpoint("CHECKPOINT_CORRELATION_START", f"Processing new raw DNS event for query: {query}", {"query": query})
         # Assign a unique identifier and normalized UTC timestamp.
         # Generate Event ID and Timestamp
         event_id = str(uuid.uuid4())
@@ -98,6 +101,7 @@ class CorrelationEngine:
 
         # Submit enrichment tasks to thread pool
         # Submit enrichment task to the thread pool for concurrent execution.
+        log_checkpoint("CHECKPOINT_ENRICHMENTS_START", f"Submitting parallel enrichment tasks for query: {query}", {"query": query, "response_ips": response_ips})
         future_whois = self.executor.submit(self.whois_enricher.enrich_domain, query)
         # Submit enrichment task to the thread pool for concurrent execution.
         future_threat = self.executor.submit(self.threat_enricher.enrich_entity, query, response_ips)
@@ -125,6 +129,13 @@ class CorrelationEngine:
         threat_info = future_threat.result()
         web_content_info = future_web_content.result()
         resolved_locations = [f.result() for f in future_locations]
+
+        log_checkpoint("CHECKPOINT_ENRICHMENTS_DONE", f"Parallel enrichment tasks completed.", {
+            "domain": query,
+            "whois_age_days": whois_info.get("whois_age_days", "unknown") if whois_info else "unknown",
+            "is_threat": threat_info.get("is_in_threat_feed", False) if threat_info else False,
+            "web_content_malicious": web_content_info.get("is_malicious", False) if web_content_info else False
+        })
 
         # Generate alerts and identify contributing risk factors.
         # 12. Core Security Alerts Triage
@@ -231,6 +242,13 @@ class CorrelationEngine:
             severity = "MEDIUM"
         else:
             severity = "LOW"
+
+        log_checkpoint("CHECKPOINT_ALERTS_EVALUATED", f"Event analysis finished. Risk score: {risk_score} ({severity}) | Alerts: {alerts}", {
+            "event_id": event_id,
+            "risk_score": risk_score,
+            "severity": severity,
+            "alerts_triggered": alerts
+        })
 
         # Domain Risk Classification
         if risk_score >= 80:

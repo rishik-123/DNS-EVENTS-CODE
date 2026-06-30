@@ -1,0 +1,10 @@
+START THE SERVER
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+START THE CONSUMER soc_events_raw
+cd "C:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES"
+python -m deepcytes_soc_agent.kafka_consumer
+
+start the config.yaml files to produce the logs
+cd "C:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES"
+python -m deepcytes_soc_agent.main --config deepcytes_soc_agent/config.yaml

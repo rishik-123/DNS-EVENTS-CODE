@@ -1,0 +1,10 @@
+[17:47:28.733] Loading script C:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES\TEAM6&7\proxy_addon.py
+[17:47:28.756] error in script C:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES\TEAM6&7\proxy_addon.py
+Traceback (most recent call last):
+  File "C:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES\TEAM6&7\proxy_addon.py", line 18, in <module>
+    from enricher import enrich_domain, enrich_user_agent, enrich_referrer
+  File "C:\Users\Abcom\OneDrive\Desktop\SLA AND PROJECTS\Internship Deepcytes DNS BASED EVENTS CODES\TEAM6&7\enricher.py", line 8, in <module>
+    from user_agents import parse
+ModuleNotFoundError: No module named 'user_agents'
+[17:47:28.766] HTTP(S) proxy listening at *:8080.
+Error logged during startup, exiting...

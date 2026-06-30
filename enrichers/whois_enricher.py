@@ -19,7 +19,7 @@ class WHOISEnricher:
         """Loads WHOIS cache from disk."""
         if os.path.exists(self.cache_path):
             try:
-                with open(self.cache_path, 'r') as f:
+                with open(self.cache_path, 'r', encoding='utf-8') as f:
                     return json.load(f)
             except Exception as e:
                 logger.error(f"Error loading WHOIS cache: {e}")
@@ -28,7 +28,7 @@ class WHOISEnricher:
     def _save_cache(self):
         """Saves WHOIS cache to disk."""
         try:
-            with open(self.cache_path, 'w') as f:
+            with open(self.cache_path, 'w', encoding='utf-8') as f:
                 json.dump(self.cache, f, indent=4)
         except Exception as e:
             logger.error(f"Error saving WHOIS cache: {e}")

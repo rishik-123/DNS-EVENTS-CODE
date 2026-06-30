@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from typing import Dict, Any, List
 
 import config
+from utils.checkpoint_logger import log_checkpoint
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +36,7 @@ class HistoricalTracker:
         """Loads historical database from disk."""
         if os.path.exists(self.db_path):
             try:
-                with open(self.db_path, 'r') as f:
+                with open(self.db_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     if "domains" not in data:
                         data = {"domains": {}}
@@ -54,9 +55,10 @@ class HistoricalTracker:
                     # Keep only timestamps from the last 5 minutes (300 seconds) for rate calculation
                     dom_info["timestamps"] = [ts for ts in dom_info.get("timestamps", []) if now - ts < 300]
                 
-                with open(self.db_path, 'w') as f:
+                with open(self.db_path, 'w', encoding='utf-8') as f:
                     json.dump(self.db, f, indent=4)
                 self.last_save_time = now
+                log_checkpoint("CHECKPOINT_HISTORY_SAVED", "Historical tracker database saved successfully.", {"domains_tracked": len(self.db.get("domains", {}))})
             except Exception as e:
                 logger.error(f"Error saving historical database: {e}")
 

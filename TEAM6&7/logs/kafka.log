@@ -1,0 +1,12 @@
+DEPRECATED: A Log4j 1.x configuration file has been detected, which is no longer recommended. 
+To use a Log4j 2.x configuration, please see https://logging.apache.org/log4j/2.x/migrate-from-log4j1.html#Log4j2ConfigurationFormat for details about Log4j configuration file migration. 
+You can also use the C:\kafka\kafka_2.13-4.3.0/config/tool-log4j2.yaml file as a starting point. Make sure to remove the Log4j 1.x configuration after completing the migration. 
+[2026-06-23 15:38:13,903] INFO Registered `kafka:type=kafka.Log4jController` MBean (kafka.utils.Log4jControllerRegistration$)
+[2026-06-23 15:38:14,832] ERROR Exiting Kafka due to fatal exception (kafka.Kafka$)
+java.lang.RuntimeException: No readable meta.properties files found.
+	at org.apache.kafka.metadata.properties.MetaPropertiesEnsemble.verify(MetaPropertiesEnsemble.java:480)
+	at kafka.server.KafkaRaftServer$.initializeLogDirs(KafkaRaftServer.scala:140)
+	at kafka.server.KafkaRaftServer.<init>(KafkaRaftServer.scala:55)
+	at kafka.Kafka$.buildServer(Kafka.scala:68)
+	at kafka.Kafka$.main(Kafka.scala:75)
+	at kafka.Kafka.main(Kafka.scala)

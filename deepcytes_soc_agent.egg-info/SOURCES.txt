@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+deepcytes_soc_agent/__init__.py
+deepcytes_soc_agent/main.py
+deepcytes_soc_agent.egg-info/PKG-INFO
+deepcytes_soc_agent.egg-info/SOURCES.txt
+deepcytes_soc_agent.egg-info/dependency_links.txt
+deepcytes_soc_agent.egg-info/entry_points.txt
+deepcytes_soc_agent.egg-info/requires.txt
+deepcytes_soc_agent.egg-info/top_level.txt

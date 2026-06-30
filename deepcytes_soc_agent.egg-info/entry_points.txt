@@ -1,0 +1,2 @@
+[console_scripts]
+deepcytes-soc-agent = deepcytes_soc_agent.main:main

@@ -3,6 +3,7 @@ import logging
 from typing import Dict, Any
 from kafka import KafkaProducer
 import config
+from utils.checkpoint_logger import log_checkpoint
 
 logger = logging.getLogger("kafka_producer")
 
@@ -24,9 +25,13 @@ class DNSKafkaProducer:
                 request_timeout_ms=5000,
                 max_block_ms=5000
             )
+            # Try to fetch metadata to trigger immediate connection
+            self.producer.partitions_for_topic("test-conn")
             logger.info("Kafka Producer initialized successfully.")
+            log_checkpoint("CHECKPOINT_KAFKA_PRODUCER_INIT", "Kafka Producer initialized successfully.", {"bootstrap_servers": config.KAFKA_BOOTSTRAP_SERVERS})
         except Exception as e:
             logger.error(f"Failed to initialize Kafka Producer: {e}", exc_info=True)
+            log_checkpoint("CHECKPOINT_KAFKA_PRODUCER_INIT_FAILED", f"Failed to initialize Kafka Producer: {type(e).__name__}", {"error": str(e)})
             self.producer = None
 
 #Inspects the incoming SOC events. 
@@ -65,5 +70,6 @@ class DNSKafkaProducer:
                 self.producer.flush()
                 self.producer.close()
                 logger.info("Kafka Producer closed.")
+                log_checkpoint("CHECKPOINT_KAFKA_CLOSED", "Kafka Producer closed successfully.")
             except Exception as e:
                 logger.error(f"Error closing Kafka Producer: {e}")

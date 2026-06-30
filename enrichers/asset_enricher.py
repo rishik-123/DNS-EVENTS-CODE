@@ -90,9 +90,10 @@ class AssetEnricher:
 
         if not username or username == "unknown":
             try:
-                username = os.getlogin()
+                import getpass
+                username = getpass.getuser()
             except Exception:
-                username = "system_user"
+                username = os.environ.get("USERNAME") or os.environ.get("USER") or "system_user"
 
         user_info = {
             "username": username,

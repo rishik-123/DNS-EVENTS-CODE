@@ -27,6 +27,7 @@ import config
 from collectors.dns_sniffer import DNSSniffer
 from engine.correlation import CorrelationEngine
 from utils.kafka_producer import DNSKafkaProducer
+from utils.checkpoint_logger import log_checkpoint
 
 def get_device_fingerprint() -> Dict[str, str]:
     """Retrieves unique local system and environment information."""
@@ -118,6 +119,7 @@ def handle_correlated_event(raw_event: Dict[str, Any]):
     Callback function that schedules the raw event to be processed
     asynchronously inside the thread pool to keep packet capture non-blocking.
     """
+    log_checkpoint("CHECKPOINT_EVENT_SUBMITTED", f"Event submitted to thread pool for async execution: {raw_event.get('query', '')}", {"query": raw_event.get("query", "")})
     event_executor.submit(_async_handle_correlated_event, raw_event)
 
 
@@ -204,10 +206,11 @@ def _async_handle_correlated_event(raw_event: Dict[str, Any]):
         # Write to local file (thread-safe append with immediate flush/sync to avoid caching delays)
         with file_write_lock:
             try:
-                with open(config.OUTPUT_LOG_FILE, "a") as f:
+                with open(config.OUTPUT_LOG_FILE, "a", encoding="utf-8") as f:
                     f.write(json.dumps(log_wrapper) + "\n")
                     f.flush()
                     os.fsync(f.fileno())
+                log_checkpoint("CHECKPOINT_JSON_LOG_WRITTEN", f"Event logged to local JSON sink: {config.OUTPUT_LOG_FILE}", {"event_id": soc_event["event_id"]})
             except Exception as fe:
                 logger.error(f"Failed to write event to disk: {fe}")
 
@@ -363,7 +366,7 @@ def write_metrics_json():
                 file,
                 indent=4
             )
-
+        log_checkpoint("CHECKPOINT_METRICS_UPDATED", "Dashboard metrics persisted to metrics.json.", {"total_events": event_counter, "total_alerts": alert_counter})
     except Exception as e:
 
         logger.error(
@@ -538,12 +541,36 @@ def generate_dashboard_layout() -> Panel:
 
 
 def signal_handler(sig, frame):
-    """Gracefully terminates the sniffer and processes on Ctrl+C."""
+    """Gracefully terminates the sniffer and processes on Ctrl+C/Ctrl+Break."""
+    sig_name = "SIGINT (Ctrl+C)" if sig == signal.SIGINT else f"Signal {sig}"
+    if sys.platform == "win32" and sig == getattr(signal, "SIGBREAK", None):
+        sig_name = "SIGBREAK (Ctrl+Break)"
+        
     console.print("\n[bold red]Stopping DeepCytes DNS Agent...[/bold red]")
+    log_checkpoint("CHECKPOINT_SHUTDOWN_TRIGGERED", f"Shutdown signal {sig_name} received.")
+    
     if sniffer:
-        sniffer.stop();
+        sniffer.stop()
+        log_checkpoint("CHECKPOINT_SNIFFER_STOPPED", "DNS Sniffer stopped successfully.")
+        
+    if correlation_engine and correlation_engine.historical_tracker:
+        correlation_engine.historical_tracker.save_db()
+        log_checkpoint("CHECKPOINT_HISTORY_SAVED", "Historical tracker database saved successfully.")
+        
+    if correlation_engine and correlation_engine.executor:
+        log_checkpoint("CHECKPOINT_EXECUTORS_STOPPING", "Shutting down correlation engine thread pool...")
+        correlation_engine.executor.shutdown(wait=True)
+        log_checkpoint("CHECKPOINT_EXECUTORS_STOPPED", "Correlation engine thread pool shut down.")
+        
+    if event_executor:
+        log_checkpoint("CHECKPOINT_EVENT_EXECUTOR_STOPPING", "Shutting down event handler thread pool...")
+        event_executor.shutdown(wait=True)
+        log_checkpoint("CHECKPOINT_EVENT_EXECUTOR_STOPPED", "Event handler thread pool shut down.")
+        
     if kafka_producer:
         kafka_producer.close()
+        
+    log_checkpoint("CHECKPOINT_AGENT_STOPPED", "DeepCytes DNS Agent process shut down successfully.")
     console.print("[bold green]Agent shut down successfully. Logs saved to: [/bold green]" + config.OUTPUT_LOG_FILE)
     sys.exit(0)
 
@@ -551,18 +578,38 @@ def signal_handler(sig, frame):
 def main():
     global correlation_engine, sniffer, kafka_producer
     
-    # Reconfigure stdout to be unbuffered (immediate write-through) to solve terminal latency
+    # Set Windows console to UTF-8 to prevent UnicodeEncodeError on box drawing characters
     try:
-        sys.stdout.reconfigure(write_through=True)
+        if sys.platform == "win32":
+            import ctypes
+            ctypes.windll.kernel32.SetConsoleOutputCP(65001)
     except Exception:
         pass
 
-    # Catch Ctrl+C signals
+    # Reconfigure stdout to be unbuffered (immediate write-through) and UTF-8
+    try:
+        sys.stdout.reconfigure(write_through=True, encoding='utf-8')
+    except Exception:
+        pass
+
+    # Catch Ctrl+C and Ctrl+Break signals
     signal.signal(signal.SIGINT, signal_handler)
+    if sys.platform == "win32":
+        signal.signal(signal.SIGBREAK, signal_handler)
+        
+    log_checkpoint("CHECKPOINT_EXECUTORS_INIT", "Event processing thread pool initialized.", {"max_workers": 20})
+    log_checkpoint("CHECKPOINT_AGENT_START", f"DeepCytes DNS Agent process started with PID {os.getpid()}.", {"pid": os.getpid()})
+    log_checkpoint("CHECKPOINT_SIGNAL_REGISTER", "Signal handlers registered for SIGINT and SIGBREAK.")
     
     console.print("[bold green]Starting DeepCytes DNS Security Agent...[/bold green]")
     console.print(f"Working Directory: [cyan]{config.BASE_DIR}[/cyan]")
     console.print(f"Output File: [cyan]{config.OUTPUT_LOG_FILE}[/cyan]")
+    
+    log_checkpoint("CHECKPOINT_CONFIG_LOAD", "Configuration loaded successfully.", {
+        "simulation_mode": config.SIMULATION_MODE,
+        "interface": config.SNIFFER_INTERFACE,
+        "kafka_enabled": getattr(config, "KAFKA_ENABLED", False)
+    })
     
     # Check for Scapy/Interface permissions if Sniffing mode is active
     if not config.SIMULATION_MODE:
@@ -583,17 +630,19 @@ def main():
                 
     # Initialize Correlation Engine
     correlation_engine = CorrelationEngine()
+    log_checkpoint("CHECKPOINT_CORRELATION_INIT", "Correlation Engine and Enrichers initialized successfully.")
     
     # Initialize Kafka Producer
     kafka_producer = DNSKafkaProducer()
     
     # Initialize DNS Sniffer / Simulator
     sniffer = DNSSniffer(callback=handle_correlated_event)
+    log_checkpoint("CHECKPOINT_SNIFFER_INIT", "DNS Sniffer initialized.")
     sniffer.start()
     
     console.print("[bold green]Initialization complete! Launching dashboard interface...[/bold green]")
+    log_checkpoint("CHECKPOINT_INITIALIZATION_COMPLETE", "DNS Agent initialization complete, launching dashboard display.")
     time.sleep(1.0)
-    
     
     # Run dashboard live display
     with Live(generate_dashboard_layout(), refresh_per_second=2, screen=False) as live:
