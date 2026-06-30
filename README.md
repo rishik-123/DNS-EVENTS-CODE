@@ -14,7 +14,6 @@ The pipeline is split into three main tiers:
 2. **Streaming Broker (Kafka)**:
    - Routes telemetry events asynchronously based on threat severity.
    - **`dns-events-raw`**: Receives all normal / benign DNS events.
-   - **`dns-alerts`**: Dedicated high-priority queue for security detections.
    - Uses the queried `domain` as the partition key to guarantee chronological sequence mapping inside partitions.
 3. **Visualization (Web GUI Dashboard)**:
    - A lightweight multithreaded web server that reads `logs/dns_soc_events.json` in real time.
